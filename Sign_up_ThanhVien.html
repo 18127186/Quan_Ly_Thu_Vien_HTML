@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    </head>
+    <body>
+    <div class="container bg-primary">
+        <img src="images/banner1.jpg" alt="logo" style="margin: 50px 400px; width:50%" >
+        <div class="container" >
+            <div class="row">
+                <div class="col-4" style="  border: 1px solid black; padding-bottom: 0px;">
+                    <div class=" form-group">
+                    <input type="file" onchange="readimage(this)" accept = "image / *" name="image" 
+                    id="" placeholder="" aria-describedby="fileHelpId" >
+                    <img id="output" style="width: 100%" alt="your image" />
+                </div>
+                </div>
+                <div class="col" style="margin-left: 50px; ">
+                    <div class="row" style="margin-bottom:25px; margin-left: 0px;">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text">Full Name</span>
+                            </div>
+                            <input type="text" aria-label="fullname" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="date" id="birthday" name="birthday" style="margin: 5px 0px;padding: 5px 75px; border:1px solid gray" >
+                        </div>  
+                        <div class="col">
+                            <input class="form-control" type="text" placeholder="Số CMND" style="padding: 5px 75px;margin: 5px 15px">
+                        </div>  
+                    </div>
+                    <div class="row" style="margin-top:25px; " >
+                        <div class="col" >
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Choose...</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>  
+                        <div class="col">
+                            <input class="form-control" type="text" placeholder="Dân Tộc" style="padding: 5px 75px;margin: 0px 15px;  text-align: center;">
+                        </div>  
+                    </div>
+                    <div class="row">
+                        <input class="form-control" type="text" placeholder="Số điện thoại" style="margin-left: 15px; margin-top: 15px; text-align: center;">
+                    </div>        
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                    <label for=""></label>
+                    <input type="email" class="form-control" name="" id="" 
+                    aria-describedby="emailHelpId" placeholder="Email" style="padding: 0px 200px; text-align: center;">
+                    </div>
+                </div>
+                <div class="col-6">    
+                    <input type="date" id="birthday" name="birthday" style="margin: 23px 0px; padding: 5px 185px; border:1px solid gray" >
+                </div>
+                    
+            </div>
+            <div class="row" >
+                <input class="form-control" type="text" placeholder="Địa chỉ" style="margin-left: 15px; margin-top: 5px; text-align: center;">
+            </div>  
+            <div class="row" style="margin-top:25px; " >
+                <div class="col" >  
+                    <input class="form-control" type="text" placeholder="Số tiền đặt cọc (Ghi bằng chữ)" style="padding: 5px 75px;">
+                </div>  
+                <div class="col">
+                    <input class="form-control" type="text" placeholder="Người lập" style="padding: 5px 75px; width:103%">
+                </div>  
+            </div>
+            <div class="row" style="margin-top:25px; " >
+                <div class="col" >  
+                    
+                    <button type="button" class="btn btn-secondary btn-lg btn-block">Đồng Ý</button>
+                </div>  
+                <div class="col">
+                    
+                    <button type="button" class="btn btn-secondary btn-lg btn-block">Hủy</button>
+                </div>  
+            </div>
+            <div class="row" style="margin-top:200px; " >
+                <h1>About Us</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <script type="text/javascript" src="./js/phuoc.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
