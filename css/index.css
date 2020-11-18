@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.formSearch{
+    padding-right: 182px;
+    margin-right: 9px;
+}
+.bannerSlide{
+
+    display: block;
+    min-height: 400px;
+    width: 800px;
+}
+#Slide1{
+    background:url(../img/kinhTeHocHaiHuoc.jpg);
+}
+#Slide2{
+    background:url(../img/cac-dac-khu-kinh-te-tren-the-gioi.jpg);
+}
+#Slide3{
+    background:url(../img/con-duong-di-den-thanh-con.png);
+}
+#Slide4{
+    background:url(../img/su-troi-day-cua-mot-cuong-quoc-sach-den-roi-2.png);
+}
+#Slide5{
+    background:url(../img/cac-dac-khu-kinh-te-tren-the-gioi.jpg);
+}
+#Slide6{
+    background:url(../img/kinhTeHocHaiHuoc.jpg);
+}
+#Slide7{
+    background:url(../img/cac-dac-khu-kinh-te-tren-the-gioi.jpg);
+}
+#Slide8{
+    background:url(../img/con-duong-di-den-thanh-con.png);
+}
+.FormEmail{
+    padding-right: 170px;
+    margin-right: 20px;
+}
+.SizeEmail{
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.testthu:hover{
+    color: red;
+    background-color: green;
+}
