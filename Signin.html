@@ -1,79 +1,41 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Nhập Sách</title>
+    <title>Đăng Nhập</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <link href="fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet"> 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
     <div class="container">
         <img src="images/banner1.jpg" alt="logo" style="margin: 50px 250px; width:50%" >
-        <div class="container" >
-            
-            <div class="row">
-                <div class="col-4" style="border: 1px solid black;   text-align: center;height: 650px;">
-                    <div class=" form-group">
-                        <input type="file" onchange="readimage(this)" accept = "image / *" name="image" 
-                        id="" placeholder="" aria-describedby="fileHelpId" >
-                        <img id="output" style="width: 100%" alt="your image" />
-                    </div>
+        <div class="container"  >
+            <div class="row bg-primary">
+                <div class="col-4" style="  margin-left: 20px;">
+                    <a class="navbar-brand" style="font-size:75px;color:white" href="#" target="_blank"><i class="fas fa-book-reader"></i>Tân Phước</a>
                 </div>
-                <div class="col" style="margin-left: 50px; ">
-                    
-                    <div class="row" style="margin-bottom:35px; margin-left: 5px; border: 1px solid black;">
-                            <input class="form-control" type="text" placeholder="Tên sách" >
-                    </div>
-                    <div class="row" style="margin-bottom:35px;margin-left: 5px;  border: 1px solid black;">
-                        <input class="form-control" type="text" placeholder="Tên tác giả" >
-                    </div>
-                    <div class="row" style="margin-bottom:5px;" >
-                        <div class="col">
-                            <div class="input-group" >
-                                <div class="input-group-prepend" >
-                                <label class="input-group-text" for="inputGroupSelect01" style="margin-left:5px ; border: 1px solid black;">Options</label>
-                                </div>
-                                <select class="custom-select" id="inputGroupSelect01" style="border: 1px solid black;">
-                                <option selected>Thể Loại</option>
-                                <option value="Tuvi-PhongThuy">Tử vi- Phong Thủy</option>
-                                <option value="VanHoc">Văn Học</option>
-                                <option value="TieuThuyet">Tiểu Thuyết</option>
-                                <option value="KinhTe">Kinh Tế</option>
-                                <option value="XaHoi">Xã Hội</option>
-                                <option value="ChinhTri">Chính trị</option>
-                                <option value="LichSu">Lịch Sử</option>
-                                <option value="KhoaHoc">Khoa Học</option>
-                                </select>
-                            </div>
+                <div class="col" style="margin-left: 250px; width:70%; ">
+                    <form>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1" >Email</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
-                        <div class="col">
-                            <input class="form-control" type="text" placeholder="Số lượng" style="border: 1px solid black;padding: 5px 75px;margin: 0px 15px;  text-align: center;">
-                        </div>  
-                    </div>
-                    <div class="row">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                            <span class="input-group-text" style="height:45%;margin-top: 25px;margin-left:20px ; border:1px solid black">Ngày nhập</span>
-                            </div>
-                            <input type="date" id="birthday" name="birthday" style="margin: 25px 0px;padding: 5px 120px; width: 81%;border:1px solid black" >
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1">
                         </div>
-                    </div>   
-                    <div class="row" style="margin-top:25px; " >
-                        <div class="col" >  
-                    
-                            <button type="button" class="btn btn-secondary btn-lg btn-block">Đồng Ý</button>
-                        </div>  
-                        <div class="col">
-                    
-                            <button type="button" class="btn btn-secondary btn-lg btn-block">Hủy</button>
-                        </div> 
-                    </div>
+                        <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                        <button type="submit" class="btn btn-primary">Quên mật khẩu</button>
+                      </form>       
                 </div>
             </div>
+           
             <div class="row" style="margin-top:50px; " >
                 <section id="Footer">
                     <div class="container mt-3">
