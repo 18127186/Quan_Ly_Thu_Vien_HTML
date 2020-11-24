@@ -1,0 +1,15 @@
+.hieuUngDanhMuc:hover{
+    background-color: #33FFFF;
+}
+
+.boGachChan{
+    color: black;
+}
+.boGachChan:hover{
+    text-decoration: none;
+    color: red;
+}
+.boGachChanXemThem:hover{
+    text-decoration: none;
+    color: green;
+}

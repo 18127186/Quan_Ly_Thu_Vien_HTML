@@ -14,28 +14,37 @@
     width: 800px;
 }
 #Slide1{
-    background:url(../img/kinhTeHocHaiHuoc.jpg);
+    background:url(../img/TuViPhongThuy/TuVi-Bia.jpg);
+    background-repeat:no-repeat;
 }
 #Slide2{
-    background:url(../img/cac-dac-khu-kinh-te-tren-the-gioi.jpg);
+
+    background:url(../img/VanHoc/VanHocBia.jpg);
+    background-repeat:no-repeat;
 }
 #Slide3{
-    background:url(../img/con-duong-di-den-thanh-con.png);
+    background:url(../img/TieuThuyet/TieuThuyetBia.jpeg);
+    background-repeat:no-repeat;
 }
 #Slide4{
-    background:url(../img/su-troi-day-cua-mot-cuong-quoc-sach-den-roi-2.png);
+    background:url(../img/KinhTe/KinhTeBia.jpg);
+    background-repeat:no-repeat;
 }
 #Slide5{
-    background:url(../img/cac-dac-khu-kinh-te-tren-the-gioi.jpg);
+    background:url(../img/XaHoi/XaHoiBia.jpg);
+    background-repeat:no-repeat;
 }
 #Slide6{
-    background:url(../img/kinhTeHocHaiHuoc.jpg);
+    background:url(../img/ChinhTri/ChinhTriBia.jpg);
+    background-repeat:no-repeat;
 }
 #Slide7{
-    background:url(../img/cac-dac-khu-kinh-te-tren-the-gioi.jpg);
+    background:url(../img/LichSu/LichSuBia.jpg);
+    background-repeat:no-repeat;
 }
 #Slide8{
-    background:url(../img/con-duong-di-den-thanh-con.png);
+    background:url(../img/KhoaHoc/KhoaHocBia.jpg);
+    background-repeat:no-repeat;
 }
 .FormEmail{
     padding-right: 170px;
@@ -46,7 +55,18 @@
     padding-left: 40px;
 }
 
-.testthu:hover{
+.hieuUngDanhMuc:hover{
+    background-color: #33FFFF;
+}
+
+.boGachChan{
+    color: black;
+}
+.boGachChan:hover{
+    text-decoration: none;
     color: red;
-    background-color: green;
+}
+.boGachChanXemThem:hover{
+    text-decoration: none;
+    color: green;
 }
