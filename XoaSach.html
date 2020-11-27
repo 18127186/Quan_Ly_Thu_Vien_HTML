@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Quản lý độc giả</title>
+<title>Quản lý sách</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,7 +10,7 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <!-- CSS -->
-<link rel="stylesheet" href="css/quanlydocgia.css">
+<link rel="stylesheet" href="css/quanlysach.css">
 </head>
 <body>
     <!--Start Header -->
@@ -39,11 +39,11 @@
                     <div class="row">
                         <div class="col">
                             <ul class="list-group">
-                                <li class="list-group-item"><a href="Staff.html" style="color: Black;">Thông tin chi tiết</a> </li>
+                                <li class="list-group-item"><a href="Staff.html" >Thông tin chi tiết</a> </li>
                                 <li class="list-group-item"><a href="Sign_up_ThanhVien.html" target= "_blank">Đăng ký Thành viên</a> </li>
                                 <li class="list-group-item"><a href="NhapSach.html">Nhập sách</a> </li>
-                                <li class="list-group-item"><a href="XoaSach.html">Chỉnh sửa sách</a> </li>
-                                <li class="list-group-item"><a href="Account.html">Chỉnh sửa độc giả</a> </li>
+                                <li class="list-group-item"><a href="XoaSach.html" style="color: Black;">Quản lý sách</a> </li>
+                                <li class="list-group-item"><a href="Account.html" >Quản lý độc giả</a> </li>
                             </ul>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
 
                 <div class="col-9">
                     <div class="mucTongQuan">
-                        <h3>Danh sách độc giả</h3>
+                        <h3>Danh sách sách</h3>
                     </div>
                     <div class="row quanLyHienThiThongTin">
                         <form class="form-inline mx-auto">
@@ -63,70 +63,70 @@
                     <table class="table bangNhanVien">
                         <thead>
                             <tr>
-                                <th>Số thứ tự</th>
-                                <th>Họ và tên</th>
-                                <th>Ngày đăng ký</th>
+                                <th>Tên sách</th>
+                                <th>Tác giả</th>
+                                <th>Thể loại</th>
                                 <th>Tùy chỉnh</th>
                             </tr>
                         </thead>
                         <tbody>
 
                             <tr>
-                                <th>1</th>
                                 <td>Nguyễn Văn An</td>
-                                <td>20/10/2019</td>
-                                <td>
-                                    <a class="btn btn-danger " href="XoaAccount.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th>2</th>
-                                <td>Lê Văn Bình</td>
-                                <td>20/10/2019</td>
-                                <td>
-                                    <a class="btn btn-danger " href="XoaAccount.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th>3</th>
-                                <td>Trần Văn Công</td>
-                                <td>20/10/2019</td>
-                                <td>
-                                    <a class="btn btn-danger " href="XoaAccount.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th>4</th>
                                 <td>Nguyễn Văn An</td>
-                                <td>20/10/2019</td>
+                                <td>Thủ thư</td>
                                 <td>
-                                    <a class="btn btn-danger " href="XoaAccount.html">Chỉnh sửa</a>
+                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
                                     <a class="btn btn-danger " href="edit.html">Xóa</a>
                                 </td>
                             </tr>
 
                             <tr>
-                                <th>5</th>
                                 <td>Lê Văn Bình</td>
-                                <td>20/10/2019</td>
+                                <td>Lê Văn Bình</td>
+                                <td>Thủ thư</td>
                                 <td>
-                                    <a class="btn btn-danger " href="XoaAccount.html">Chỉnh sửa</a>
+                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
                                     <a class="btn btn-danger " href="edit.html">Xóa</a>
                                 </td>
                             </tr>
 
                             <tr>
-                                <th>6</th>
                                 <td>Trần Văn Công</td>
-                                <td>20/10/2019</td>
+                                <td>Trần Văn Công</td>
+                                <td>Thủ thư</td>
                                 <td>
-                                    <a class="btn btn-danger " href="XoaAccount.html">Chỉnh sửa</a>
+                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
+                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Nguyễn Văn An</td>
+                                <td>Nguyễn Văn An</td>
+                                <td>Thủ thư</td>
+                                <td>
+                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
+                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Lê Văn Bình</td>
+                                <td>Lê Văn Bình</td>
+                                <td>Thủ thư</td>
+                                <td>
+                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
+                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Trần Văn Công</td>
+                                <td>Trần Văn Công</td>
+                                <td>Thủ thư</td>
+                                <td>
+                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
                                     <a class="btn btn-danger " href="edit.html">Xóa</a>
                                 </td>
                             </tr>
@@ -144,6 +144,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="js/quanlydocgia.js"></script>
+<script src="js/quanlysach.js"></script>
 </body>
 </html>
