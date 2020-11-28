@@ -1,9 +1,4 @@
 function changeContent(){
-    // let nameImage=document.querySelector('.changeContent').children[0].children[0];
-    // let nameTitle=document.querySelector('.changeContent').children[1].children[0];
-    // let nameAuthor=document.querySelector('.changeContent').children[1].children[0];
-    // let nameType=document.querySelector('.changeContent').children[1].children[0];
-    
     let changeContent=document.querySelector('.changeContent');
     let parentImg=changeContent.children[0];
 
@@ -14,6 +9,7 @@ function changeContent(){
     let parentContent=changeContent.children[1];
     let ttSach=parentContent.children[0];
     let gtSach=parentContent.children[1];
+
 ////
     let titleSach=document.createElement('span');
     titleSach.classList.add('test1');
@@ -27,11 +23,14 @@ function changeContent(){
     typeSach.classList.add('test1');
     typeSach.textContent=localStorage.getItem('type');
 
+    let motaSach=document.createElement('p');
+    motaSach.classList.add('test1');
+    motaSach.textContent=localStorage.getItem('des');
+
     ttSach.children[0].appendChild(titleSach);
     ttSach.children[1].appendChild(authorSach);
     ttSach.children[2].appendChild(typeSach);
 
-
-
+    gtSach.appendChild(motaSach);
 }
 changeContent();
