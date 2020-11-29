@@ -5,25 +5,25 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link href="fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet"> 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     </head>
     <body>
     <div class="container">
-        <img src="images/banner1.jpg" alt="logo" style="margin: 50px 250px; width:50%" >
+        <img src="images/banner1.jpg" alt="logo" style="margin: 50px 250px; width:50%"  class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         <div class="container" >
             
             <div class="row">
-                <div class="col-4" style="border: 1px solid black;   text-align: center;height: 650px;">
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="border: 1px solid black;   text-align: center;height: 650px;">
                     <div class=" form-group">
                         <input type="file" onchange="readimage(this)" accept = "image / *" name="image" 
                         id="" placeholder="" aria-describedby="fileHelpId" >
                         <img id="output" style="width: 100%" alt="your image" />
                     </div>
                 </div>
-                <div class="col" style="margin-left: 50px; ">
+                <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7" style="margin-left: 50px; ">
                     
                     <div class="row" style="margin-bottom:35px; margin-left: 5px; border: 1px solid black;">
                             <input class="form-control" type="text" placeholder="Tên sách" >
@@ -32,11 +32,8 @@
                         <input class="form-control" type="text" placeholder="Tên tác giả" >
                     </div>
                     <div class="row" style="margin-bottom:5px;" >
-                        <div class="col">
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <div class="input-group" >
-                                <div class="input-group-prepend" >
-                                <label class="input-group-text" for="inputGroupSelect01" style="margin-left:5px ; border: 1px solid black;">Options</label>
-                                </div>
                                 <select class="custom-select" id="inputGroupSelect01" style="border: 1px solid black;">
                                 <option selected>Thể Loại</option>
                                 <option value="Tuvi-PhongThuy">Tử vi- Phong Thủy</option>
@@ -50,31 +47,34 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col">
-                            <input class="form-control" type="text" placeholder="Số lượng" style="border: 1px solid black;padding: 5px 75px;margin: 0px 15px;  text-align: center;">
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                            <input class="form-control" type="text" placeholder="Số lượng" style="border: 1px solid black;padding: 5px 0px;width:105%;  text-align: center;">
                         </div>  
                     </div>
                     <div class="row">
                         <div class="input-group">
-                            <div class="input-group-prepend">
-                            <span class="input-group-text" style="height:45%;margin-top: 25px;margin-left:20px ; border:1px solid black">Ngày nhập</span>
+                            <div class="input-group-prepend col-5 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                                <span class="input-group-text" style="height:45%;margin-top: 25px ; border:1px solid black">Ngày mượn</span>
                             </div>
-                            <input type="date" id="birthday" name="birthday" style="margin: 25px 0px;padding: 5px 120px; width: 81%;border:1px solid black" >
+                            <div class="input-group-prepend col-7 col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                                <input type="date" id="birthday" name="birthday" style="margin: 25px 0px;padding: 5px 50px; width: 120%;border:1px solid black">
+                            </div>
                         </div>
-                    </div>
+                    </div>  
                     <div class="row" >
-                        <textarea id="" name="" style="margin-left:20px" rows="8" cols="89" placeholder="Mô tả Sách"></textarea>
+                        <textarea id="" name="" style="margin-left:20px" rows="15" cols="89" placeholder="Mô tả Sách"></textarea>
                     </div>   
-                    <div class="row" style="margin-top:25px; " >
-                        <div class="col" >  
                     
-                            <button type="button" class="btn btn-secondary btn-lg btn-block">Đồng Ý</button>
-                        </div>  
-                        <div class="col">
-                    
-                            <button type="button" class="btn btn-secondary btn-lg btn-block">Hủy</button>
-                        </div> 
-                    </div>
+                </div>
+                <div class="row" style="margin-top:25px; width:99%" >
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" >  
+                        
+                        <button type="button" class="btn btn-secondary btn-lg btn-block">Đồng Ý</button>
+                    </div>  
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        
+                        <button type="button" class="btn btn-secondary btn-lg btn-block">Hủy</button>
+                    </div>  
                 </div>
             </div>
             <div class="row" style="margin-top:50px; " >

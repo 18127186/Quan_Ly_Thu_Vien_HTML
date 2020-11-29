@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,30 +9,27 @@
 <!-- Fontawesome  -->
 <link href="fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet"> 
 <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/quanlydocgia.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
     <!-- Start header -->
 <header id="Header">
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm navbar-light bg-primary">
         <!-- Logo -->
-        <a class="navbar-brand" href="index.html"><i class="fas fa-book-reader"></i>Tân Phước</a>
-
-        <!-- Search -->
-        <form class="form-inline mx-auto">
-            <input class="form-control formSearch" type="text" placeholder="Nhập nội dung cần tìm">
-            <button class="btn btn-outline-success " type="submit">Tìm kiếm</button>
-        </form>
-
+        <a class="navbar-brand" href="index.html" style="color:white " ><i class="fas fa-book-reader" ></i>Tân Phước</a>
         <!-- Sign in/ Sign out -->
-        <p id="CMND" style="margin-right:20px">Chào Trần Đình Phước   </p>
-        <a href="Signin.html" class="btn btn-outline-primary active" role="button" aria-pressed="true">Đăng Xuất</a>
+        <ul class="navbar-nav ml-auto dsThanhNen">
+            <li class="nav-item "><a href="index.html" class="dslist">Trang chủ</a></li>
+            <li class="nav-item"><a href="#" class="dslist">Xin chào Tân</a></li>
+            <li class="nav-item"><a href="Signin.html" class="dslist">Đăng Xuất</a></li>
+        </ul>
     </nav>
 </header>
     <!-- End header -->
 <section id="Danhmuc">
     <div class="row">
-        <div class="col-3" style="margin:50px 100px">
+        <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin:50px 100px">
                 <div class="row">
                     <div class="col">
                         <p><i class="fas fa-bars"></i>Tùy chọn</p>
@@ -40,44 +38,44 @@
                 <div class="row">
                     <div class="col">
                         <ul class="list-group">
-                            <li class="list-group-item"><a href="Staff.html" >Thông tin chi tiết</a> </li>
+                            <li class="list-group-item"><a href="Staff.html" style="color: Black;">Thông tin chi tiết</a> </li>
                             <li class="list-group-item"><a href="Sign_up_ThanhVien.html" target= "_blank">Đăng ký Thành viên</a> </li>
                             <li class="list-group-item"><a href="NhapSach.html">Nhập sách</a> </li>
                             <li class="list-group-item"><a href="XoaSach.html">Chỉnh sửa sách</a> </li>
-                            <li class="list-group-item"><a href="Account.html" style="color: Black;">Chỉnh sửa độc giả</a> </li>
+                            <li class="list-group-item"><a href="Account.html">Chỉnh sửa độc giả</a> </li>
                         </ul>
                     </div>
                 </div>
         </div>
-        <div class="col-6" style="margin:50px 0px">
+        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" style="margin:50px 0px">
                 <div class="row">
-                    <div class="col-4" style="  margin-left: 20px;">   
+                    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="  margin-left: 20px;">   
                         <img src="img/black Hole-600x780.jpg" style="width: 100%" alt="your image" />
                     </div>
-                    <div class="col-6">
-                        <input class="form-control" style="padding: 25px 25px;font-size:20px;margin: 25px" type="text" value="Tên : Thái Nhật Tân">
-                        <input class="form-control"style="padding: 25px 25px;font-size:20px;margin: 25px" type="text" value="Ngày sinh: dd-mm-yyyy" >
-                        <input class="form-control" style="padding: 25px 25px;font-size:20px;margin: 25px"type="text" value="Giới tính : Nam">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <input class="form-control" style="padding: 25px 25px;font-size:20px;margin: 25px" type="text" placeholder="Tên : Thái Nhật Tân" readonly>
+                        <input class="form-control"style="padding: 25px 25px;font-size:20px;margin: 25px" type="text" placeholder="Ngày sinh: dd-mm-yyyy" readonly>
+                        <input class="form-control" style="padding: 25px 25px;font-size:20px;margin: 25px"type="text" placeholder="Giới tính : Nam" readonly>
                     
-                        <input class="form-control" style="padding: 25px 25px;font-size:20px;margin: 25px" type="text" aria-valuemax="SDT: 0342686566" >
+                        <input class="form-control" style="padding: 25px 25px;font-size:20px;margin: 25px" type="text" placeholder="SDT: 0342686566" readonly>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-5" style="  margin-left: 20px;">   
+                    <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5" style="  margin-left: 20px;">   
                         
                         <input class="form-control" style="padding: 25px 25px;font-size:20px;margin: 25px" type="text" placeholder="CMND: 123456789" readonly>
-                        <input class="form-control"style="padding: 25px 25px;font-size:20px;margin: 25px" type="text" value="Dân Tộc: Kinh" >
+                        <input class="form-control"style="padding: 25px 25px;font-size:20px;margin: 25px" type="text" placeholder="Dân Tộc: Kinh" readonly>
                         <input class="form-control" style="padding: 25px 25px;font-size:20px;margin: 25px"type="text" placeholder="Số tiền đặt cọc: 500.000" readonly>
 
                     </div>
-                    <div class="col-6">
-                        <input class="form-control"style="padding: 25px 25px;font-size:20px;margin: 25px" type="text" placeholder="Email: thainhattan@gmail.com" >
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <input class="form-control"style="padding: 25px 25px;font-size:20px;margin: 25px" type="text" placeholder="Email: thainhattan@gmail.com" readonly>
                         <input class="form-control" style="padding: 25px 25px;font-size:20px;margin: 25px"type="text" placeholder="Người Lập(CMND):" readonly>
                         <input class="form-control" style="padding: 25px 25px;font-size:20px;margin: 25px"type="text" placeholder="Ngày lập: dd-mm-yyyy" readonly>
                     </div>
                 </div>
-                <div class="row" style="  margin-left : 20px;">
-                    <input class="form-control" style="padding: 25px 25px;font-size:20px;margin: 25px"type="text" placeholder="Địa chỉ: XXXXXXX" >
+                <div class="row">
+                    <input class="form-control" style="padding: 25px 25px;font-size:20px;margin: 25px"type="text" placeholder="Địa chỉ: XXXXXXX" readonly>
                 </div>
                 <div class="row" style="  margin-left: 20px;">
                     <div class="col-6" >  
@@ -91,37 +89,37 @@
                 
         </div>
         <div class="row" style="margin:50px 200px; " >
-            <section id="Footer">
+            <footer id="Footer">
                 <div class="container mt-3">
                     <div class="row">
-                        <div class="col-4">
-                            <div class="row">
-                                <div class="col-2">
-                                    <i class="fas fa-cloud"></i>
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-5 col-xl-5">
+                            <div class="row ">
+                                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mr-3">
+                                    <i class="fas fa-cloud fa-3x" style="color: blue;"></i>
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
                                     <h3>DỊCH VỤ TỐT NHẤT</h3>
                                     <p>Nhân viên nhiệt tình, chu đáo, chuyên nghiệp</p>
-                                </div>
+                                </div>  
                             </div>
                         </div>
-                        <div class="col-5">
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
                             <div class="row">
-                                <div class="col-2">
-                                    <i class="fas fa-bell"></i>
+                                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mr-3">
+                                    <i class="fas fa-bell fa-3x" style="color: yellow;"></i>
                                 </div>
-                                <div class="col-10">
-                                    <h3>HỖ TRỢ KHÁCH HÀNG 24/7</h3>
+                                <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                                    <h3>HỖ TRỢ 24/7</h3>
                                     <p>Hỗ trợ nhiệt tình, tận tâm tận tụy</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="row">
-                                <div class="col-2">
-                                    <i class="fas fa-sync-alt"></i>
+                                <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mr-3">
+                                    <i class="fas fa-sync-alt fa-3x" style="color: red;"></i>
                                 </div>
-                                <div class="col-10">
+                                <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
                                     <h3>CẬP NHẬP</h3>
                                     <p>Cập nhập sách mới nhất, theo kịp xu hướng với thị trường</p>
                                 </div>
@@ -129,23 +127,25 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+            
                             <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: 227 Nguyễn Văn Cừ, Phường 4, Quận 5,TP.Hồ Chí Minh </p>
                             <p><i class="fas fa-mobile-alt"></i> Hotline: 0358965421 - 0342686566</p>
                             <p><i class="far fa-envelope"></i> Email: tanthai172k@gmail.com</p>
                         </div>
-                        <div class="col-7" style="padding-left:250px">
+                        <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
                             <p>LIÊN HỆ NGƯỜI QUẢN LÝ ĐỂ NHẬN HỖ TRỢ</p>
                             <form class="form-inline" action="" >
                                 <div class="form-group">
                                     <input type="email" class="form-control FormEmail" id=""  placeholder="Nhập email của bạn !!!">
                                 </div>
                                 <button type="submit" class="btn btn-danger SizeEmail">Đăng ký</button>
-                            </form>         
+                            </form> 
+            
                         </div>
                     </div>
                 </div>
-            </section>
+            </footer>
         </div>
     </div>
 </section>

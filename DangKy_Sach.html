@@ -5,24 +5,24 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link href="fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet"> 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     </head>
     <body>
     <div class="container">
-        <img src="images/banner1.jpg" alt="logo" style="margin: 50px 250px; width:50%" >
+        <img src="images/banner1.jpg" alt="logo" style="margin: 50px 250px; width:50%"class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" >
         <div class="container" >
             <div class="row">
-                <div class="col-4" style="border: 1px solid black;   text-align: center;height: 500px;">
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="border: 1px solid black;   text-align: center;height: 500px;">
                     <div class=" form-group">
                         <input type="file" onchange="readimage(this)" accept = "image / *" name="image" 
                         id="" placeholder="" aria-describedby="fileHelpId" >
                         <img id="output" style="width: 100%" alt="your image" />
                     </div>
                 </div>
-                <div class="col" style="margin-left: 50px; ">
+                <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7" style="margin-left: 50px; ">
                     <div class="row" style="margin-bottom:35px; margin-left: 5px; border: 1px solid black;">
                             <input class="form-control" type="text" placeholder="Tên sách" >
                     </div>
@@ -30,11 +30,8 @@
                         <input class="form-control" type="text" placeholder="Tên tác giả" >
                     </div>
                     <div class="row" style="margin-bottom:5px;" >
-                        <div class="col">
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                             <div class="input-group" >
-                                <div class="input-group-prepend" >
-                                <label class="input-group-text" for="inputGroupSelect01" style="margin-left:5px ; border: 1px solid black;">Options</label>
-                                </div>
                                 <select class="custom-select" id="inputGroupSelect01" style="border: 1px solid black;">
                                 <option selected>Thể Loại</option>
                                 <option value="Tuvi-PhongThuy">Tử vi- Phong Thủy</option>
@@ -48,24 +45,28 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col">
-                            <input class="form-control" type="text" placeholder="Số lượng" style="border: 1px solid black;padding: 5px 75px;margin: 0px 15px;  text-align: center;">
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                            <input class="form-control" type="text" placeholder="Số lượng" style="border: 1px solid black;padding: 5px 0px;  text-align: center;">
                         </div>  
                     </div>
                     <div class="row">
                         <div class="input-group">
-                            <div class="input-group-prepend">
-                            <span class="input-group-text" style="height:45%;margin-top: 25px;margin-left:20px ; border:1px solid black">Ngày mượn</span>
+                            <div class="input-group-prepend col-5 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                                <span class="input-group-text" style="height:45%;margin-top: 25px ; border:1px solid black">Ngày mượn</span>
                             </div>
-                            <input type="date" id="birthday" name="birthday" style="margin: 25px 0px;padding: 5px 120px; width: 81%;border:1px solid black" >
+                            <div class="input-group-prepend col-7 col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                                <input type="date" id="birthday" name="birthday" style="margin: 25px 0px;padding: 5px 50px; width: 120%;border:1px solid black">
+                            </div>
                         </div>
                     </div>   
                     <div class="row">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                            <span class="input-group-text" style="padding:0px 23px;height:68%;margin-top: 10px;margin-left:20px ; border:1px solid black">Ngày trả</span>
+                        <div class="input-group ">
+                            <div class="input-group-prepend col-5 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                            <span class="input-group-text" style="padding:0px 23px;height:68%;margin-top: 10px; border:1px solid black">Ngày trả</span>
                             </div>
-                            <input type="date" id="birthday" name="birthday" style="margin: 10px 0px;padding: 5px 120px; width: 81%;border:1px solid black" >
+                            <div class=" input-group-prepend col-7 col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                                <input type="date" id="birthday" name="birthday" style="margin: 10px 0px;padding: 5px 50px; width: 120%;border:1px solid black" >
+                            </div>
                         </div>
                     </div> 
                     <div class="row" style="margin:25px 0px;margin-left: 5px;  border: 1px solid black;">
@@ -77,48 +78,48 @@
                 </div>
             </div>
 
-            <div class="row" style="margin-top:25px; " >
-                <div class="col" >  
+            <div class="row" style="margin-top:25px; width:99%" >
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" >  
                     
                     <button type="button" class="btn btn-secondary btn-lg btn-block">Đồng Ý</button>
                 </div>  
-                <div class="col">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     
                     <button type="button" class="btn btn-secondary btn-lg btn-block">Hủy</button>
                 </div>  
             </div>
             <div class="row" style="margin-top:50px; " >
-                <section id="Footer">
+                <footer id="Footer">
                     <div class="container mt-3">
                         <div class="row">
-                            <div class="col-4">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <i class="fas fa-cloud"></i>
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-5 col-xl-5">
+                                <div class="row ">
+                                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mr-3">
+                                        <i class="fas fa-cloud fa-3x" style="color: blue;"></i>
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
                                         <h3>DỊCH VỤ TỐT NHẤT</h3>
                                         <p>Nhân viên nhiệt tình, chu đáo, chuyên nghiệp</p>
-                                    </div>
+                                    </div>  
                                 </div>
                             </div>
-                            <div class="col-5">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
                                 <div class="row">
-                                    <div class="col-2">
-                                        <i class="fas fa-bell"></i>
+                                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mr-3">
+                                        <i class="fas fa-bell fa-3x" style="color: yellow;"></i>
                                     </div>
-                                    <div class="col-10">
-                                        <h3>HỖ TRỢ KHÁCH HÀNG 24/7</h3>
+                                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                                        <h3>HỖ TRỢ 24/7</h3>
                                         <p>Hỗ trợ nhiệt tình, tận tâm tận tụy</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                                 <div class="row">
-                                    <div class="col-2">
-                                        <i class="fas fa-sync-alt"></i>
+                                    <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 mr-3">
+                                        <i class="fas fa-sync-alt fa-3x" style="color: red;"></i>
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
                                         <h3>CẬP NHẬP</h3>
                                         <p>Cập nhập sách mới nhất, theo kịp xu hướng với thị trường</p>
                                     </div>
@@ -126,23 +127,25 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-5">
+                            <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+                
                                 <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: 227 Nguyễn Văn Cừ, Phường 4, Quận 5,TP.Hồ Chí Minh </p>
                                 <p><i class="fas fa-mobile-alt"></i> Hotline: 0358965421 - 0342686566</p>
                                 <p><i class="far fa-envelope"></i> Email: tanthai172k@gmail.com</p>
                             </div>
-                            <div class="col-7" style="padding-left:250px">
+                            <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
                                 <p>LIÊN HỆ NGƯỜI QUẢN LÝ ĐỂ NHẬN HỖ TRỢ</p>
                                 <form class="form-inline" action="" >
                                     <div class="form-group">
                                         <input type="email" class="form-control FormEmail" id=""  placeholder="Nhập email của bạn !!!">
                                     </div>
                                     <button type="submit" class="btn btn-danger SizeEmail">Đăng ký</button>
-                                </form>         
+                                </form> 
+                
                             </div>
                         </div>
                     </div>
-                </section>
+                </footer>
             </div>
         </div>
     </div>
