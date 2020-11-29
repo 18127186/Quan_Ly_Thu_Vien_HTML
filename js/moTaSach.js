@@ -18,7 +18,7 @@ function Loai(Type) {
     if(Type==="Tử vi - Phong Thủy"){
         for(let i=1;i<=4;i++){
             let child=document.createElement('div');
-            child.className='col-3';
+            child.className='col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3';
             child.innerHTML=`
             <a href="moTaSach.html" class="boGachChan" onclick="takeAttribute(this)" > 
             <div class="card">
@@ -46,7 +46,7 @@ Rồi cứ vậy, tôi ghi lại năm cô đơn nhất trong đời từng trả
     else if(Type==="Văn Học"){
         for(let i=1;i<=4;i++){
             let child=document.createElement('div');
-            child.className='col-3';
+            child.className='col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3';
             child.innerHTML=`
             <a href="moTaSach.html" class="boGachChan" onclick="takeAttribute(this)">
                             <div class="card">
@@ -73,7 +73,7 @@ Rồi cứ vậy, tôi ghi lại năm cô đơn nhất trong đời từng trả
     else if(Type==="Tiểu Thuyết"){
         for(let i=1;i<=4;i++){
             let child=document.createElement('div');
-            child.className='col-3';
+            child.className='col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3';
             child.innerHTML=`
             <a href="moTaSach.html" class="boGachChan" onclick="takeAttribute(this)">
             <div class="card">
@@ -100,7 +100,7 @@ Rồi cứ vậy, tôi ghi lại năm cô đơn nhất trong đời từng trả
     else if(Type==="Kinh Tế"){
         for(let i=1;i<=4;i++){
             let child=document.createElement('div');
-            child.className='col-3';
+            child.className='col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3';
             child.innerHTML=`
             <a href="moTaSach.html" class="boGachChan" onclick="takeAttribute(this)">
                             <div class="card">
@@ -127,7 +127,7 @@ Rồi cứ vậy, tôi ghi lại năm cô đơn nhất trong đời từng trả
     else if(Type==="Xã Hội"){
         for(let i=1;i<=4;i++){
             let child=document.createElement('div');
-            child.className='col-3';
+            child.className='col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3';
             child.innerHTML=`
             <a href="moTaSach.html" class="boGachChan" onclick="takeAttribute(this)">
                             <div class="card">
@@ -154,7 +154,7 @@ Rồi cứ vậy, tôi ghi lại năm cô đơn nhất trong đời từng trả
     else if(Type==="Chính Trị"){
         for(let i=1;i<=4;i++){
             let child=document.createElement('div');
-            child.className='col-3';
+            child.className='col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3';
             child.innerHTML=`
             <a href="moTaSach.html" class="boGachChan" onclick="takeAttribute(this)">
                             <div class="card">
@@ -181,7 +181,7 @@ Rồi cứ vậy, tôi ghi lại năm cô đơn nhất trong đời từng trả
     else if(Type==="Lịch Sử"){
         for(let i=1;i<=4;i++){
             let child=document.createElement('div');
-            child.className='col-3';
+            child.className='col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3';
             child.innerHTML=`
             <a href="moTaSach.html" class="boGachChan" onclick="takeAttribute(this)">
                             <div class="card">
@@ -208,7 +208,7 @@ Rồi cứ vậy, tôi ghi lại năm cô đơn nhất trong đời từng trả
     else if(Type==="Khoa Học"){
         for(let i=1;i<=4;i++){
             let child=document.createElement('div');
-            child.className='col-3';
+            child.className='col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3';
             child.innerHTML=`
             <a href="moTaSach.html" class="boGachChan" onclick="takeAttribute(this)">
                             <div class="card">
@@ -255,6 +255,9 @@ function changeContent(){
 
     let img=document.createElement('img');
     img.src=localStorage.getItem('image');
+    img.style.width='444px';
+    img.style.height='444px';
+    img.style.display='block';
     parentImg.appendChild(img);
 
     let parentContent=changeContent.children[1];
