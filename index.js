@@ -2,6 +2,10 @@ var express = require('express');
 var app = express();
 var models = require('./models');
 
+//xu ly du lieu khi login
+var bodyParse = require ('body-parser')
+app.use(bodyParse.json())
+app.use(bodyParse.urlencoded({extended: false}))
 //Phần sử lý add file
 
 //Sử dụng Css
@@ -48,8 +52,45 @@ app.get('/sync', function (req, res) {
     })
 })
 
+app.get('/Signin', function (req, res) {
+    res.sendFile(__dirname+'/Signin.html')
+    
+})
+app.get('/process',function(req,res){
+    res.send(req.query)
+})
+ //view profile of customer
+ app.get('/Staff',function(req,res){
+    models.Account.findOne({
+        where:{
+            hoten: 'Trần văn A'
+        }
+    }).then(function(account){
+        var data ={
+            hoten: account.hoten,
+            ngaysinh: account.ngaysinh,
+            cmnd: account.cmnd,
+            gioitinh: account.gioitinh,     
+            dantoc: account.dantoc,
+            ngaylap: account.ngaylap,      
+            sdt: account.sdt,
+            email: account.email,        
+            diachi: account.diachi,
+            sotiendatcoc: account.sotiendatcoc, 
+            nguoilap: account.nguoilap,
+            image: account.image
+        }
+        console.log(data)
+        res.render('Staff',data)
+    }).catch(function(error){
+        console.log(error)
+    })
+
+ })
 //set port
 app.set('port', process.env.PORT | 5000)
 app.listen(app.get('port'), function () {
     console.log('server is listening on port' + app.get('port'))
 })
+
+
