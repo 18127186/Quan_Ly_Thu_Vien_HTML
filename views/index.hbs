@@ -1,0 +1,342 @@
+
+<!-- Start Introduction -->
+    <nav id="Introduce">
+        <div class="container">
+            <div class="row mt-2 ml-2">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <p><i class="fas fa-bars"></i> DANH MỤC SÁCH</p>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <p><i class="far fa-clock"></i> Thời gian hoạt động: Thứ 2-CN: 8h-17h </p>
+                </div>
+
+            </div>
+            <div class="row mb-3 mt-1">
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="list-group">
+                        {{#each linkHref}}
+                        <a href="{{link}}/tatca/all"class="list-group-item list-group-item-action list-group-item-outline-info hieuUngDanhMuc">{{title}}</a>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                    <div id="introcarousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#introcarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#introcarousel" data-slide-to="1"></li>
+                            <li data-target="#introcarousel" data-slide-to="2"></li>
+                            <li data-target="#introcarousel" data-slide-to="3"></li>
+                            <li data-target="#introcarousel" data-slide-to="4"></li>
+                            <li data-target="#introcarousel" data-slide-to="5"></li>
+                            <li data-target="#introcarousel" data-slide-to="6"></li>
+                            <li data-target="#introcarousel" data-slide-to="7"></li>
+                            <li data-target="#introcarousel" data-slide-to="8"></li>
+                        </ol>
+                        
+                        <div class="carousel-inner" role="listbox">
+                        {{#each linkHref}}
+                        {{#checkSlide slide 'Slide1'}}
+                        <div class="carousel-item active">
+                            <a href="{{link}}/tatca/all" class="bannerSlide" id="{{slide}}"></a>
+                        </div>
+                        {{else}}
+                        <div class="carousel-item">
+                            <a href="{{link}}/tatca/all" class="bannerSlide" id="{{slide}}"></a>
+                        </div>
+                        {{/checkSlide}}
+                        {{/each}}
+                        </div>
+                        <a class="carousel-control-prev" href="#introcarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#introcarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+<!-- End Introduction -->
+
+<!-- Start Sách Tử Vi - Phong Thủy -->
+    <section id="TuViPhongThuyBook">
+            <div class="container">
+                <!-- End Title Tử Vi - Phong Thủy-->
+                <div class="row bg-primary">
+                    <div class="div">
+                        <a href="/tuViPhongThuy/tatca/all" class="btn btn-success" role="button"  >Sách Tử Vi - Phong Thủy </a>
+                    </div>
+                </div>
+                <!-- End Title Tử Vi - Phong Thủy-->
+                <div class="row my-3">
+                {{#outputList bookCategory 8 'Tử vi - Phong Thủy'}}
+                    <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                            <div class="card">
+                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <div class="card-body">
+                                    <p class="card-title" id="tenSach">{{tensach }}</p>
+                                    <p class="card-text" id="tenTg">{{tentacgia}}</p>
+                                    <p class="loai" style="display: none;">{{theloai}}</p>
+                                    <p class="mota" style="display: none;">{{mota}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/outputList}}
+                </div>
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/tuViPhongThuy/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+            </div>
+    </section>
+<!-- End Sách Tử Vi - Phong Thủy -->
+
+<!-- Start Văn học -->
+    <section id="VanHocBook">
+            <div class="container">
+                <!-- End Title Văn Học-->
+                <div class="row bg-primary">
+                    <div class="div">
+                        <a href="/vanHoc/tatca/all" class="btn btn-success" role="button"  >Sách Văn Học </a>
+                    </div>
+                </div>
+                <!-- End Title Văn Học-->
+    
+                <div class="row my-3">
+                {{#outputList bookCategory 8 'Văn Học'}}
+                    <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                            <div class="card">
+                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <div class="card-body">
+                                    <p class="card-title" id="tenSach">{{tensach }}</p>
+                                    <p class="card-text" id="tenTg">{{tentacgia}}</p>
+                                    <p class="loai" style="display: none;">{{theloai}}</p>
+                                    <p class="mota" style="display: none;">{{mota}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/outputList}}
+                </div>
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/vanHoc/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                
+            </div>
+    </section>
+<!-- End Văn học -->
+
+<!-- Start Tiểu thuyết -->
+        <section id="TieuThuyetBook">
+            <div class="container">
+                <!-- End Title Tiểu thuyết-->
+                <div class="row bg-primary">
+                    <div class="div">
+                        <a href="/tieuThuyet/tatca/all" class="btn btn-success" role="button"  >Sách Tiểu Thuyết </a>
+                    </div>
+                </div>
+                <!-- End Title Tiểu thuyết-->
+    
+                <div class="row my-3">
+                {{#outputList bookCategory 8 'Tiểu Thuyết'}}
+                    <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                            <div class="card">
+                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <div class="card-body">
+                                    <p class="card-title" id="tenSach">{{tensach }}</p>
+                                    <p class="card-text" id="tenTg">{{tentacgia}}</p>
+                                    <p class="loai" style="display: none;">{{theloai}}</p>
+                                    <p class="mota" style="display: none;">{{mota}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/outputList}}
+                </div>
+
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/tieuThuyet/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                
+            </div>
+        </section>
+<!-- End Tiểu thuyết-->
+
+<!-- Start Kinh tế -->
+        <section id="KinhTeBook">
+            <div class="container">
+                <!-- End Title Kinh tế -->
+                <div class="row bg-primary">
+                    <div class="div">
+                        <a href="/kinhTe/tatca/all" class="btn btn-success" role="button"  >Sách Kinh Tế </a>
+                    </div>
+                </div>
+                <!-- End Title Kinh tế -->
+    
+                <div class="row my-3">
+                {{#outputList bookCategory 8 'Kinh Tế'}}
+                    <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                            <div class="card">
+                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <div class="card-body">
+                                    <p class="card-title" id="tenSach">{{tensach }}</p>
+                                    <p class="card-text" id="tenTg">{{tentacgia}}</p>
+                                    <p class="loai" style="display: none;">{{theloai}}</p>
+                                    <p class="mota" style="display: none;">{{mota}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/outputList}}
+                </div>
+
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/kinhTe/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                
+            </div>
+        </section>
+<!-- End Kinh tế -->
+
+<!-- Start Xã hội -->
+    <section id="XaHoiBook">
+            <div class="container">
+                <!-- End Title Xã hội-->
+                <div class="row bg-primary">
+                    <div class="div">
+                        <a href="/xaHoi/tatca/all" class="btn btn-success" role="button"  >Sách Xã Hội </a>
+                    </div>
+                </div>
+                <!-- End Title Xã hội-->
+    
+                <div class="row my-3">
+                {{#outputList bookCategory 8 'Xã Hội'}}
+                    <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                            <div class="card">
+                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <div class="card-body">
+                                    <p class="card-title" id="tenSach">{{tensach }}</p>
+                                    <p class="card-text" id="tenTg">{{tentacgia}}</p>
+                                    <p class="loai" style="display: none;">{{theloai}}</p>
+                                    <p class="mota" style="display: none;">{{mota}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/outputList}}
+                </div>
+
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/xaHoi/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                
+            </div>
+    </section>
+<!-- End Xã hội -->
+
+<!-- Start Chính trị -->
+    <section id="ChinhTriBook">
+            <div class="container">
+                <!-- End Title  Chính trị -->
+                <div class="row bg-primary">
+                    <div class="div">
+                        <a href="/chinhTri/tatca/all" class="btn btn-success" role="button"  >Sách Chính Trị </a>
+                    </div>
+                </div>
+                <!-- End Title Chính trị -->
+    
+                <div class="row my-3">
+                {{#outputList bookCategory 8 'Chính Trị'}}
+                    <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                            <div class="card">
+                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <div class="card-body">
+                                    <p class="card-title" id="tenSach">{{tensach }}</p>
+                                    <p class="card-text" id="tenTg">{{tentacgia}}</p>
+                                    <p class="loai" style="display: none;">{{theloai}}</p>
+                                    <p class="mota" style="display: none;">{{mota}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/outputList}}
+                </div>
+
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/chinhTri/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                
+            </div>
+    </section>
+<!-- End Chính trị-->
+
+<!-- Start Lịch sử -->
+    <section id="LichSuBook">
+            <div class="container">
+                <!-- End Title Lịch sử -->
+                <div class="row bg-primary">
+                    <div class="div">
+                        <a href="/lichSu/tatca/all" class="btn btn-success" role="button"  >Sách Lịch Sử </a>
+                    </div>
+                </div>
+                <!-- End Title Lịch sử -->
+    
+                <div class="row my-3">
+                {{#outputList bookCategory 8 'Lịch Sử'}}
+                    <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                            <div class="card">
+                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <div class="card-body">
+                                    <p class="card-title" id="tenSach">{{tensach }}</p>
+                                    <p class="card-text" id="tenTg">{{tentacgia}}</p>
+                                    <p class="loai" style="display: none;">{{theloai}}</p>
+                                    <p class="mota" style="display: none;">{{mota}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/outputList}}
+                </div>
+
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/lichSu/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                
+            </div>
+    </section>
+<!-- End Lịch sử-->
+
+<!-- Start Khoa học -->
+    <section id="KhoaHocBook">
+            <div class="container">
+                <!-- End Title Khoa học-->
+                <div class="row bg-primary">
+                    <div class="div">
+                        <a href="/khoaHoc/tatca/all" class="btn btn-success" role="button"  >Sách Khoa Học </a>
+                    </div>
+                </div>
+                <!-- End Title Khoa học-->
+    
+                <div class="row my-3">
+                {{#outputList bookCategory 8 'Khoa Học'}}
+                    <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                            <div class="card">
+                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <div class="card-body">
+                                    <p class="card-title" id="tenSach">{{tensach }}</p>
+                                    <p class="card-text" id="tenTg">{{tentacgia}}</p>
+                                    <p class="loai" style="display: none;">{{theloai}}</p>
+                                    <p class="mota" style="display: none;">{{mota}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/outputList}}
+                </div>
+
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/khoaHoc/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                
+            </div>
+    </section>
+<!-- End Khoa học -->
+
+
+
+

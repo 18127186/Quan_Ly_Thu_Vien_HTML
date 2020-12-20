@@ -1,0 +1,42 @@
+<section >
+        <div class="container mt-5">
+            <div class="row mt-2 ml-2">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <p><i class="fas fa-bars"></i> DANH MỤC SÁCH</p>
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <p><i class="far fa-clock"></i> Thời gian hoạt động: Thứ 2-CN: 8h-17h </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                    <div class="list-group">
+                        {{#each linkHref}}
+                        <a href="{{link}}/tatca/all"class="list-group-item list-group-item-action list-group-item-outline-info hieuUngDanhMuc">{{title}}</a>
+                        {{/each}}
+                    </div>
+                </div>
+
+                <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                    <div class="row">
+                {{#outputList bookCategory bookCategory.length loaiSach}}
+                    <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                            <div class="card">
+                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <div class="card-body">
+                                    <p class="card-title" id="tenSach">{{tensach }}</p>
+                                    <p class="card-text" id="tenTg">{{tentacgia}}</p>
+                                    <p class="loai" style="display: none;">{{theloai}}</p>
+                                    <p class="mota" style="display: none;">{{mota}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {{/outputList}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</section>
