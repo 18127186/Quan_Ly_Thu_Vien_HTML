@@ -54,10 +54,40 @@ app.get('/sync', function (req, res) {
 
 app.get('/Signin', function (req, res) {
     res.sendFile(__dirname+'/Signin.html')
-    
 })
+
 app.get('/process',function(req,res){
-    res.send(req.query)
+    console.log(req.query)
+    models.Account_staff.findOne({
+        where:{
+            email: req.query.user,
+            cmnd: req.query.pass
+        }
+    }).then(function(account){
+        var data ={
+            hoten: account.hoten,
+            ngaysinh: account.ngaysinh,
+            cmnd: account.cmnd,
+            gioitinh: account.gioitinh,     
+            dantoc: account.dantoc,
+            ngaylap: account.ngaylap,      
+            sdt: account.sdt,
+            email: account.email,        
+            diachi: account.diachi,
+            sotiendatcoc: account.sotiendatcoc, 
+            nguoilap: account.nguoilap,
+            image: account.image
+        }
+        res.locals.header = 'Xin chào ' + data.hoten
+        res.render('Staff',data)
+        
+    }).catch(function(error){
+        if(req.query.user == '1@1' &&  req.query.pass == 'phuoc412'){
+            
+            res.locals.header = 'Xin chào Boss '
+            res.render('admin')
+        }
+    })
 })
  //view profile of customer
  app.get('/Staff',function(req,res){

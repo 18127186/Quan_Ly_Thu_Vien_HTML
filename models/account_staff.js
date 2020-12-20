@@ -19,9 +19,12 @@ module.exports = (sequelize, DataTypes) => {
     cmnd: DataTypes.STRING,
     gioitinh: DataTypes.STRING,
     dantoc: DataTypes.STRING,
+    ngaylap:DataTypes.STRING,
     sdt: DataTypes.STRING,
     email: DataTypes.STRING,
     diachi: DataTypes.TEXT,
+    sotiendatcoc: DataTypes.STRING,
+    nguoilap: DataTypes.STRING,
     image: DataTypes.STRING
   }, {
     sequelize,

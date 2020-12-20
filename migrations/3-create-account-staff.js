@@ -23,6 +23,9 @@ module.exports = {
       dantoc: {
         type: Sequelize.STRING
       },
+      ngaylap: {
+        type: Sequelize.STRING
+      },
       sdt: {
         type: Sequelize.STRING
       },
@@ -31,6 +34,12 @@ module.exports = {
       },
       diachi: {
         type: Sequelize.TEXT
+      },
+      sotiendatcoc: {
+        type: Sequelize.STRING
+      },
+      nguoilap: {
+        type: Sequelize.STRING
       },
       image: {
         type: Sequelize.STRING
