@@ -1,0 +1,67 @@
+<section id="mainAdmin">
+        <div class="container" style="margin-top : 50px">
+            <div class="row">
+                <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                    <div class="row">
+                        <div class="col">
+                            <p><i class="fas fa-bars"></i>Tùy chọn</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href="/Staff" >Thông tin chi tiết</a> </li>
+                                <li class="list-group-item"><a href="/Sign_up_ThanhVien" target= "_blank">Đăng ký Thành viên</a> </li>
+                                <li class="list-group-item"><a href="/NhapSach">Nhập sách</a> </li>
+                                <li class="list-group-item"><a href="/XoaSach" style="color: Black;">Chỉnh sửa sách</a> </li>
+                                <li class="list-group-item"><a href="/Account" >Chỉnh sửa độc giả</a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                    <div class="mucTongQuan" style="margin-bottom: 25px">
+                        <h3>Danh sách sách</h3>
+                    </div>
+                    <div class="row quanLyHienThiThongTin"  style="margin-bottom: 25px">
+                        <form class="form-inline mx-auto">
+                            <input class="form-control formSearch" type="text" placeholder="Họ và tên người cần tìm" style="padding-right: 60px;">
+                            <button class="btn btn-outline-success " type="submit" style="margin-left: 0px;">Tìm kiếm</button>
+                        </form>
+                    </div>  
+                    <div class="wrap">
+                        <table class="head">
+                            <tbody>
+                            <tr>
+                                <th style=" width: 10%">Số thứ tự</th>
+                                <th style=" width: 21%">Tên sách</th>
+                                <th style="width:21%">Tên tác giả</th>
+                                <th style="width:25%">Thể loại</th>
+                                <th style="">Tùy chỉnh</th>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="scroll-table">
+                            <table class="table bangNhanVien">
+                                <tbody>
+                                    {{#each data}}
+                                        <tr>
+                                        <th style=" width: 9%">{{id}}</th>
+                                        <td style=" width: 20%">{{tensach}}</td>
+                                        <td style="width:20%">{{tentacgia}}</td>
+                                        <td style="width:24%">{{theloai}}</td>
+                                        <td>
+                                            <a class="btn btn-danger " href="/Staff">Chỉnh sửa</a>
+                                            <a class="btn btn-danger " href="edit.html" style="padding: 6px 30px;">   Xóa   </a>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
