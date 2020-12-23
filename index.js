@@ -1,9 +1,12 @@
 var express = require('express');
 var app = express();
 var models = require('./models');
-
+const bcrypt = require ('bcrypt');
+const saltRounds = 10;
 var tenaccount; // them cai nay vo header nha vidu chua dang nhap thi se la 'Dang nhap'
 var userLogin= {} //profile cua doi tuong dang login. null la admin
+var allAcount =[] // tat ca account trong bang account
+var accountEdit ={} // account can cap nhat xoa sua gi do
 //xu ly du lieu khi login
 var bodyParse = require ('body-parser')
 app.use(bodyParse.json())
@@ -62,11 +65,10 @@ app.get('/Staff',function(req,res){
     res.render('Staff',userLogin)
 })
 app.post('/Staff',function(req,res){
-    
     models.Account_staff.findOne({
         where:{
             email: req.body.user,
-            cmnd: req.body.pass
+            cmnd: req.body.pass,
         }
     }).then(function(account){
         var data ={
@@ -104,6 +106,7 @@ app.post('/Staff',function(req,res){
         for(i=0;i<account.length;i++){
             var user ={
                 id: i+1,
+                idDB: account[i].id,
                 hoten: account[i].hoten,
                 ngaysinh: account[i].ngaysinh,
                 cmnd: account[i].cmnd,
@@ -119,6 +122,7 @@ app.post('/Staff',function(req,res){
             }
             data.push(user)
         }
+        allAcount = data
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
         res.render('Account',{data:data})  
@@ -147,13 +151,95 @@ app.post('/Staff',function(req,res){
     })
 
  })
-
  
- app.get('/Sign_up_ThanhVien',function(req,res){
-    res.sendFile(__dirname+'/Sign_up_ThanhVien.html')
+app.get('/Sign_up_ThanhVien',function(req,res){
+    res.sendFile(__dirname + "/Sign_up_ThanhVien.html")
+})
+app.post('/Sign_up_ThanhVien',function(req,res){
+    var userStaff ={
+            hoten: req.body.hoten,
+            ngaysinh: req.body.ngaysinh,
+            cmnd: req.body.cmnd,
+            gioitinh: req.body.gioitinh,
+            dantoc: req.body.dantoc,
+            ngaylap: req.body.ngaylap,
+            sdt: req.body.sdt,
+            email: req.body.email,
+            diachi: req.body.diachi,
+            sotiendatcoc: req.body.sotiendatcoc,
+            nguoilap: req.body.nguoilap,
+            image: req.body.image
+        }
+    var salt = bcrypt.genSaltSync(10);
+    userStaff.cmnd = bcrypt.hashSync(userStaff.cmnd, salt);
+    models.Account.create(userStaff)
+    res.locals.header = tenaccount
+    res.render('Staff',userLogin)
+    
 })
 app.get('/NhapSach',function(req,res){
     res.sendFile(__dirname+'/NhapSach.html')
+})
+app.post('/NhapSach',function(req,res){
+    var Book ={
+            tensach: req.body.tensach,
+            tentacgia: req.body.tentacgia,
+            theloai: req.body.theloai,
+            soluong: req.body.soluong,
+            ngaynhap: req.body.ngaynhap,
+            mota: req.body.mota,
+            image: req.body.image,
+            }
+    models.Book.create(Book)
+    res.locals.header = tenaccount
+    res.render('Staff',userLogin)
+    
+})
+app.get('/XoaAccount/:id',function(req,res){
+
+    for(i=0;i<allAcount.length;i++){
+        if(allAcount[i].id == req.params.id)
+            {
+                accountEdit = allAcount[i]
+                break
+            }
+    }
+    res.locals.header = tenaccount
+    res.render('XoaAccount',accountEdit)
+    
+})
+app.post('/ChangeAccount',function(req,res){
+    models.Account.update({
+        hoten:  req.body.hotenchange,
+        ngaysinh: req.body.ngaysinhchange,
+        cmnd: req.body.cmndchange,
+        gioitinh:  req.body.gioitinhchange,
+        dantoc: req.body.dantocchange,
+        ngaylap: req.body.ngaylapchange,
+        sdt:  req.body.sdtchange,
+        email: req.body.emailchange,
+        diachi: req.body.diachichange,
+        sotiendatcoc:  req.body.sotiendatcocchange,
+        nguoilap: req.body.nguoilapchange,
+    },{
+        where: {id: accountEdit.idDB}
+    })
+    .then(function(){
+        res.redirect("/Account")
+    }).catch(function(error){
+        res.json(error);
+    })
+})
+
+app.get('/DeleteAccount/:id',function(req,res){
+    models.Account.destroy({
+        where: {id: req.params.id}
+    })
+    .then(function(){
+        res.redirect("/Account")
+    }).catch(function(error){
+        res.json(error);
+    })
 })
 //set port
 app.set('port', process.env.PORT | 5000)

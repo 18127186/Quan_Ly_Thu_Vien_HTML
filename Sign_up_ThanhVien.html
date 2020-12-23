@@ -14,107 +14,108 @@
     <div class="container">
         <img src="images/banner1.jpg" alt="logo" style="margin: 50px 250px; width:50%"class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" >
         <div class="container" >
-            <div class="row">
-                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="  border: 1px solid black; padding-bottom: 0px; margin-left: 20px;">
-                    <div class=" form-group">
-                    <input type="file" onchange="readimage(this)" accept = "image / *" name="image" 
-                    id="" placeholder="" aria-describedby="fileHelpId" >
-                    <img id="output" style="width: 100%" alt="your image" />
-                </div>  
-                </div>
-                <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7" style="margin-left: 25px; ">
-                    <div class="row" style="margin-bottom:25px; margin-left: 0px; margin-right: 10px; border: 1px solid black;">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                            <span class="input-group-text">Full Name</span>
-                            </div>
-                            <input type="text" aria-label="fullname" class="form-control">
-                        </div>
+            <form action="http://localhost:5000/Sign_up_ThanhVien" method="POST" onsubmit="return confirm('Do you want to continue?');">
+                <div class="row">
+                    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="  border: 1px solid black; padding-bottom: 0px; margin-left: 20px;">
+                        <div class=" form-group">
+                        <input type="file" onchange="readimage(this)" accept = "image / *" name="image" 
+                        id="" placeholder="" aria-describedby="fileHelpId" >
+                        <img id="output" style="width: 100%" alt="your image" />
+                    </div>  
                     </div>
-                    <div class="row">
-                        <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
-                            <div class="row">
-                                <div class="input-group">
-                                    <div class="input-group-prepend col-5 col-sm-5 col-md-4 col-lg-3 col-xl-2">
-                                        <span class="input-group-text" style="margin: 15px 0px; border:1px solid black">Ngày Sinh</span>
-                                    </div>
-                                    <div class="input-group-prepend col-7 col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                                        <input type="date" id="birthday" name="birthday" style="margin: 15px 40px;border:1px solid black; width: 220%;">
-                                    </div>
+                    <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7" style="margin-left: 25px; ">
+                        <div class="row" style="margin-bottom:25px; margin-left: 0px; margin-right: 10px; border: 1px solid black;">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text">Full Name</span>
                                 </div>
-                            </div>  
-                        </div>  
+                                <input type="text" name= "hoten" aria-label="fullname" class="form-control">
+                            </div>
+                        </div>
                         <div class="row">
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                <input class="form-control" type="text" placeholder="Số CMND" style="border: 1px solid black;margin: 15px 15px">
+                            <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
+                                <div class="row">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend col-5 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                                            <span class="input-group-text" style="margin: 15px 0px; border:1px solid black">Ngày Sinh</span>
+                                        </div>
+                                        <div class="input-group-prepend col-7 col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                                            <input type="date" id="birthday" name="ngaysinh" style="margin: 15px 40px;border:1px solid black; width: 220%;">
+                                        </div>
+                                    </div>
+                                </div>  
                             </div>  
-                        </div>  
-                    </div>
-                    <div class="row" style="margin-top:15px;" >
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                            <div class="input-group" >
-                                <select class="custom-select" id="inputGroupSelect01" style="border: 1px solid black;">
-                                    <option selected>Giới tính</option>
-                                    <option value="Male">Nam</option>
-                                    <option value="Female">Nữ</option>
-                                </select>
-                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <input class="form-control" type="text" name="cmnd" placeholder="Số CMND" style="border: 1px solid black;margin: 15px 15px">
+                                </div>  
+                            </div>  
                         </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                            <input class="form-control" type="text" placeholder="Số lượng" style="border: 1px solid black;padding: 5px 0px;  text-align: center;">
-                        </div>  
+                        <div class="row" style="margin-top:15px;" >
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <div class="input-group" >
+                                    <select class="custom-select" id="inputGroupSelect01" name="gioitinh" style="border: 1px solid black;">
+                                        <option selected>Giới tính</option>
+                                        <option value="Nam">Nam</option>
+                                        <option value="Nữ">Nữ</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                <input class="form-control" type="text" name="dantoc" placeholder="Dân Tộc" style="border: 1px solid black;padding: 5px 0px;  text-align: center;">
+                            </div>  
+                        </div>
+                        <div class="row">
+                            <input class="form-control" type="text" name="sdt" placeholder="Số điện thoại" style="border: 1px solid black;margin-left: 15px; margin-top: 15px;margin-right:15px; text-align: center;">
+                        </div>        
                     </div>
-                    <div class="row">
-                        <input class="form-control" type="text" placeholder="Số điện thoại" style="border: 1px solid black;margin-left: 15px; margin-top: 15px;margin-right:15px; text-align: center;">
-                    </div>        
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <div class="row">
-                        <div class="input-group">
-                            <div class="input-group-prepend col-5 col-sm-5 col-md-4 col-lg-3 col-xl-2">
-                                <span class="input-group-text" style="margin: 25px 0px; border:1px solid black">Ngày Lập thẻ</span>
+                <div class="row">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="row">
+                            <div class="input-group">
+                                <div class="input-group-prepend col-5 col-sm-5 col-md-4 col-lg-3 col-xl-2">
+                                    <span class="input-group-text" style="margin: 25px 0px; border:1px solid black">Ngày Lập thẻ</span>
+                                </div>
+                                <div class="input-group-prepend col-7 col-sm-7 col-md-8 col-lg-9 col-xl-10">
+                                    <input type="date" id="birthday" name="ngaylap" style="margin: 25px 30px;border:1px solid black; width: 100%;">
+                                </div>
                             </div>
-                            <div class="input-group-prepend col-7 col-sm-7 col-md-8 col-lg-9 col-xl-10">
-                                <input type="date" id="birthday" name="birthday" style="margin: 25px 30px;border:1px solid black; width: 100%;">
-                            </div>
-                        </div>
+                        </div> 
                     </div> 
-                </div> 
-                
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <div class="form-group" style="margin-right:5px">
-                    <label for=""></label>
-                    <input type="email" class="form-control" name="" id="" 
-                    aria-describedby="emailHelpId" placeholder="Email" style="border: 1px solid black; text-align: center;">
+                    
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="form-group" style="margin-right:5px">
+                        <label for=""></label>
+                        <input type="email" class="form-control" name="email" id="" 
+                        aria-describedby="emailHelpId" placeholder="Email" style="border: 1px solid black; text-align: center;">
+                        </div>
                     </div>
+                    
+                    
+                        
                 </div>
-                
-                
-                    
-            </div>
-            <div class="row" >
-                <input class="form-control" type="text" placeholder="Địa chỉ" style="border: 1px solid black;margin-left: 15px; margin-top: 5px;margin-right:20px; text-align: center;">
-            </div>  
-            <div class="row" style="margin-top:25px; " >
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" >  
-                    <input class="form-control" type="text" placeholder="Số tiền đặt cọc (Ghi bằng chữ)" style="border: 1px solid black;">
+                <div class="row" >
+                    <input class="form-control" type="text" name="diachi" placeholder="Địa chỉ" style="border: 1px solid black;margin-left: 15px; margin-top: 5px;margin-right:20px; text-align: center;">
                 </div>  
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <input class="form-control" type="text" placeholder="Người lập" style="border: 1px solid black; width:99%">
-                </div>  
-            </div>
-            <div class="row" style="margin-top:25px; " >
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" >  
-                    
-                    <button type="button" class="btn btn-secondary btn-lg btn-block">Đồng Ý</button>
-                </div>  
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    
-                    <button type="button" class="btn btn-secondary btn-lg btn-block">Hủy</button>
-                </div>  
-            </div>
+                <div class="row" style="margin-top:25px; " >
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" >  
+                        <input class="form-control" type="text" name="sotiendatcoc" placeholder="Số tiền đặt cọc (Ghi bằng chữ)" style="border: 1px solid black;">
+                    </div>  
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <input class="form-control" type="text" name="nguoilap" placeholder="Người lập" style="border: 1px solid black; width:99%">
+                    </div>  
+                </div>
+                <div class="row" style="margin-top:25px; " >
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" >  
+                        
+                        <button type="submit"   class="btn btn-secondary btn-lg btn-block">Đồng Ý</button>
+                    </div>  
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="window.location.href='/Staff'">Hủy</button>
+                    </div>  
+                </div>
+            </form>
             <div class="row" style="margin-top:50px; " >
                 <footer id="Footer">
                     <div class="container mt-3">

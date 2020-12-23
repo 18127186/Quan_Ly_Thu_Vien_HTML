@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Account_staff.init({
     hoten: DataTypes.STRING,
-    ngaysinh: DataTypes.DATE,
+    ngaysinh: DataTypes.STRING,
     cmnd: DataTypes.STRING,
     gioitinh: DataTypes.STRING,
     dantoc: DataTypes.STRING,

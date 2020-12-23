@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       ngaynhap: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       image: {
         type: Sequelize.STRING

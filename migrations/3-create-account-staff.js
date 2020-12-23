@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       ngaysinh: {
-        type: Sequelize.DATE
+        type: Sequelize.STRING
       },
       cmnd: {
         type: Sequelize.STRING

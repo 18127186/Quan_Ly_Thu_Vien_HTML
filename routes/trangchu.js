@@ -1313,7 +1313,7 @@ app.get('/', (req, res) => {
             }
         ],
     }
-
+    res.locals.header = "Đăng nhập"
     res.render('index', context);
 })
 
