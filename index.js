@@ -97,7 +97,7 @@ app.post('/Staff', function (req, res) {
 
             res.locals.header = 'Xin chào Boss '
             tenaccount = 'Boss'
-
+            res.locals.style = 'admin.css'
             res.render('admin')
         }
     })
@@ -245,7 +245,7 @@ app.get('/DeleteAccount/:id', function (req, res) {
 })
 
 //////////////////////////////////////// Phần Admin: Tanthai
-//Phần xử lý đký staff (Nhân viên)
+//Phần xử lý đký staff (Nhân viên) ==>Xong
 //Insert Nhân viên
 
 app.get('/signMember', (req, res) => {
@@ -266,32 +266,153 @@ app.get('/signMember', (req, res) => {
         image: '/' + req.query.ima,
     }
     models.Account_staff.create(userStaff);
-    res.locals.header = tenaccount;
+    res.locals.header = 'Xin chào Boss '
+    tenaccount = 'Boss'
     res.render('admin');
 })
 
-//Phần xử lý quanlynhanvien
+//phần xử lý quanlynhanvien
+//With database
 app.get('/quanlynhanvien',(req,res)=>{
     var context={
         style: 'quanlynhanvien.css',
+        nhanvienAll:[],
     }
-    res.render('quanlynhanvien',context);
+    models.Account_staff.findAll().then((nv) => {
+        for (let i = 0; i < nv.length; i++) {
+            let nv1 = {
+                stt:i+1,
+                id:nv[i].id,
+                hoten: nv[i].hoten,
+                ngaysinh: nv[i].ngaysinh,
+                cmnd: nv[i].cmnd,
+                gioitinh: nv[i].gioitinh,
+                dantoc: nv[i].dantoc,
+                ngaylap: nv[i].ngaylap,
+                sdt: nv[i].sdt,
+                email:nv[i].email,
+                diachi:nv[i].diachi,
+                image:nv[i].image,
+            }
+            context.nhanvienAll.push(nv1);
+        }
+        res.locals.header = 'Xin chào Boss '
+        tenaccount = 'Boss'
+        res.render('quanlynhanvien',context);
+    }).catch((error) => {
+        res.json(error);
+    })
+    
 })
 
+//With editStaff ==>Xong
+app.get('/editStaff',(req,res)=>{
+    models.Account_staff.update({
+        hoten: req.query.ehVTen,
+        ngaysinh: req.query.engaySinh,
+        cmnd: req.query.esoCMND,
+        gioitinh: req.query.egTinh,
+        dantoc: req.query.edToc,
+        sdt: req.query.esdThoai,
+        email: req.query.eeMail,
+        diachi: req.query.ediaChi,
+        image: '/' + req.query.eima,
+    },{
+        where: {id:req.query.soID}
+    })
+    .then(()=>{
+        res.redirect('/quanlynhanvien');
+    }).catch((error) => {
+        res.json(error);
+    })
+
+})
+//
 //Phần xử lý quanlydocgia
 app.get('/quanlydocgia',(req,res)=>{
     var context={
         style:'quanlydocgia.css',
+        readerAll:[],
     }
-    res.render('quanlydocgia',context);
+    models.Account.findAll().then((nv) => {
+        for (let i = 0; i < nv.length; i++) {
+            let dateBirth=nv[i].ngaylap.split("-");
+            let nv1 = {
+                stt:i+1,
+                hoten: nv[i].hoten,
+                ngaysinh: nv[i].ngaysinh,
+                cmnd: nv[i].cmnd,
+                gioitinh: nv[i].gioitinh,
+                dantoc: nv[i].dantoc,
+                ngaylap: dateBirth[2]+'/'+dateBirth[1]+'/'+dateBirth[0],
+                sdt: nv[i].sdt,
+                email:nv[i].email,
+                diachi:nv[i].diachi,
+                image:nv[i].image,
+            }
+            context.readerAll.push(nv1);
+        }
+        res.locals.header = 'Xin chào Boss '
+        tenaccount = 'Boss'
+        res.render('quanlydocgia',context);
+    }).catch((error) => {
+        res.json(error);
+    })
+    
 })
 //Phần xử lý quanlysach
+//With database
 app.get('/quanlysach',(req,res)=>{
     var context={
         style:'quanlysach.css',
+        bookAll:[]
     }
-    res.render('quanlysach',context);
+    models.Book.findAll().then((books) => {
+        for (let i = 0; i < books.length; i++) {
+            let book = {
+                id:books[i].id,
+                stt:i+1,
+                tensach: books[i].tensach,
+                tentacgia: books[i].tentacgia,
+                theloai: books[i].theloai,
+                soluong: books[i].soluong,
+                ngaynhap: books[i].ngaynhap,
+                image: books[i].image,
+                mota: books[i].mota,
+            }
+            context.bookAll.push(book);
+        }
+        res.locals.header = 'Xin chào Boss '
+        tenaccount = 'Boss'
+        res.render('quanlysach',context);
+    }).catch((error) => {
+        res.json(error);
+    })
+
 })
+//With editBook
+app.get('/editBook',(req,res)=>{
+    let temp=req.query.eimabook;
+    models.Book.update({
+        tensach: req.query.etenSach,
+        tentacgia: req.query.etenTacGia,
+        theloai: req.query.etLoai,
+        soluong: req.query.esoLuong,
+        ngaynhap: req.query.engayNhap,
+        mota: req.query.emoTaSach,
+        image: '/' + req.query.eimabook,
+    },{
+        where: {id:req.query.soIDBook}
+    })
+    .then(()=>{
+        console.log(temp);
+        res.redirect('/quanlysach');
+    }).catch((error) => {
+        res.json(error);
+    })
+})
+
+
 //Phần xử lý thongke
 app.get('/thongke',(req,res)=>{
     var context={

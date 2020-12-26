@@ -34,66 +34,18 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            {{#each readerAll}}
                             <tr>
-                                <th>1</th>
-                                <td>Nguyễn Văn An</td>
-                                <td>20/10/2019</td>
+                                <th>{{stt}}</th>
+                                <td>{{hoten}}</td>
+                                <td>{{ngaylap}}</td>
                                 <td>
                                     <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
                                     <a class="btn btn-danger " href="edit.html">Xóa</a>
+                                    <a class="btn btn-danger " href="edit.html">Chi tiết</a>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <th>2</th>
-                                <td>Lê Văn Bình</td>
-                                <td>20/10/2019</td>
-                                <td>
-                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th>3</th>
-                                <td>Trần Văn Công</td>
-                                <td>20/10/2019</td>
-                                <td>
-                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th>4</th>
-                                <td>Nguyễn Văn An</td>
-                                <td>20/10/2019</td>
-                                <td>
-                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th>5</th>
-                                <td>Lê Văn Bình</td>
-                                <td>20/10/2019</td>
-                                <td>
-                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th>6</th>
-                                <td>Trần Văn Công</td>
-                                <td>20/10/2019</td>
-                                <td>
-                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                </td>
-                            </tr>
+                            {{/each}}
                         </tbody>
                         </table>
                 </div>

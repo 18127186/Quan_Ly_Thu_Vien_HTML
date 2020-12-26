@@ -35,66 +35,18 @@
                             </tr>
                         </thead>
                         <tbody>
-
+                            {{#each nhanvienAll}}
                             <tr>
-                                <th>1</th>
-                                <td>Nguyễn Văn An</td>
+                                <th>{{stt}}</th>
+                                <td>{{hoten}}</td>
                                 <td>Thủ thư</td>
                                 <td>
-                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#chinhSuaNhanVien{{stt}}">Edit</button>
                                     <a class="btn btn-danger " href="edit.html">Xóa</a>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#chiTietNhanVien{{stt}}">Detail</button>
                                 </td>
                             </tr>
-
-                            <tr>
-                                <th>2</th>
-                                <td>Lê Văn Bình</td>
-                                <td>Thủ thư</td>
-                                <td>
-                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th>3</th>
-                                <td>Trần Văn Công</td>
-                                <td>Thủ thư</td>
-                                <td>
-                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th>4</th>
-                                <td>Nguyễn Văn An</td>
-                                <td>Thủ thư</td>
-                                <td>
-                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th>5</th>
-                                <td>Lê Văn Bình</td>
-                                <td>Thủ thư</td>
-                                <td>
-                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <th>6</th>
-                                <td>Trần Văn Công</td>
-                                <td>Thủ thư</td>
-                                <td>
-                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                </td>
-                            </tr>
+                            {{/each}}
                         </tbody>
                         </table>
                 </div>
@@ -103,7 +55,6 @@
     </section>
     <!--End Main -->
 <!--Đăng ký Thành Viên-->
-
     <div class="modal fade" id="DkyThanhVien" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -161,7 +112,7 @@
                     <label for="anh" class="col-3 labelName">Chọn ảnh</label>
                     <div class="col-8">
                         <img id="anh" alt="your image" width="100px" height="100px" />
-                        <input type="file"  name='ima' onchange="document.getElementById('anh').src = window.URL.createObjectURL(this.files[0])">
+                        <input type="file"  name='ima' onchange="document.getElementById('anh').src = window.URL.createObjectURL(this.files[0])" required>
                     </div>
                 </div>
 
@@ -176,3 +127,146 @@
     </div>
     </div>
 <!--End Đăng ký Thành Viên-->
+
+<!--Chi tiết Thành Viên-->
+    {{#each nhanvienAll}}
+    <div class="modal fade" id="chiTietNhanVien{{stt}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Thông tin thành viên</h5>
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+            <form class="formDkyTV">
+                <div class="form-group row">
+                    <img id="anh" class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">  
+                </div>  
+                <div class="form-group row">
+                    <label for="hVTen" class="col-3 labelName">Họ và tên</label>
+                    <input type="text" class="form-control col-8" name="hVTen" id="hVTen" placeholder="{{hoten}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="gTinh" class="col-3 labelName">Giới tính</label>
+                    <input type="text" class="form-control col-8" name="gTinh" id="gTinh" placeholder="{{gioitinh}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="soCMND" class="col-3 labelName">Số CMND</label>
+                    <input type="text" class="form-control col-8" id="soCMND" name="soCMND"placeholder="{{cmnd}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="sdThoai" class="col-3 labelName">Số điện thoại</label>
+                    <input type="text" class="form-control col-8" id="sdThoai" name="sdThoai" placeholder="{{sdt}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="dToc" class="col-3 labelName">Dân tộc</label>
+                    <input type="text" class="form-control col-8" id="dToc" name="dToc" placeholder="{{dantoc}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="ngaySinh" class="col-3 labelName">Ngày sinh</label>
+                    <input class="form-control col-8" type="text" id="ngaySinh" name="ngaySinh" placeholder="{{ngaysinh}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="eMail" class="col-3 labelName">Email</label>
+                    <input type="email" class="form-control col-8" id="eMail" name="eMail" placeholder="{{email}}" readonly>
+                </div>
+                <div class="form-group row">
+                    <label for="eMail" class="col-3 labelName">Ngày lập</label>
+                    <input type="email" class="form-control col-8" id="eMail" name="eMail" placeholder="{{ngaylap}}" readonly>
+                </div>
+                <div class="form-group row">
+                    <label for="diaChi" class="col-3 labelName">Địa chỉ</label>
+                    <textarea class="form-control col-8" id="diaChi" name="diaChi" rows="5" placeholder="{{diachi}}" readonly></textarea>
+                </div>
+            </form>
+        </div>
+
+        </div>
+    </div>
+    </div>
+    {{/each}}
+<!--End Chi tiết Thành Viên-->
+
+<!--Chỉnh sửa Thành Viên-->
+    {{#each nhanvienAll}}
+    <div class="modal fade" id="chinhSuaNhanVien{{stt}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Chỉnh sửa thành viên</h5>
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        </div>
+
+        <div class="modal-body">
+            <form class="formDkyTV" action="http://localhost:5000/editStaff" method="GET">
+                <input type="hidden" id="{{id}}" name="soID" value="{{id}}">
+                <div class="form-group row">
+                    <label for="hVTen" class="col-3 labelName">Họ và tên</label>
+                    <input type="text" class="form-control col-8" name="ehVTen" id="ehVTen" value="{{hoten}}">
+                </div>
+
+                <div class="form-group row">
+                    <label for="gTinh" class="col-3 labelName">Giới tính</label>
+                    <select id="egTinh" name="egTinh" class="form-control col-8"  >
+                        <option disabled selected hidden>{{gioitinh}}</option>
+                        <option>Nam</option>
+                        <option>Nữ</option>
+                    </select>
+                </div>
+
+                <div class="form-group row">
+                    <label for="soCMND" class="col-3 labelName">Số CMND</label>
+                    <input type="text" class="form-control col-8" id="esoCMND" name="esoCMND" value="{{cmnd}}" >
+                </div>
+
+                <div class="form-group row">
+                    <label for="sdThoai" class="col-3 labelName">Số điện thoại</label>
+                    <input type="text" class="form-control col-8" id="esdThoai" name="esdThoai" value="{{sdt}}" >
+                </div>
+
+                <div class="form-group row">
+                    <label for="dToc" class="col-3 labelName">Dân tộc</label>
+                    <input type="text" class="form-control col-8" id="edToc" name="edToc" value="{{dantoc}}" >
+                </div>
+
+                <div class="form-group row">
+                    <label for="ngaySinh" class="col-3 labelName">Ngày sinh</label>
+                    <input class="form-control col-8" type="text" id="engaySinh" name="engaySinh" value="{{ngaysinh}}">
+                </div>
+
+                <div class="form-group row">
+                    <label for="eMail" class="col-3 labelName">Email</label>
+                    <input type="email" class="form-control col-8" id="eeMail" name="eeMail" value="{{email}}">
+                </div>
+
+                <div class="form-group row">
+                    <label for="diaChi" class="col-3 labelName">Địa chỉ</label>
+                    <textarea class="form-control col-8" id="ediaChi" name="ediaChi" rows="5">{{diachi}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="anh" class="col-3 labelName">Chọn ảnh</label>
+                    <div class="col-8">
+                        <img id="anh{{id}}" alt="your image" width="100px" height="100px" src="{{image}}"/>
+                        <input type="file"  name='eima' value="{{image}} onchange="document.getElementById('anh{{id}}').src = window.URL.createObjectURL(this.files[0])">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary float-right">Đồng ý</button>
+                
+            </form>
+
+
+        </div>
+
+        </div>
+    </div>
+    </div>
+    {{/each}}
+<!--End Chỉnh sửa Thành Viên-->
