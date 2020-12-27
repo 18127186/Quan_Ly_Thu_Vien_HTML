@@ -140,9 +140,14 @@ app.get('/XoaSach', function (req, res) {
         for (i = 0; i < books.length; i++) {
             var book = {
                 id: i + 1,
+                idDB: books[i].id,
                 tensach: books[i].tensach,
                 theloai: books[i].theloai,
-                tentacgia: books[i].tentacgia
+                tentacgia: books[i].tentacgia,
+                soluong: books[i].soluong,
+                ngaynhap: books[i].ngaynhap,
+                image: books[i].image,
+                mota: books[i].mota,
             }
             data.push(book)
         }
@@ -154,10 +159,41 @@ app.get('/XoaSach', function (req, res) {
     })
 
 })
-
+//chua co image
+app.get('/editBookInStaffPage',(req,res)=>{ 
+    let temp=req.query.eimabook;
+    models.Book.update({
+        tensach: req.query.tensach,
+        tentacgia: req.query.tentacgia,
+        theloai: req.query.theloai,
+        soluong: req.query.soluong,
+        ngaynhap: req.query.ngaynhap,
+        mota: req.query.mota,
+        image: '/' + req.query.eimabook,
+    },{
+        where: {id:req.query.id}
+    })
+    .then(()=>{
+        console.log(temp);
+        res.redirect('/XoaSach');
+    }).catch((error) => {
+        res.json(error);
+    })
+})
+app.get('/XoaSach/:id', function (req, res) {
+    models.Book.destroy({
+        where: { id: req.params.id }
+    })
+        .then(function () {
+            res.redirect("/XoaSach")
+        }).catch(function (error) {
+            res.json(error);
+        })
+})
 app.get('/Sign_up_ThanhVien', function (req, res) {
     res.sendFile(__dirname + "/Sign_up_ThanhVien.html")
 })
+//chua co image
 app.post('/Sign_up_ThanhVien', function (req, res) {
     var userStaff = {
         hoten: req.body.hoten,
@@ -198,6 +234,7 @@ app.post('/NhapSach', function (req, res) {
     res.render('Staff', userLogin)
 
 })
+//chua co image
 app.get('/XoaAccount/:id', function (req, res) {
 
     for (i = 0; i < allAcount.length; i++) {
@@ -210,6 +247,7 @@ app.get('/XoaAccount/:id', function (req, res) {
     res.render('XoaAccount', accountEdit)
 
 })
+//chua co image
 app.post('/ChangeAccount', function (req, res) {
     models.Account.update({
         hoten: req.body.hotenchange,
@@ -243,7 +281,12 @@ app.get('/DeleteAccount/:id', function (req, res) {
             res.json(error);
         })
 })
-
+app.get('/DangKyMuonSach',function(req,res){
+    
+    res.locals.style = 'TableScroll.css'
+    res.locals.header = tenaccount
+    res.render("DangKyMuonSach")
+})
 //////////////////////////////////////// Phần Admin: Tanthai
 //Phần xử lý đký staff (Nhân viên) ==>Xong
 //Insert Nhân viên

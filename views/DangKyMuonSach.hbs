@@ -1,0 +1,108 @@
+ <section id="mainAdmin">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-5">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p><i class="fas fa-bars"></i>Tùy chọn</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href="/Staff" >Thông tin chi tiết</a> </li>
+                                <li class="list-group-item"><a href="/Sign_up_ThanhVien" >Đăng ký Thành viên</a> </li>
+                                <li class="list-group-item"><a href="/NhapSach">Nhập sách</a> </li>
+                                <li class="list-group-item"><a href="/XoaSach">Chỉnh sửa sách</a> </li>
+                                <li class="list-group-item"><a href="/Account">Chỉnh sửa độc giả</a> </li>
+                                <li class="list-group-item"><a href="/DangKyMuonSach" style="color: Black;">Đăng ký mượn sách</a> </li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+
+
+                <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+                    <div class="mucTongQuan">
+                        <h3>Danh sách sách</h3>
+                    </div>
+                    <div class="row quanLyHienThiThongTin">
+                        <form class="form-inline ">
+                            <input class="form-control formSearch" type="text" placeholder="Nhập nội dung cần tìm" style="padding-right: 60px;">
+                            <button class="btn btn-outline-success " type="submit" style="margin-left: 37px;">Tìm kiếm</button>
+                        </form>
+                        <button type="button" class="btn btn-outline-success ml-auto" data-toggle="modal" data-target="#DkyS" style="margin-left: auto;margin-right: 50px;">Đăng ký sách</button>
+                    </div>
+                    
+                     <div class="wrap">
+                        <table class="head">
+                            <tbody>
+                            <tr>
+                                <th style=" width: 15%">Số thứ tự</th>
+                                <th style="width:30%">Tên Sách</th>
+                                <th style="">CMND Độc giả</th>
+                                <th style="">Tùy chỉnh</th>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="scroll-table">
+                            <table class="table bangNhanVien">
+                                <tbody>
+                                    {{#each data}}
+                                        <tr>
+                                        <th style=" width: 14%">{{id}}</th>
+                                        <td>{{hoten}}</td>
+                                        <td>{{ngaylap}}</td>
+                                        <td>
+                                                <a class="btn btn-danger" href="/XoaAccount/{{id}}" >Chỉnh sửa</a>
+                                                <a class="btn btn-danger " href="/DeleteAccount/{{idDB}}" style="padding: 6px 30px;">   Xóa   </a>
+                                            
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Đăng ký Thành Viên-->
+<div class="modal fade" id="DkyS" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title">Đăng ký sách</h5>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <div class="modal-body">
+        <form class="formDkyTV">
+            <div class="form-group row">
+                <label for="hVTen" class="col-3 labelName">ID sách</label>
+                <input type="text" class="form-control col-8" id="hVTen" placeholder="Nguyễn A" required>
+            </div>
+
+
+            <div class="form-group row">
+                <label for="soCMND" class="col-3 labelName">Tên sách</label>
+                <input type="text" class="form-control col-8" id="soCMND" placeholder="123456789" required>
+            </div>
+
+            <div class="form-group row">
+                <label for="sdThoai" class="col-3 labelName">CMND Độc gỉa</label>
+                <input type="text" class="form-control col-8" id="sdThoai" placeholder="0123456789" required>
+            </div>
+
+            <div class="form-group row">
+                <label for="dToc" class="col-3 labelName">Tên độc giả</label>
+                <input type="text" class="form-control col-8" id="dToc" placeholder="Kinh" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary float-right">Đăng ký</button>
+            
+        </form>
+    </div>
+    </div>
+</div>
+</div>
+    </section>
