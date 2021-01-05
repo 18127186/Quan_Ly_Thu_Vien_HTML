@@ -1,135 +1,70 @@
     <!--Start Main -->
-    <section id="mainAdmin">
-        <div class="container">
-            <div class="row">
-                <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                    <div class="list-group">
-                        <p href="#" class="list-group-item list-group-item-action listBang" style="background-color:#f94f2e; color: white;"><i class="fas fa-home"></i>  Bảng điều khiển</p>
-                        <button type="button" class="list-group-item list-group-item-action listBang" data-toggle="modal" data-target="#DkyThanhVien"><i class="fas fa-user-plus"></i>  Đăng ký thành viên</button>
-                        <a href="/quanlynhanvien" class="list-group-item list-group-item-action listBang "><i class="fas fa-user"></i>   Quản lý nhân viên</a>
-                        <a href="/quanlydocgia" class="list-group-item list-group-item-action listBang "><i class="fas fa-user"></i>  Quản lý độc giả</a>
-                        <a href="/quanlysach" class="list-group-item list-group-item-action listBang "><i class="fas fa-book"></i>  Quản lý sách</a>
-                        <a href="/thongke" class="list-group-item list-group-item-action listBang "><i class="fas fa-coins"></i> Thống kê </a>
-                    </div>
-                </div>
+<div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+    <div class="mucTongQuan">
+        <h3>Danh sách sách</h3>
+    </div>
+    <div class="row quanLyHienThiThongTin">
+        <form class="form-inline mx-auto">
+            <input class="form-control formSearch" type="text" placeholder="Nhập nội dung cần tìm" style="padding-right: 60px;">
+            <button class="btn btn-outline-success " type="submit" style="margin-left: 37px;">Tìm kiếm</button>
+        </form>
+    </div>
+    <div class="row TimtheoTheLoai">
+        <form class="form-inline ml-auto " action="http://localhost:5000/showListBook" method="GET">
+            <select id="suLuaChon"  name="suLuaChon">
+                <option>Thể loại</option>
+                <option >Tử vi - Phong Thủy</option>
+                <option >Văn Học</option>
+                <option>Tiểu Thuyết</option>
+                <option >Kinh Tế</option>
+                <option >Xã Hội</option>
+                <option >Chính Trị</option>
+                <option >Lịch Sử</option>
+                <option >Khoa Học</option>
+            </select>
+            <button class="btn btn-outline-success " type="submit" style="margin-left: 37px;">Tìm kiếm</button>
+        </form>
 
-                <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
-                    <div class="mucTongQuan">
-                        <h3>Danh sách sách</h3>
-                    </div>
-                    <div class="row quanLyHienThiThongTin">
-                        <form class="form-inline mx-auto">
-                            <input class="form-control formSearch" type="text" placeholder="Nhập nội dung cần tìm" style="padding-right: 60px;">
-                            <button class="btn btn-outline-success " type="submit" style="margin-left: 37px;">Tìm kiếm</button>
-                        </form>
-                    </div>
-                    
-                    <table class="table bangNhanVien">
-                        <thead>
-                            <tr>
-                                <th>Tên sách</th>
-                                <th>Tác giả</th>
-                                <th>Thể loại</th>
-                                <th>Tùy chỉnh</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{#each bookAll}}
-                            <tr>
-                                <td>{{tensach}}</td>
-                                <td>{{tentacgia}}</td>
-                                <td>{{theloai}}</td>
 
-                                <td>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#chinhSuaSach{{stt}}">Edit</button>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#chiTietSach{{stt}}">Detail</button>
-                                </td>
-                            </tr>
-                            {{/each}}
+    </div>
+    <table class="table bangNhanVien">
+        <thead>
+            <tr>
+                <th>Tên sách</th>
+                <th>Tác giả</th>
+                <th>Thể loại</th>
+                <th>Tùy chỉnh</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each bookAll}}
+            <tr>
+                <td>{{tensach}}</td>
+                <td>{{tentacgia}}</td>
+                <td>{{theloai}}</td>
 
-                        </tbody>
-                        </table>
-                </div>
-            </div>
+                <td>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#chinhSuaSach{{stt}}">Edit</button>
+                    <a class="btn btn-danger " href="edit.html">Xóa</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#chiTietSach{{stt}}">Detail</button>
+                </td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+        </table>
+            <!--Phân trang 
+        <div class="phanTrang">
+            <ul style="list-style: none;">
+                <li style="display: inline-block;"><a href="/1">1</a></li>
+                <li style="display: inline-block;"><a href="/2">2</a></li>
+                <li style="display: inline-block;" ><a href="/3">3</a></li>
+                <li style="display: inline-block;"><a href="/4">4</a></li>
+            </ul>
         </div>
-    </section>
+        -->
+</div>
     <!--End Main -->
-
-<!--Đăng ký Thành Viên-->
-
-    <div class="modal fade" id="DkyThanhVien" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title">Đăng ký thành viên</h5>
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-        </div>
-        
-        <div class="modal-body">
-            <form class="formDkyTV" action="http://localhost:5000/signMember" method="GET">
-                <div class="form-group row">
-                    <label for="hVTen" class="col-3 labelName">Họ và tên</label>
-                    <input type="text" class="form-control col-8" name="hVTen" id="hVTen" placeholder="Nguyễn A" required>
-                </div>
-
-                <div class="form-group row">
-                    <label for="gTinh" class="col-3 labelName">Giới tính</label>
-                    <select id="gTinh" name="gTinh" class="form-control col-8" required>
-                        <option>Nam</option>
-                        <option>Nữ</option>
-                    </select>
-                </div>
-
-                <div class="form-group row">
-                    <label for="soCMND" class="col-3 labelName">Số CMND</label>
-                    <input type="text" class="form-control col-8" id="soCMND" name="soCMND"placeholder="123456789" required>
-                </div>
-
-                <div class="form-group row">
-                    <label for="sdThoai" class="col-3 labelName">Số điện thoại</label>
-                    <input type="text" class="form-control col-8" id="sdThoai" name="sdThoai" placeholder="0123456789" required>
-                </div>
-
-                <div class="form-group row">
-                    <label for="dToc" class="col-3 labelName">Dân tộc</label>
-                    <input type="text" class="form-control col-8" id="dToc" name="dToc" placeholder="Kinh" required>
-                </div>
-
-                <div class="form-group row">
-                    <label for="ngaySinh" class="col-3 labelName">Ngày sinh</label>
-                    <input class="form-control col-8" type="date" id="ngaySinh" name="ngaySinh" required>
-                </div>
-
-                <div class="form-group row">
-                    <label for="eMail" class="col-3 labelName">Email</label>
-                    <input type="email" class="form-control col-8" id="eMail" name="eMail" placeholder="abc@gmail.com" required>
-                </div>
-
-                <div class="form-group row">
-                    <label for="diaChi" class="col-3 labelName">Địa chỉ</label>
-                    <textarea class="form-control col-8" id="diaChi" name="diaChi" rows="5" placeholder="Địa chỉ" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="anh" class="col-3 labelName">Chọn ảnh</label>
-                    <div class="col-8">
-                        <img id="anh" alt="your image" width="100px" height="100px" />
-                        <input type="file"  name='ima' onchange="document.getElementById('anh').src = window.URL.createObjectURL(this.files[0])">
-                    </div>
-                </div>
-
-                <button type="submit" class="btn btn-primary float-right">Đăng ký</button>
-                
-            </form>
-
-
-        </div>
-
-        </div>
-    </div>
-    </div>
-<!--End Đăng ký Thành Viên-->
 
 
 <!--Chỉnh sửa sách-->

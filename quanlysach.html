@@ -51,7 +51,22 @@
                             <button class="btn btn-outline-success " type="submit" style="margin-left: 37px;">Tìm kiếm</button>
                         </form>
                     </div>
-                    
+                    <div class="row TimtheoTheLoai">
+                        <div class="form-inline mx-auto " action="http://localhost:5000/editBook" method="GET">
+                            <select id="luachon" >
+                                <option name="suLuaChon" value="0" selected>Thể loại</option>
+                                <option name="suLuaChon" value="1">Tử vi - Phong thủy</option>
+                                <option name="suLuaChon" value="2">Văn học</option>
+                                <option name="suLuaChon" value="3">Tiểu thuyết</option>
+                                <option name="suLuaChon" value="4">Kinh tế</option>
+                                <option name="suLuaChon" value="5">Xã hội</option>
+                                <option name="suLuaChon" value="6">Chính trị</option>
+                                <option name="suLuaChon" value="7">Lịch sử</option>
+                                <option name="suLuaChon" value="8">Khoa học</option>
+                            </select>
+                            <button class="btn btn-outline-success " type="submit" style="margin-left: 37px;">Tìm kiếm</button>
+                        </div>
+                    </div>
                     <table class="table bangNhanVien">
                         <thead>
                             <tr>
@@ -123,7 +138,16 @@
                                 </td>
                             </tr>
                         </tbody>
-                        </table>
+                    </table>
+                    <div class="phanTrang">
+                        <ul style="list-style: none;">
+                            <li style="display: inline-block;"><a href="/1">1</a></li>
+                            <li style="display: inline-block;"><a href="/2">2</a></li>
+                            <li style="display: inline-block;" ><a href="/3">3</a></li>
+                            <li style="display: inline-block;"><a href="/4">4</a></li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </div>

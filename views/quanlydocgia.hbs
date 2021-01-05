@@ -1,123 +1,202 @@
     <!--Start Main -->
-    <section id="mainAdmin">
-        <div class="container">
-            <div class="row">
-                <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                    <div class="list-group">
-                        <p href="#" class="list-group-item list-group-item-action listBang" style="background-color:#f94f2e; color: white;"><i class="fas fa-home"></i>  Bảng điều khiển</p>
-                        <button type="button" class="list-group-item list-group-item-action listBang" data-toggle="modal" data-target="#DkyThanhVien"><i class="fas fa-user-plus"></i>  Đăng ký thành viên</button>
-                        <a href="/quanlynhanvien" class="list-group-item list-group-item-action listBang "><i class="fas fa-user"></i>   Quản lý nhân viên</a>
-                        <a href="/quanlydocgia" class="list-group-item list-group-item-action listBang "><i class="fas fa-user"></i>  Quản lý độc giả</a>
-                        <a href="/quanlysach" class="list-group-item list-group-item-action listBang "><i class="fas fa-book"></i>  Quản lý sách</a>
-                        <a href="/thongke" class="list-group-item list-group-item-action listBang "><i class="fas fa-coins"></i> Thống kê </a>
-                    </div>
-                </div>
-
-                <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
-                    <div class="mucTongQuan">
-                        <h3>Danh sách độc giả</h3>
-                    </div>
-                    <div class="row quanLyHienThiThongTin">
-                        <form class="form-inline mx-auto">
-                            <input class="form-control formSearch" type="text" placeholder="Nhập nội dung cần tìm" style="padding-right: 60px;">
-                            <button class="btn btn-outline-success " type="submit" style="margin-left: 37px;">Tìm kiếm</button>
-                        </form>
-                    </div>
-                    
-                    <table class="table bangNhanVien">
-                        <thead>
-                            <tr>
-                                <th>Số thứ tự</th>
-                                <th>Họ và tên</th>
-                                <th>Ngày đăng ký</th>
-                                <th>Tùy chỉnh</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{#each readerAll}}
-                            <tr>
-                                <th>{{stt}}</th>
-                                <td>{{hoten}}</td>
-                                <td>{{ngaylap}}</td>
-                                <td>
-                                    <a class="btn btn-danger " href="edit.html">Chỉnh sửa</a>
-                                    <a class="btn btn-danger " href="edit.html">Xóa</a>
-                                    <a class="btn btn-danger " href="edit.html">Chi tiết</a>
-                                </td>
-                            </tr>
-                            {{/each}}
-                        </tbody>
-                        </table>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+    <div class="mucTongQuan">
+        <h3>Danh sách độc giả</h3>
+    </div>
+    <div class="row quanLyHienThiThongTin">
+        <form class="form-inline mx-auto">
+            <input class="form-control formSearch" type="text" placeholder="Nhập nội dung cần tìm" style="padding-right: 60px;">
+            <button class="btn btn-outline-success " type="submit" style="margin-left: 37px;">Tìm kiếm</button>
+        </form>
+    </div>
+    
+    <table class="table bangNhanVien">
+        <thead>
+            <tr>
+                <th>Số thứ tự</th>
+                <th>Họ và tên</th>
+                <th>Ngày đăng ký</th>
+                <th>Tùy chỉnh</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each readerAll}}
+            <tr>
+                <th>{{stt}}</th>
+                <td>{{hoten}}</td>
+                <td>{{ngaylap}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#chinhSuaReader{{stt}}">Chỉnh sửa</button>
+                    <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#xoaReader{{stt}}" >Xóa</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#chiTietReader{{stt}}">Chi tiết</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+        </table>
+</div>
     <!--End Main -->
 
-<!--Đăng ký Thành Viên-->
 
-    <div class="modal fade" id="DkyThanhVien" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--Chi tiết Reader-->
+    {{#each readerAll}}
+    <div class="modal fade" id="chiTietReader{{stt}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title">Đăng ký thành viên</h5>
+            <h5 class="modal-title">Thông tin Độc giả</h5>
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
         </div>
-        
         <div class="modal-body">
-            <form class="formDkyTV" action="http://localhost:5000/signMember" method="GET">
+            <form class="formDkyTV">
                 <div class="form-group row">
-                    <label for="hVTen" class="col-3 labelName">Họ và tên</label>
-                    <input type="text" class="form-control col-8" name="hVTen" id="hVTen" placeholder="Nguyễn A" required>
+                    <img id="anh" class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">  
+                </div>  
+                <div class="form-group row">
+                    <label for="hVTenReader" class="col-3 labelName">Họ và tên</label>
+                    <input type="text" class="form-control col-8" name="hVTenReader" id="hVTenReader" placeholder="{{hoten}}" readonly>
                 </div>
 
                 <div class="form-group row">
-                    <label for="gTinh" class="col-3 labelName">Giới tính</label>
-                    <select id="gTinh" name="gTinh" class="form-control col-8" required>
-                        <option>Nam</option>
-                        <option>Nữ</option>
-                    </select>
+                    <label for="ngaySinhReader" class="col-3 labelName">Ngày sinh</label>
+                    <input class="form-control col-8" type="text" id="ngaySinhReader" name="ngaySinhReader" placeholder="{{ngaysinh}}" readonly>
                 </div>
 
                 <div class="form-group row">
-                    <label for="soCMND" class="col-3 labelName">Số CMND</label>
-                    <input type="text" class="form-control col-8" id="soCMND" name="soCMND"placeholder="123456789" required>
+                    <label for="gTinhReader" class="col-3 labelName">Giới tính</label>
+                    <input type="text" class="form-control col-8" name="gTinhReader" id="gTinhReader" placeholder="{{gioitinh}}" readonly>
                 </div>
 
                 <div class="form-group row">
-                    <label for="sdThoai" class="col-3 labelName">Số điện thoại</label>
-                    <input type="text" class="form-control col-8" id="sdThoai" name="sdThoai" placeholder="0123456789" required>
+                    <label for="sdThoaiReader" class="col-3 labelName">Số điện thoại</label>
+                    <input type="text" class="form-control col-8" id="sdThoaiReader" name="sdThoaiReader" placeholder="{{sdt}}" readonly>
                 </div>
 
                 <div class="form-group row">
-                    <label for="dToc" class="col-3 labelName">Dân tộc</label>
-                    <input type="text" class="form-control col-8" id="dToc" name="dToc" placeholder="Kinh" required>
+                    <label for="soCMNDReader" class="col-3 labelName">Số CMND</label>
+                    <input type="text" class="form-control col-8" id="soCMNDReader" name="soCMNDReader" placeholder="{{cmnd}}" readonly>
                 </div>
 
                 <div class="form-group row">
-                    <label for="ngaySinh" class="col-3 labelName">Ngày sinh</label>
-                    <input class="form-control col-8" type="date" id="ngaySinh" name="ngaySinh" required>
+                    <label for="eMailReader" class="col-3 labelName">Email</label>
+                    <input type="email" class="form-control col-8" id="eMailReader" name="eMailReader" placeholder="{{email}}" readonly>
                 </div>
 
                 <div class="form-group row">
-                    <label for="eMail" class="col-3 labelName">Email</label>
-                    <input type="email" class="form-control col-8" id="eMail" name="eMail" placeholder="abc@gmail.com" required>
+                    <label for="dTocReader" class="col-3 labelName">Dân tộc</label>
+                    <input type="text" class="form-control col-8" id="dTocReader" name="dTocReader" placeholder="{{dantoc}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="nguoiLapReader" class="col-3 labelName">Người lập</label>
+                    <input type="text" class="form-control col-8" id="nguoiLapReader" name="nguoiLapReader" placeholder="{{nguoilap}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="tienDatCocReader" class="col-3 labelName">Tiền đặt cọc</label>
+                    <input type="text" class="form-control col-8" id="tienDatCocReader" name="tienDatCocReader" placeholder="{{sotiendatcoc}}" readonly>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="ngayLapReader" class="col-3 labelName">Ngày lập</label>
+                    <input type="email" class="form-control col-8" id="ngayLapReader" name="ngayLapReader" placeholder="{{ngaylap}}" readonly>
                 </div>
 
                 <div class="form-group row">
                     <label for="diaChi" class="col-3 labelName">Địa chỉ</label>
-                    <textarea class="form-control col-8" id="diaChi" name="diaChi" rows="5" placeholder="Địa chỉ" required></textarea>
+                    <textarea class="form-control col-8" id="diaChi" name="diaChi" rows="5" placeholder="{{diachi}}" readonly></textarea>
+                </div>
+
+            </form>
+        </div>
+
+        </div>
+    </div>
+    </div>
+    {{/each}}
+<!--End Chi tiết Reader-->
+
+<!--Chỉnh sửa Thành Viên-->
+    {{#each readerAll}}
+    <div class="modal fade" id="chinhSuaReader{{stt}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Chỉnh sửa Độc giả</h5>
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        </div>
+
+        <div class="modal-body">
+            <form class="formDkyTV" action="http://localhost:5000/editReader" method="GET">
+                <input type="hidden" id="{{id}}" name="soIDReader" value="{{id}}">
+
+                <div class="form-group row">
+                    <label for="ehVTenReader" class="col-3 labelName">Họ và tên</label>
+                    <input type="text" class="form-control col-8" name="ehVTenReader" id="ehVTenReader" value="{{hoten}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="engaySinhReader" class="col-3 labelName">Ngày sinh</label>
+                    <input class="form-control col-8" type="text" id="engaySinhReader" name="engaySinhReader" value="{{ngaysinh}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="egTinhReader" class="col-3 labelName">Giới tính</label>
+                    <input type="text" class="form-control col-8" name="egTinhReader" id="egTinhReader" value="{{gioitinh}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="esdThoaiReader" class="col-3 labelName">Số điện thoại</label>
+                    <input type="text" class="form-control col-8" id="esdThoaiReader" name="esdThoaiReader" value="{{sdt}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="esoCMNDReader" class="col-3 labelName">Số CMND</label>
+                    <input type="text" class="form-control col-8" id="esoCMNDReader" name="esoCMNDReader" value="{{cmnd}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="eeMailReader" class="col-3 labelName">Email</label>
+                    <input type="email" class="form-control col-8" id="eeMailReader" name="eeMailReader" value="{{email}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="edTocReader" class="col-3 labelName">Dân tộc</label>
+                    <input type="text" class="form-control col-8" id="edTocReader" name="edTocReader" value="{{dantoc}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="enguoiLapReader" class="col-3 labelName">Người lập</label>
+                    <input type="text" class="form-control col-8" id="enguoiLapReader" name="enguoiLapReader" value="{{nguoilap}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="etienDatCocReader" class="col-3 labelName">Tiền đặt cọc</label>
+                    <input type="text" class="form-control col-8" id="etienDatCocReader" name="etienDatCocReader" value="{{sotiendatcoc}}" readonly>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="engayLapReader" class="col-3 labelName">Ngày lập</label>
+                    <input type="email" class="form-control col-8" id="engayLapReader" name="engayLapReader" value="{{ngaylap}}" readonly>
+                </div>
+
+                <div class="form-group row">
+                    <label for="ediaChiReader" class="col-3 labelName">Địa chỉ</label>
+                    <textarea class="form-control col-8" id="ediaChiReader" name="ediaChiReader" rows="5" value="{{diachi}}" readonly></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="anh" class="col-3 labelName">Chọn ảnh</label>
                     <div class="col-8">
-                        <img id="anh" alt="your image" width="100px" height="100px" />
-                        <input type="file"  name='ima' onchange="document.getElementById('anh').src = window.URL.createObjectURL(this.files[0])">
+                        <img id="anhReader{{id}}" alt="your image" width="100px" height="100px" src="{{image}}"/>
+                        <input type="file"  name='eimaReader' value="{{image}}" onchange="document.getElementById('anhReader{{id}}').src = window.URL.createObjectURL(this.files[0])">
                     </div>
+                    
                 </div>
 
-                <button type="submit" class="btn btn-primary float-right">Đăng ký</button>
+                <button type="submit" class="btn btn-primary float-right">Đồng ý</button>
                 
             </form>
 
@@ -127,4 +206,28 @@
         </div>
     </div>
     </div>
-<!--End Đăng ký Thành Viên-->
+    {{/each}}
+<!--End Chỉnh sửa Thành Viên-->
+
+
+<!--Xóa Thành Viên-->
+    {{#each nhanvienAll}}
+    <div class="modal fade" id="xoaReader{{stt}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Bạn muốn xóa độc giả này ?</h5>
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        </div>
+
+        <div class="modal-body">
+            <form class="formDkyTV" action="http://localhost:5000/removeReader" method="GET">
+                <input type="hidden" id="{{id}}" name="soIDDeleteReader" value="{{id}}">
+                <button type="submit" class="btn btn-primary float-right">Đồng ý</button>
+            </form>
+        </div>
+        </div>
+    </div>
+    </div>
+    {{/each}}
+<!--End Xóa Thành Viên-->
