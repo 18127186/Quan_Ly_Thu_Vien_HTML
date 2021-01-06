@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     hoten: DataTypes.STRING,
     ngaysinh: DataTypes.STRING,
     cmnd: DataTypes.STRING,
+    pass:DataTypes.STRING,
     gioitinh: DataTypes.STRING,
     dantoc: DataTypes.STRING,
     ngaylap:DataTypes.STRING,

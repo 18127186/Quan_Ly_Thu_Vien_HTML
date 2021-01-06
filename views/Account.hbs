@@ -26,8 +26,8 @@
                         <h3>Danh sách độc giả</h3>
                     </div>
                     <div class="row quanLyHienThiThongTin" style="margin-bottom: 25px">
-                        <form class="form-inline mx-auto">
-                            <input class="form-control formSearch" type="text" placeholder="Họ và tên người cần tìm" style="padding-right: 60px;">
+                        <form class="form-inline mx-auto" action="http://localhost:5000/Account" method="POST">
+                            <input class="form-control formSearch" type="text" id="hotensearch" name="hotensearch" placeholder="Họ và tên người cần tìm" style="padding-right: 60px;">
                             <button class="btn btn-outline-success " type="submit" style="margin-left: 0px;">Tìm kiếm</button>
                         </form>
                     </div>

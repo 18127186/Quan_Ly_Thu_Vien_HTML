@@ -6,9 +6,9 @@ const bcrypt = require('bcrypt');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
+
 const saltRounds = 10;
 var tenaccount; // them cai nay vo header nha vidu chua dang nhap thi se la 'Dang nhap'
-var userLogin = {} //profile cua doi tuong dang login. null la admin
 var allAcount = [] // tat ca account trong bang account
 var accountEdit = {} // account can cap nhat xoa sua gi do
 //xu ly du lieu khi login
@@ -30,6 +30,8 @@ var hbs = require('express-handlebars');
 
 //Viết hàm từ các router
 var functionTrangChu = require('./routes/trangchu');
+const { LocalStorage } = require('node-localstorage');
+const { where } = require('sequelize');
 
 
 app.engine('hbs', hbs({
@@ -46,8 +48,7 @@ app.engine('hbs', hbs({
     },
 }));
 app.set('view engine', 'hbs');
-
-
+app.set('checklogin',0)
 //phần index
 //phần tatcasach
 //phần moTaSach
@@ -63,48 +64,65 @@ app.get('/sync', function (req, res) {
 })
 
 app.get('/Signin', function (req, res) {
+    app.set('checklogin', 0)
     res.sendFile(__dirname + '/Signin.html')
 })
 app.get('/Staff', function (req, res) {
     res.locals.header = tenaccount
+    res.locals.layout = 'layoutforStaff'
+    userLogin = req.app.get('userLogin')
     res.render('Staff', userLogin)
 })
 app.post('/Staff', function (req, res) {
     models.Account_staff.findOne({
         where: {
-            email: req.body.user,
-            cmnd: req.body.pass,
+            email: req.body.user
         }
     }).then(function (account) {
-        var data = {
-            hoten: account.hoten,
-            ngaysinh: account.ngaysinh,
-            cmnd: account.cmnd,
-            gioitinh: account.gioitinh,
-            dantoc: account.dantoc,
-            ngaylap: account.ngaylap,
-            sdt: account.sdt,
-            email: account.email,
-            diachi: account.diachi,
-            sotiendatcoc: account.sotiendatcoc,
-            nguoilap: account.nguoilap,
-            image: account.image
+        if(account!= null){
+                
+            if(bcrypt.compareSync(req.body.pass,account.pass)){  
+                var data = {
+                    hoten: account.hoten,
+                    ngaysinh: account.ngaysinh,
+                    cmnd: account.cmnd,
+                    gioitinh: account.gioitinh,
+                    dantoc: account.dantoc,
+                    ngaylap: account.ngaylap,
+                    sdt: account.sdt,
+                    email: account.email,
+                    diachi: account.diachi,
+                    sotiendatcoc: account.sotiendatcoc,
+                    nguoilap: account.nguoilap,
+                    image: account.image
+                }
+                userLogin = data;
+                res.locals.header = data.hoten
+                tenaccount = res.locals.header
+                app.set('checklogin',1)
+                app.set('userLogin',userLogin)
+                res.locals.layout = 'layoutforStaff'
+                res.render('Staff',  data)
+                }
+
+            else(res.redirect('/Signin'))
+        } else{
+            if (req.body.user == '1@1' && req.body.pass == 'phuoc412') {
+                res.redirect('/admin')
+            }
+            else(res.redirect('/Signin'))
         }
-        userLogin = data;
-        res.locals.header = 'Xin chào ' + data.hoten
-        tenaccount = res.locals.header
-        res.render('Staff', data)
 
     }).catch(function (error) {
-        if (req.body.user == '1@1' && req.body.pass == 'phuoc412') {
-
-            // res.locals.header = 'Xin chào Boss '
-            res.locals.header = 'Boss ';
-            tenaccount = 'Boss';
-            res.locals.style = 'admin.css'
-            res.render('admin',{layout:'adminLayout'});
-        }
+        res.redirect('/Signin')
     })
+})
+app.get('/admin',function(req,res){
+    res.locals.header = 'Boss ';
+    tenaccount = 'Boss';
+    res.locals.style = 'admin.css'
+    app.set('checklogin',2)
+    res.render('admin',{layout:'adminLayout'});
 })
 //view profile of customer
 app.get('/Account', function (req, res) {
@@ -129,9 +147,48 @@ app.get('/Account', function (req, res) {
             }
             data.push(user)
         }
+        app.set('checklogin',1)
         allAcount = data
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
+        res.locals.layout = 'layoutforStaff'
+        res.render('Account', { data: data })
+    }).catch(function (error) {
+        res.send(error)
+    })
+
+})
+app.post('/Account', function (req, res) {
+    models.Account.findAll({
+        where:{
+            hoten: req.body.hotensearch
+        }
+    }).then(function (account) {
+        var data = []
+        for (i = 0; i < account.length; i++) {
+            var user = {
+                id: i + 1,
+                idDB: account[i].id,
+                hoten: account[i].hoten,
+                ngaysinh: account[i].ngaysinh,
+                cmnd: account[i].cmnd,
+                gioitinh: account[i].gioitinh,
+                dantoc: account[i].dantoc,
+                ngaylap: account[i].ngaylap,
+                sdt: account[i].sdt,
+                email: account[i].email,
+                diachi: account[i].diachi,
+                sotiendatcoc: account[i].sotiendatcoc,
+                nguoilap: account[i].nguoilap,
+                image: account[i].image
+            }
+            data.push(user)
+        }
+        app.set('checklogin',1)
+        allAcount = data
+        res.locals.style = 'TableScroll.css'
+        res.locals.header = tenaccount
+        res.locals.layout = 'layoutforStaff'
         res.render('Account', { data: data })
     }).catch(function (error) {
         res.send(error)
@@ -155,13 +212,45 @@ app.get('/XoaSach', function (req, res) {
             }
             data.push(book)
         }
+        app.set('checklogin',1)
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
+        res.locals.layout = 'layoutforStaff'
         res.render('XoaSach', { data: data })
     }).catch(function (error) {
         res.send(error)
     })
 
+})
+app.post('/XoaSach',function(req,res){
+    models.Book.findAll({
+        where:{
+            tentacgia: req.body.tentacgiasearch
+        }
+    }).then(function (books) {
+        var data = []
+        for (i = 0; i < books.length; i++) {
+            var book = {
+                id: i + 1,
+                idDB: books[i].id,
+                tensach: books[i].tensach,
+                theloai: books[i].theloai,
+                tentacgia: books[i].tentacgia,
+                soluong: books[i].soluong,
+                ngaynhap: books[i].ngaynhap,
+                image: books[i].image,
+                mota: books[i].mota,
+            }
+            data.push(book)
+        }
+        app.set('checklogin',1)
+        res.locals.style = 'TableScroll.css'
+        res.locals.header = tenaccount
+        res.locals.layout = 'layoutforStaff'
+        res.render('XoaSach', { data: data })
+    }).catch(function (error) {
+        res.send(error)
+    })
 })
 //chua co image
 app.get('/editBookInStaffPage',(req,res)=>{ 
@@ -213,12 +302,24 @@ app.post('/Sign_up_ThanhVien', function (req, res) {
         nguoilap: req.body.nguoilap,
         image: req.body.image
     }
-    var salt = bcrypt.genSaltSync(10);
-    userStaff.cmnd = bcrypt.hashSync(userStaff.cmnd, salt);
-    models.Account.create(userStaff)
-    res.locals.header = tenaccount
-    res.render('Staff', userLogin)
-
+    models.Account.findOne({
+        where: {
+            cmnd: req.body.cmnd // dang ky theo chung minh nhan dan. bi trung thi k cho dang ky
+        }
+    }).then(function (account) {
+        if(account != null){
+            res.locals.header = tenaccount
+            userLogin = req.app.get('userLogin')
+            res.redirect("/Account")
+        }   
+        else {
+            models.Account.create(userStaff)
+            res.locals.header = tenaccount
+            userLogin = req.app.get('userLogin')
+        }
+    }).catch(function (error) {
+        res.redirect('/Account')
+    })
 })
 app.get('/NhapSach', function (req, res) {
     res.sendFile(__dirname + '/NhapSach.html')
@@ -286,10 +387,136 @@ app.get('/DeleteAccount/:id', function (req, res) {
         })
 })
 app.get('/DangKyMuonSach',function(req,res){
+    models.BookManage.findAll().then(function (account) {
+        var data = []
+        for (i = 0; i < account.length; i++) {
+            var user = {
+                id: i + 1,
+                idDB: account[i].id,
+                BookId: account[i].BookId,
+                AccountId:account[i].AccountId,
+                tensach: account[i].tensach,
+                tentacgia:account[i].tentacgia,
+                tendocgia: account[i].tendocgia
+            }
+            data.push(user)
+        }
+        app.set('checklogin',1)
+        allAcount = data
+        res.locals.style = 'TableScroll.css'
+        res.locals.header = tenaccount
+        res.locals.layout = 'layoutforStaff'
+        res.render("DangKyMuonSach",{data:data})
+    }).catch(function (error) {
+        res.send(error)
+    })
+})
+app.post('/DangKyMuonSach',function(req,res){
     
-    res.locals.style = 'TableScroll.css'
-    res.locals.header = tenaccount
-    res.render("DangKyMuonSach")
+    models.Book.findOne({
+        where: {
+            tensach: req.body.tensach,
+            tentacgia: req.body.tentacgia
+        }
+    }).then(function (book) {
+        models.Account.findOne({
+            where:{
+                cmnd: req.body.cmnddocgia
+            }
+        }).then(function(account){
+            
+            var DangKySach = {
+                BookId: book.id,
+                AccountId: account.id,
+                tensach: req.body.tensach,
+                tentacgia: req.body.tentacgia,
+                tendocgia: req.body.cmnddocgia
+            }
+            models.Book.update({
+                soluong: book.soluong-1
+            },{
+                where:{
+                    id: book.id
+                }
+            }).then(()=>{  
+                models.BookManage.create(DangKySach)
+                res.redirect('/DangKyMuonSach');
+            }).catch((error) => {
+                res.redirect('/DangKyMuonSach');
+            })
+        }).catch(function(error){
+            res.redirect('/DangKyMuonSach')
+        })
+    }).catch(function (error) {
+        res.redirect('/DangKyMuonSach')
+    })
+})
+app.get('/DeleteDangKyMuonSach/:id',function(req,res){
+    models.BookManage.findOne({ // tim cai id sach do
+        where: { id: req.params.id }
+    }).then(function(bookmanage){
+        models.Book.findOne({
+            where:{
+                id : bookmanage.BookId
+            }
+        }).then(function(book){
+            console.log(book)
+            models.Book.update({ // update lai so luong sach
+                soluong: book.soluong+1
+            },{
+                where:{
+                    id: book.id
+                }
+            }).then(function(){
+                models.BookManage.destroy({
+                    where: { id: req.params.id }
+                })
+                .then(function () {
+                        res.redirect("/DangKyMuonSach")
+                }).catch(function (error) {
+                    res.redirect("/DangKyMuonSach")
+                })
+            }).catch(function (error) {
+                res.redirect("/DangKyMuonSach")
+            })
+            
+        }).catch(function (error) {
+            res.redirect("/DangKyMuonSach")
+            res.json(error);
+        })
+    })
+    
+})
+app.post('/TimKiemDangKySach',function(req,res){
+    cmnddg = req.body.cmnddg
+    models.BookManage.findAll({
+        where:{
+            tendocgia: cmnddg
+        }
+    }).then(function(account){
+        var data = []
+        for (i = 0; i < account.length; i++) {
+            var user = {
+                id: i + 1,
+                idDB: account[i].id,
+                BookId: account[i].BookId,
+                AccountId:account[i].AccountId,
+                tensach: account[i].tensach,
+                tentacgia:account[i].tentacgia,
+                tendocgia: account[i].tendocgia
+            }
+            data.push(user)
+        }
+        app.set('checklogin',1)
+        allAcount = data
+        res.locals.style = 'TableScroll.css'
+        res.locals.header = tenaccount
+        res.locals.layout = 'layoutforStaff'
+        res.render("DangKyMuonSach",{data:data})
+    })
+})
+app.get('/TimKiemDangKySach',function(req,res){
+    res.redirect('/DangKyMuonSach')
 })
 
 //////////////////////////////////////// Phần Admin: Tanthai
@@ -302,6 +529,7 @@ app.get('/signMember', (req, res) => {
         hoten: req.query.hVTen,
         ngaysinh: dateBirth[2]+'/'+dateBirth[1]+'/'+dateBirth[0],
         cmnd: req.query.soCMND,
+        pass: req.query.pass,
         gioitinh: req.query.gTinh,
         dantoc: req.query.dToc,
         ngaylap: today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear(),
@@ -312,8 +540,24 @@ app.get('/signMember', (req, res) => {
         nguoilap: 'Admin',
         image: '/' + req.query.ima,
     }
-    models.Account_staff.create(userStaff);
-    res.redirect('/quanlynhanvien');
+    models.Account_staff.findOne({
+        where: {
+            cmnd: req.query.soCMND, // dang ky theo chung minh nhan dan. bi trung thi k cho dang ky
+            email: req.query.eMail
+        }
+    }).then(function (account) {
+        if(account != null){
+            res.redirect("/quanlynhanvien")
+        }   
+        else {
+            var salt = bcrypt.genSaltSync(10);
+            userStaff.pass = bcrypt.hashSync(userStaff.pass, salt);
+            models.Account_staff.create(userStaff);
+            res.redirect('/quanlynhanvien');
+        }
+    }).catch(function (error) {
+        res.redirect('/quanlynhanvien')
+    })
 })
 
 ////////////////////////////////////Phần xử lý quanlynhanvien
@@ -567,6 +811,9 @@ app.get('/thongke',(req,res)=>{
     var context={
         style:'thongke.css',
     }
+    
+    res.locals.header = 'Boss';
+    res.locals.layout = 'adminLayout'
     res.render('thongke',context);
 })
 

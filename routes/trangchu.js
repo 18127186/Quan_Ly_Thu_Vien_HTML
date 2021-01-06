@@ -132,7 +132,20 @@ app.get('/', (req, res) => {
             }
             context.bookCategory.push(book);
         }
-        res.locals.header = "Đăng nhập";
+        
+        checkLogin = req.app.get('checklogin')
+        if(checkLogin == 1) {
+            res.locals.forindex = `<a href="/Staff" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+            res.locals.header = "Đăng xuất";
+        }
+        else if(checkLogin == 2){
+            res.locals.forindex = `<a href="/admin" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+            res.locals.header = "Đăng xuất";
+        }
+        else {
+            res.locals.header = "Đăng nhập";
+        }
+        
         res.render('index', context);
     }).catch((error) => {
         res.json(error);
@@ -241,7 +254,18 @@ app.get('/searchBook', (req, res) => {
             }
             contexts.bookCategory.push(book);
         }
-        res.locals.header = "Đăng nhập";
+        checkLogin = req.app.get('checklogin')
+        if(checkLogin == 1) {
+            res.locals.forindex = `<a href="/Staff" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+            res.locals.header = "Đăng xuất";
+        }
+        else if(checkLogin == 2){
+            res.locals.forindex = `<a href="/admin" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+            res.locals.header = "Đăng xuất";
+        }
+        else {
+            res.locals.header = "Đăng nhập";
+        }
         res.render('timSach', contexts);
     }).catch((error) => {
         res.json(error);
@@ -410,13 +434,35 @@ app.get('/:loaisach/:theloai/:imag', (req, res) => {
                 context.linkSach = context.linkHref[7].link;
 
             }
-            res.locals.header = "Đăng nhập";
+            checkLogin = req.app.get('checklogin')
+            if(checkLogin == 1) {
+                res.locals.forindex = `<a href="/Staff" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+                res.locals.header = "Đăng xuất";
+            }
+            else if(checkLogin == 2){
+                res.locals.forindex = `<a href="/admin" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+                res.locals.header = "Đăng xuất";
+            }
+            else {
+                res.locals.header = "Đăng nhập";
+            }
             res.render('chitietsach', context);
         }
         else {
             context.style = 'index.css';
             context.fileJs = 'index.js';
-            res.locals.header = "Đăng nhập";
+            checkLogin = req.app.get('checklogin')
+            if(checkLogin == 1) {
+                res.locals.forindex = `<a href="/Staff" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+                res.locals.header = "Đăng xuất";
+            }
+            else if(checkLogin == 2){
+                res.locals.forindex = `<a href="/admin" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+                res.locals.header = "Đăng xuất";
+            }
+            else {
+                res.locals.header = "Đăng nhập";
+            }
             res.render('tatcasach', context);
         }
 

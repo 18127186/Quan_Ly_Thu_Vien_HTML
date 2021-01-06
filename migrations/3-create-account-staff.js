@@ -17,6 +17,9 @@ module.exports = {
       cmnd: {
         type: Sequelize.STRING
       },
+      pass: {
+        type: Sequelize.STRING
+      },
       gioitinh: {
         type: Sequelize.STRING
       },

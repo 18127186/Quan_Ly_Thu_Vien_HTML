@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Comment.init({
+    BookId: DataTypes.STRING,
     comment: DataTypes.STRING,
   }, {
     sequelize,

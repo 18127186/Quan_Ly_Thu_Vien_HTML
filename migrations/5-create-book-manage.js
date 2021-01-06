@@ -8,10 +8,31 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      idBook: {
+      BookId: {
+        type: Sequelize.INTEGER,
+        references:{
+          model: 'Books',
+          key: 'id'
+        },
+        onDelete:'cascade',
+        onUpdate:'cascade'
+      },
+      AccountId: {
+        type: Sequelize.INTEGER,
+        references:{
+          model: 'Accounts',
+          key: 'id'
+        },
+        onDelete:'cascade',
+        onUpdate:'cascade'
+      },
+      tensach: {
         type: Sequelize.STRING
       },
-      idDocGia: {
+      tentacgia: {
+        type: Sequelize.STRING
+      },
+      tendocgia: {
         type: Sequelize.STRING
       },
       createdAt: {

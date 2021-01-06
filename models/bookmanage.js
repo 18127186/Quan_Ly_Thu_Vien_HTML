@@ -11,11 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      BookManage.belongsTo(models.Book,{onDelete:'cascade',hooks:true})
+      BookManage.belongsTo(models.Account,{onDelete:'cascade',hooks:true})
     }
   };
   BookManage.init({
-    idBook: DataTypes.STRING,
-    idDocGia: DataTypes.STRING
+    BookId: DataTypes.INTEGER,
+    AccountId: DataTypes.INTEGER,
+    tensach: DataTypes.STRING,
+    tentacgia: DataTypes.STRING,
+    tendocgia: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'BookManage',
