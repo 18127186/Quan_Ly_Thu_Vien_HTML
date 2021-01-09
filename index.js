@@ -74,7 +74,17 @@ const uploadSignStaff = multer({
 //phần tatcasach
 //phần moTaSach
 app.use('/', require('./routes/trangchu'));
-
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+var flash = require('connect-flash');
+app.use(cookieParser('secret'));
+app.use(session({
+    secret: 'secret',
+    cookie: { maxAge: 60000 },
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(flash());
 
 
 //load data to pg
@@ -86,7 +96,8 @@ app.get('/sync', function (req, res) {
 
 app.get('/Signin', function (req, res) {
     app.set('checklogin', 0)
-    res.sendFile(__dirname + '/Signin.html')
+    res.locals.layout = 'layoutnull'
+    res.render('Signin',{message: req.flash('message')})
 })
 app.get('/Staff', function (req, res) {
     res.locals.header = tenaccount
@@ -101,7 +112,6 @@ app.post('/Staff', function (req, res) {
         }
     }).then(function (account) {
         if (account != null) {
-
             if (bcrypt.compareSync(req.body.pass, account.pass)) {
                 var data = {
                     hoten: account.hoten,
@@ -123,19 +133,26 @@ app.post('/Staff', function (req, res) {
                 app.set('checklogin', 1)
                 app.set('userLogin', userLogin)
                 res.locals.layout = 'layoutforStaff'
+                
                 res.render('Staff', data)
             }
 
-            else (res.redirect('/Signin'))
+            else {
+                req.flash('message',`Password incorrect`)
+                res.redirect('/Signin')
+            }
         } else {
             if (req.body.user == '1@1' && req.body.pass == 'phuoc412') {
                 res.redirect('/admin')
             }
-            else (res.redirect('/Signin'))
+            else {
+                req.flash('message',`User Incorrect`)
+                res.redirect('/Signin')
+            }
         }
-
     }).catch(function (error) {
-        res.redirect('/Signin')
+        req.flash('message',`Fail`)
+         res.redirect('/Signin')
     })
 })
 app.get('/admin', function (req, res) {
@@ -173,7 +190,7 @@ app.get('/Account', function (req, res) {
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
         res.locals.layout = 'layoutforStaff'
-        res.render('Account', { data: data })
+        res.render('Account', { data: data , message: req.flash('message'), messageclass : req.flash('messageclass')})
     }).catch(function (error) {
         res.send(error)
     })
@@ -218,7 +235,7 @@ app.post('/Account', function (req, res) {
 })
 app.get('/XoaSach', function (req, res) {
     models.Book.findAll().then(function (books) {
-        var data = []
+        var datasach = []
         for (i = 0; i < books.length; i++) {
             var book = {
                 id: i + 1,
@@ -231,13 +248,13 @@ app.get('/XoaSach', function (req, res) {
                 image: books[i].image,
                 mota: books[i].mota,
             }
-            data.push(book)
+            datasach.push(book)
         }
         app.set('checklogin', 1)
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
         res.locals.layout = 'layoutforStaff'
-        res.render('XoaSach', { data: data })
+        res.render('XoaSach', { data:datasach, message: req.flash('message'), messageclass : req.flash('messageclass') })
     }).catch(function (error) {
         res.send(error)
     })
@@ -273,94 +290,119 @@ app.post('/XoaSach', function (req, res) {
         res.send(error)
     })
 })
-//chua co image
-app.get('/editBookInStaffPage', (req, res) => {
-    let temp = req.query.eimabook;
+app.post('/editBookInStaffPage', (req, res) => {
     models.Book.update({
-        tensach: req.query.tensach,
-        tentacgia: req.query.tentacgia,
-        theloai: req.query.theloai,
-        soluong: req.query.soluong,
-        ngaynhap: req.query.ngaynhap,
-        mota: req.query.mota,
-        image: '/' + req.query.eimabook,
+        tensach: req.body.tensach,
+        tentacgia: req.body.tentacgia,
+        theloai: req.body.theloai,
+        soluong: req.body.soluong,
+        ngaynhap: req.body.ngaynhap,
+        mota: req.body.mota
     }, {
-        where: { id: req.query.id }
+        where: { id: req.body.idDB }
     })
-        .then(() => {
-            console.log(temp);
-            res.redirect('/XoaSach');
-        }).catch((error) => {
-            res.json(error);
-        })
+    .then(() => {
+        req.flash('message',`Chỉnh Sửa Sách Thành Công`)
+        req.flash('messageclass',`alert-success`)
+        res.redirect('/XoaSach');
+    }).catch((error) => {
+        console.log(error)
+        req.flash('message',`Lỗi`)
+        req.flash('messageclass',`alert-danger`)
+        res.redirect('/XoaSach');
+    })
 })
 app.get('/XoaSach/:id', function (req, res) {
     models.Book.destroy({
         where: { id: req.params.id }
     })
         .then(function () {
+            req.flash('message',`Xóa Sách Thành Công`)
+             req.flash('messageclass',`alert-success`)
             res.redirect("/XoaSach")
         }).catch(function (error) {
             res.json(error);
         })
 })
 app.get('/Sign_up_ThanhVien', function (req, res) {
-    res.sendFile(__dirname + "/Sign_up_ThanhVien.html")
+    res.locals.layout = 'layoutnull'
+    res.render('Sign_Up_ThanhVien',{message: req.flash('message'), messageclass : req.flash('messageclass')})
 })
-//chua co image
 app.post('/Sign_up_ThanhVien', function (req, res) {
-    var userStaff = {
-        hoten: req.body.hoten,
-        ngaysinh: req.body.ngaysinh,
-        cmnd: req.body.cmnd,
-        gioitinh: req.body.gioitinh,
-        dantoc: req.body.dantoc,
-        ngaylap: req.body.ngaylap,
-        sdt: req.body.sdt,
-        email: req.body.email,
-        diachi: req.body.diachi,
-        sotiendatcoc: req.body.sotiendatcoc,
-        nguoilap: req.body.nguoilap,
-        image: req.body.image
-    }
-    models.Account.findOne({
-        where: {
-            cmnd: req.body.cmnd // dang ky theo chung minh nhan dan. bi trung thi k cho dang ky
+    var tempanh = '';
+    uploadSignStaff(req, res, (err) => {
+        tempanh = req.file.originalname;
+        var userStaff = {
+            hoten: req.body.hoten,
+            ngaysinh: req.body.ngaysinh,
+            cmnd: req.body.cmnd,
+            gioitinh: req.body.gioitinh,
+            dantoc: req.body.dantoc,
+            ngaylap: req.body.ngaylap,
+            sdt: req.body.sdt,
+            email: req.body.email,
+            diachi: req.body.diachi,
+            sotiendatcoc: req.body.sotiendatcoc,
+            nguoilap: req.body.nguoilap,
+            image: '/' + tempanh,
         }
-    }).then(function (account) {
-        if (account != null) {
-            res.locals.header = tenaccount
-            userLogin = req.app.get('userLogin')
-            res.redirect("/Account")
-        }
-        else {
-            models.Account.create(userStaff)
-            res.locals.header = tenaccount
-            userLogin = req.app.get('userLogin')
-        }
-    }).catch(function (error) {
-        res.redirect('/Account')
+        models.Account.findOne({
+            where: {
+                cmnd: req.body.cmnd // dang ky theo chung minh nhan dan. bi trung thi k cho dang ky
+            }
+        }).then(function (account) {
+            if (account != null) {
+                res.locals.header = tenaccount
+                userLogin = req.app.get('userLogin')
+                req.flash('message',`Account Có Số CMND Đã Tồn Tại`)
+                req.flash('messageclass',`alert-danger`)
+                res.redirect("/Sign_Up_ThanhVien")
+            }
+            else {
+                models.Account.create(userStaff)
+                res.locals.header = tenaccount
+                userLogin = req.app.get('userLogin')
+                req.flash('message',`Đăng Ký Thành Công`)
+                req.flash('messageclass',`alert-success`)
+                res.redirect("/Sign_Up_ThanhVien")
+            }
+        }).catch(function (error) {
+            req.flash('message',`Lỗi`)
+            req.flash('messageclass',`alert-danger`)
+            res.redirect("/Sign_Up_ThanhVien")
+        })
+
     })
+    
+    
 })
 app.get('/NhapSach', function (req, res) {
-    res.sendFile(__dirname + '/NhapSach.html')
+    res.locals.layout = 'layoutnull'
+    res.render('NhapSach',{message: req.flash('message'), messageclass : req.flash('messageclass')})
 })
 app.post('/NhapSach', function (req, res) {
-    var Book = {
-        tensach: req.body.tensach,
-        tentacgia: req.body.tentacgia,
-        theloai: req.body.theloai,
-        soluong: req.body.soluong,
-        ngaynhap: req.body.ngaynhap,
-        mota: req.body.mota,
-        image: req.body.image,
-    }
+    var tempanh = '';
+    uploadSignStaff(req, res, (err) => {
+        tempanh = req.file.originalname;
+        
+        var Book = {
+            tensach: req.body.tensach,
+            tentacgia: req.body.tentacgia,
+            theloai: req.body.theloai,
+            soluong: req.body.soluong,
+            ngaynhap: req.body.ngaynhap,
+            mota: req.body.mota,
+            image: '/' + tempanh,
+        }
+        
     models.Book.create(Book)
-    res.locals.header = tenaccount
-    res.render('Staff', userLogin)
+    req.flash('message',`Đăng Ký Thành Công`)
+    req.flash('messageclass',`alert-success`)
+    res.redirect("/NhapSach")
+
+    })
 
 })
-//chua co image
 app.get('/XoaAccount/:id', function (req, res) {
 
     for (i = 0; i < allAcount.length; i++) {
@@ -370,12 +412,14 @@ app.get('/XoaAccount/:id', function (req, res) {
         }
     }
     res.locals.header = tenaccount
+    res.locals.layout = 'layoutforStaff'
+    userLogin = req.app.get('userLogin')
     res.render('XoaAccount', accountEdit)
 
 })
-//chua co image
 app.post('/ChangeAccount', function (req, res) {
     models.Account.update({
+        
         hoten: req.body.hotenchange,
         ngaysinh: req.body.ngaysinhchange,
         cmnd: req.body.cmndchange,
@@ -387,10 +431,14 @@ app.post('/ChangeAccount', function (req, res) {
         diachi: req.body.diachichange,
         sotiendatcoc: req.body.sotiendatcocchange,
         nguoilap: req.body.nguoilapchange,
+        image: req.body.image
     }, {
-        where: { id: accountEdit.idDB }
+        where: { id: req.body.idDB }
     })
         .then(function () {
+            
+            req.flash('message',`Chỉnh Sửa Độc Giả Thành Công`)
+            req.flash('messageclass',`alert-success`)
             res.redirect("/Account")
         }).catch(function (error) {
             res.json(error);
@@ -401,7 +449,9 @@ app.get('/DeleteAccount/:id', function (req, res) {
     models.Account.destroy({
         where: { id: req.params.id }
     })
-        .then(function () {
+        .then(function () {   
+            req.flash('message',`Xóa Độc Giả Thành Công`)
+            req.flash('messageclass',`alert-success`)
             res.redirect("/Account")
         }).catch(function (error) {
             res.json(error);
@@ -427,7 +477,7 @@ app.get('/DangKyMuonSach', function (req, res) {
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
         res.locals.layout = 'layoutforStaff'
-        res.render("DangKyMuonSach", { data: data })
+        res.render("DangKyMuonSach", { data: data, message: req.flash('message'), messageclass : req.flash('messageclass') })
     }).catch(function (error) {
         res.send(error)
     })
@@ -460,7 +510,11 @@ app.post('/DangKyMuonSach', function (req, res) {
                     id: book.id
                 }
             }).then(() => {
+                
+                req.flash('message',`Đăng Ký Mượn Sách Thành Công`)
+                req.flash('messageclass',`alert-success`)
                 models.BookManage.create(DangKySach)
+                
                 res.redirect('/DangKyMuonSach');
             }).catch((error) => {
                 res.redirect('/DangKyMuonSach');
@@ -493,6 +547,9 @@ app.get('/DeleteDangKyMuonSach/:id', function (req, res) {
                     where: { id: req.params.id }
                 })
                     .then(function () {
+                        
+                        req.flash('message',`Trả Sách Thành Công`)
+                        req.flash('messageclass',`alert-success`)
                         res.redirect("/DangKyMuonSach")
                     }).catch(function (error) {
                         res.redirect("/DangKyMuonSach")

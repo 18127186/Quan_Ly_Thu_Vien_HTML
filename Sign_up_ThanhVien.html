@@ -14,13 +14,13 @@
     <div class="container">
         <img src="images/banner1.jpg" alt="logo" style="margin: 50px 250px; width:50%"class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" >
         <div class="container" >
-            <form action="http://localhost:5000/Sign_up_ThanhVien" method="POST" onsubmit="return confirm('Do you want to continue?');">
+            <form action="http://localhost:5000/Sign_up_ThanhVien" method="POST" enctype="multipart/form-data" onsubmit="return confirm('Do you want to continue?');">
                 <div class="row">
                     <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="  border: 1px solid black; padding-bottom: 0px; margin-left: 20px;">
                         <div class=" form-group">
-                        <input type="file" onchange="readimage(this)" accept = "image / *" name="image" 
+                        <input type="file" onchange="document.getElementById('anh').src = window.URL.createObjectURL(this.files[0])"  accept = "image / *" name="ima" 
                         id="" placeholder="" aria-describedby="fileHelpId" >
-                        <img id="output" style="width: 100%" alt="your image" />
+                        <img id="anh" style="width: 100%" alt="your image" />
                     </div>  
                     </div>
                     <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7" style="margin-left: 25px; ">
@@ -193,7 +193,10 @@
         </div>
     </div>
     <!-- Optional JavaScript -->
-    <script type="text/javascript" src="./js/phuoc.js"></script>
+    <script type="text/javascript" src="js/phuoc.js"></script>
+    <script type="text/javascript" >
+    
+    </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

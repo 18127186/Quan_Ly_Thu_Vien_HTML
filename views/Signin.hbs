@@ -1,3 +1,4 @@
+
 <div class="container">
         <a class="navbar-brand col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="font-size:75px;color:blue; text-align: center;" href="index.html" ><i class="fas fa-book-reader"></i>Tân Phước</a>
         
@@ -7,6 +8,9 @@
                   <img src="/images/banner1.jpg" alt="logo" style="margin: 50px 0px; width:100%"  >
                 </div>
                 <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5" style=" margin-top: 100px; width:70%; ">
+                    {{#if message}}
+                      <div class="alert alert-danger"> {{message}}</div>
+                    {{/if}}
                     <form action="http://localhost:5000/Staff" method="POST">
                         <div class="form-group">
                           <label for="exampleInputEmail1" >Email</label>
@@ -18,11 +22,8 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Đăng nhập</button>
                         <a href="/" class="btn btn-outline-primary active" role="button" aria-pressed="true">Quên mật khẩu</a>
-                        
                       </form>       
                 </div>
             </div>
-           
-           
         </div>
     </div>

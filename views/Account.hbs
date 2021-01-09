@@ -31,6 +31,9 @@
                             <button class="btn btn-outline-success " type="submit" style="margin-left: 0px;">Tìm kiếm</button>
                         </form>
                     </div>
+                    {{#if message}}
+                        <div class="alert {{messageclass}}"> {{message}}</div>
+                    {{/if}}
                     <div class="wrap">
                         <table class="head">
                             <tbody>

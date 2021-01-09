@@ -14,7 +14,7 @@ module.exports = {
       diachi: '1, đường 1, phường 1, quận 1, thành phố Hồ Chí Minh',
       sotiendatcoc: '500.000',
       nguoilap: '987654321',
-      image: '/img/black Hole-600x780.jpg',
+      image: '/black Hole-600x780.jpg',
       createdAt: Sequelize.literal('NOW()'),
       updatedAt: Sequelize.literal('NOW()')
       },
@@ -30,7 +30,7 @@ module.exports = {
         diachi: '2, đường 1, phường 1, quận 1, thành phố Hồ Chí Minh',
         sotiendatcoc: '500.000',
         nguoilap: '987654321',
-        image: '/img/black Hole-600x780.jpg',
+        image: '/black Hole-600x780.jpg',
         createdAt: Sequelize.literal('NOW()'),
         updatedAt: Sequelize.literal('NOW()')
         },
@@ -46,7 +46,7 @@ module.exports = {
           diachi: '3, đường 1, phường 1, quận 1, thành phố Hồ Chí Minh',
           sotiendatcoc: '500.000',
           nguoilap: '987654321',
-          image: '/img/black Hole-600x780.jpg',
+          image: '/black Hole-600x780.jpg',
           createdAt: Sequelize.literal('NOW()'),
           updatedAt: Sequelize.literal('NOW()')
         },
@@ -62,7 +62,7 @@ module.exports = {
             diachi: '4, đường 1, phường 1, quận 1, thành phố Hồ Chí Minh',
             sotiendatcoc: '500.000',
             nguoilap: '987654321',
-            image: '/img/black Hole-600x780.jpg',
+            image: '/black Hole-600x780.jpg',
             createdAt: Sequelize.literal('NOW()'),
             updatedAt: Sequelize.literal('NOW()')
       },
@@ -78,7 +78,7 @@ module.exports = {
         diachi: '5, đường 1, phường 1, quận 1, thành phố Hồ Chí Minh',
         sotiendatcoc: '500.000',
         nguoilap: '987654321',
-        image: '/img/black Hole-600x780.jpg',
+        image: '/black Hole-600x780.jpg',
         createdAt: Sequelize.literal('NOW()'),
         updatedAt: Sequelize.literal('NOW()')
       },
@@ -94,7 +94,7 @@ module.exports = {
         diachi: '6, đường 2, phường 2, quận 1, thành phố Hồ Chí Minh',
         sotiendatcoc: '500.000',
         nguoilap: '987654322',
-        image: '/img/black Hole-600x780.jpg',
+        image: '/black Hole-600x780.jpg',
         createdAt: Sequelize.literal('NOW()'),
         updatedAt: Sequelize.literal('NOW()')
       },
@@ -110,7 +110,7 @@ module.exports = {
         diachi: '11, đường 10, phường 10, quận 10, thành phố Hồ Chí Minh',
         sotiendatcoc: '500.000',
         nguoilap: '987654322',
-        image: '/img/black Hole-600x780.jpg',
+        image: '/black Hole-600x780.jpg',
         createdAt: Sequelize.literal('NOW()'),
         updatedAt: Sequelize.literal('NOW()')
       },
@@ -126,7 +126,7 @@ module.exports = {
         diachi: '11, đường 11, phường 11, quận 11, thành phố Hồ Chí Minh',
         sotiendatcoc: '500.000',
         nguoilap: '987654322',
-        image: '/img/black Hole-600x780.jpg',
+        image: '/black Hole-600x780.jpg',
         createdAt: Sequelize.literal('NOW()'),
         updatedAt: Sequelize.literal('NOW()')
       },
@@ -142,7 +142,7 @@ module.exports = {
         diachi: '5, đường 5, phường 5, quận 5, thành phố Hồ Chí Minh',
         sotiendatcoc: '500.000',
         nguoilap: '987654322',
-        image: '/img/black Hole-600x780.jpg',
+        image: '/black Hole-600x780.jpg',
         createdAt: Sequelize.literal('NOW()'),
         updatedAt: Sequelize.literal('NOW()')
       },
@@ -158,7 +158,7 @@ module.exports = {
         diachi: '10, đường 10, phường 1, quận 1, thành phố Hồ Chí Minh',
         sotiendatcoc: '500.000',
         nguoilap: '987654322',
-        image: '/img/black Hole-600x780.jpg',
+        image: '/black Hole-600x780.jpg',
         createdAt: Sequelize.literal('NOW()'),
         updatedAt: Sequelize.literal('NOW()')
       },
