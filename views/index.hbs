@@ -15,7 +15,7 @@
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="list-group">
                         {{#each linkHref}}
-                        <a href="{{link}}/tatca/all"class="list-group-item list-group-item-action list-group-item-outline-info hieuUngDanhMuc">{{title}}</a>
+                        <a href="/theloai{{link}}"class="list-group-item list-group-item-action list-group-item-outline-info hieuUngDanhMuc">{{title}}</a>
                         {{/each}}
                     </div>
                 </div>
@@ -37,11 +37,11 @@
                         {{#each linkHref}}
                         {{#checkSlide slide 'Slide1'}}
                         <div class="carousel-item active">
-                            <a href="{{link}}/tatca/all" class="bannerSlide" id="{{slide}}"></a>
+                            <a href="/theloai{{link}}" class="bannerSlide" id="{{slide}}"></a>
                         </div>
                         {{else}}
                         <div class="carousel-item">
-                            <a href="{{link}}/tatca/all" class="bannerSlide" id="{{slide}}"></a>
+                            <a href="/theloai{{link}}" class="bannerSlide" id="{{slide}}"></a>
                         </div>
                         {{/checkSlide}}
                         {{/each}}
@@ -67,16 +67,16 @@
                 <!-- End Title Tử Vi - Phong Thủy-->
                 <div class="row bg-primary">
                     <div class="div">
-                        <a href="/tuViPhongThuy/tatca/all" class="btn btn-success" role="button"  >Sách Tử Vi - Phong Thủy </a>
+                        <a href="/theloai/tuViPhongThuy" class="btn btn-success" role="button"  >Sách Tử Vi - Phong Thủy </a>
                     </div>
                 </div>
                 <!-- End Title Tử Vi - Phong Thủy-->
                 <div class="row my-3">
                 {{#outputList bookCategory 8 'Tử vi - Phong Thủy'}}
                     <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                        <a href="/detailBook/{{idSach}}" class="boGachChan" onclick="takeAttribute(this)" > 
                             <div class="card">
-                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <img class="img-thumbnail" src="/uploads{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
                                 <div class="card-body">
                                     <p class="card-title" id="tenSach">{{tensach }}</p>
                                     <p class="card-text" id="tenTg">{{tentacgia}}</p>
@@ -88,7 +88,7 @@
                     </div>
                 {{/outputList}}
                 </div>
-                <div class="d-flex justify-content-center xemthem mb-3"><a href="/tuViPhongThuy/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/theloai/tuViPhongThuy"  class="boGachChanXemThem">Xem thêm</a></div>   
             </div>
     </section>
 <!-- End Sách Tử Vi - Phong Thủy -->
@@ -99,7 +99,7 @@
                 <!-- End Title Văn Học-->
                 <div class="row bg-primary">
                     <div class="div">
-                        <a href="/vanHoc/tatca/all" class="btn btn-success" role="button"  >Sách Văn Học </a>
+                        <a href="/theloai/vanHoc" class="btn btn-success" role="button"  >Sách Văn Học </a>
                     </div>
                 </div>
                 <!-- End Title Văn Học-->
@@ -107,9 +107,9 @@
                 <div class="row my-3">
                 {{#outputList bookCategory 8 'Văn Học'}}
                     <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                        <a href="/detailBook/{{idSach}}" class="boGachChan" onclick="takeAttribute(this)" > 
                             <div class="card">
-                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <img class="img-thumbnail" src="/uploads{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
                                 <div class="card-body">
                                     <p class="card-title" id="tenSach">{{tensach }}</p>
                                     <p class="card-text" id="tenTg">{{tentacgia}}</p>
@@ -121,7 +121,7 @@
                     </div>
                 {{/outputList}}
                 </div>
-                <div class="d-flex justify-content-center xemthem mb-3"><a href="/vanHoc/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/theloai/vanHoc"  class="boGachChanXemThem">Xem thêm</a></div>   
                 
             </div>
     </section>
@@ -133,7 +133,7 @@
                 <!-- End Title Tiểu thuyết-->
                 <div class="row bg-primary">
                     <div class="div">
-                        <a href="/tieuThuyet/tatca/all" class="btn btn-success" role="button"  >Sách Tiểu Thuyết </a>
+                        <a href="/theloai/tieuThuyet" class="btn btn-success" role="button"  >Sách Tiểu Thuyết </a>
                     </div>
                 </div>
                 <!-- End Title Tiểu thuyết-->
@@ -141,9 +141,9 @@
                 <div class="row my-3">
                 {{#outputList bookCategory 8 'Tiểu Thuyết'}}
                     <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                        <a href="/detailBook/{{idSach}}" class="boGachChan" onclick="takeAttribute(this)" > 
                             <div class="card">
-                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <img class="img-thumbnail" src="/uploads{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
                                 <div class="card-body">
                                     <p class="card-title" id="tenSach">{{tensach }}</p>
                                     <p class="card-text" id="tenTg">{{tentacgia}}</p>
@@ -156,7 +156,7 @@
                 {{/outputList}}
                 </div>
 
-                <div class="d-flex justify-content-center xemthem mb-3"><a href="/tieuThuyet/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/theloai/tieuThuyet"  class="boGachChanXemThem">Xem thêm</a></div>   
                 
             </div>
         </section>
@@ -168,7 +168,7 @@
                 <!-- End Title Kinh tế -->
                 <div class="row bg-primary">
                     <div class="div">
-                        <a href="/kinhTe/tatca/all" class="btn btn-success" role="button"  >Sách Kinh Tế </a>
+                        <a href="/theloai/kinhTe" class="btn btn-success" role="button"  >Sách Kinh Tế </a>
                     </div>
                 </div>
                 <!-- End Title Kinh tế -->
@@ -176,9 +176,9 @@
                 <div class="row my-3">
                 {{#outputList bookCategory 8 'Kinh Tế'}}
                     <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                        <a href="/detailBook/{{idSach}}" class="boGachChan" onclick="takeAttribute(this)" > 
                             <div class="card">
-                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <img class="img-thumbnail" src="/uploads{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
                                 <div class="card-body">
                                     <p class="card-title" id="tenSach">{{tensach }}</p>
                                     <p class="card-text" id="tenTg">{{tentacgia}}</p>
@@ -191,7 +191,7 @@
                 {{/outputList}}
                 </div>
 
-                <div class="d-flex justify-content-center xemthem mb-3"><a href="/kinhTe/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/theloai/kinhTe"  class="boGachChanXemThem">Xem thêm</a></div>   
                 
             </div>
         </section>
@@ -203,7 +203,7 @@
                 <!-- End Title Xã hội-->
                 <div class="row bg-primary">
                     <div class="div">
-                        <a href="/xaHoi/tatca/all" class="btn btn-success" role="button"  >Sách Xã Hội </a>
+                        <a href="/theloai/xaHoi" class="btn btn-success" role="button"  >Sách Xã Hội </a>
                     </div>
                 </div>
                 <!-- End Title Xã hội-->
@@ -211,9 +211,9 @@
                 <div class="row my-3">
                 {{#outputList bookCategory 8 'Xã Hội'}}
                     <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                        <a href="/detailBook/{{idSach}}" class="boGachChan" onclick="takeAttribute(this)" > 
                             <div class="card">
-                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <img class="img-thumbnail" src="/uploads{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
                                 <div class="card-body">
                                     <p class="card-title" id="tenSach">{{tensach }}</p>
                                     <p class="card-text" id="tenTg">{{tentacgia}}</p>
@@ -226,7 +226,7 @@
                 {{/outputList}}
                 </div>
 
-                <div class="d-flex justify-content-center xemthem mb-3"><a href="/xaHoi/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/theloai/xaHoi"  class="boGachChanXemThem">Xem thêm</a></div>   
                 
             </div>
     </section>
@@ -238,7 +238,7 @@
                 <!-- End Title  Chính trị -->
                 <div class="row bg-primary">
                     <div class="div">
-                        <a href="/chinhTri/tatca/all" class="btn btn-success" role="button"  >Sách Chính Trị </a>
+                        <a href="/theloai/chinhTri" class="btn btn-success" role="button"  >Sách Chính Trị </a>
                     </div>
                 </div>
                 <!-- End Title Chính trị -->
@@ -246,7 +246,7 @@
                 <div class="row my-3">
                 {{#outputList bookCategory 8 'Chính Trị'}}
                     <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                        <a href="/detailBook/{{idSach}}" class="boGachChan" onclick="takeAttribute(this)" > 
                             <div class="card">
                                 <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
                                 <div class="card-body">
@@ -261,7 +261,7 @@
                 {{/outputList}}
                 </div>
 
-                <div class="d-flex justify-content-center xemthem mb-3"><a href="/chinhTri/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/theloai/chinhTri"  class="boGachChanXemThem">Xem thêm</a></div>   
                 
             </div>
     </section>
@@ -273,7 +273,7 @@
                 <!-- End Title Lịch sử -->
                 <div class="row bg-primary">
                     <div class="div">
-                        <a href="/lichSu/tatca/all" class="btn btn-success" role="button"  >Sách Lịch Sử </a>
+                        <a href="/theloai/lichSu" class="btn btn-success" role="button"  >Sách Lịch Sử </a>
                     </div>
                 </div>
                 <!-- End Title Lịch sử -->
@@ -281,9 +281,9 @@
                 <div class="row my-3">
                 {{#outputList bookCategory 8 'Lịch Sử'}}
                     <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                        <a href="/detailBook/{{idSach}}" class="boGachChan" onclick="takeAttribute(this)" > 
                             <div class="card">
-                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <img class="img-thumbnail" src="/uploads{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
                                 <div class="card-body">
                                     <p class="card-title" id="tenSach">{{tensach }}</p>
                                     <p class="card-text" id="tenTg">{{tentacgia}}</p>
@@ -296,7 +296,7 @@
                 {{/outputList}}
                 </div>
 
-                <div class="d-flex justify-content-center xemthem mb-3"><a href="/lichSu/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/theloai/lichSu"  class="boGachChanXemThem">Xem thêm</a></div>   
                 
             </div>
     </section>
@@ -308,7 +308,7 @@
                 <!-- End Title Khoa học-->
                 <div class="row bg-primary">
                     <div class="div">
-                        <a href="/khoaHoc/tatca/all" class="btn btn-success" role="button"  >Sách Khoa Học </a>
+                        <a href="/theloai/khoaHoc" class="btn btn-success" role="button"  >Sách Khoa Học </a>
                     </div>
                 </div>
                 <!-- End Title Khoa học-->
@@ -316,9 +316,9 @@
                 <div class="row my-3">
                 {{#outputList bookCategory 8 'Khoa Học'}}
                     <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                        <a href="/detailBook/{{idSach}}" class="boGachChan" onclick="takeAttribute(this)" > 
                             <div class="card">
-                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <img class="img-thumbnail" src="/uploads{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
                                 <div class="card-body">
                                     <p class="card-title" id="tenSach">{{tensach }}</p>
                                     <p class="card-text" id="tenTg">{{tentacgia}}</p>
@@ -331,7 +331,7 @@
                 {{/outputList}}
                 </div>
 
-                <div class="d-flex justify-content-center xemthem mb-3"><a href="/khoaHoc/tatca/all"  class="boGachChanXemThem">Xem thêm</a></div>   
+                <div class="d-flex justify-content-center xemthem mb-3"><a href="/theloai/khoaHoc"  class="boGachChanXemThem">Xem thêm</a></div>   
                 
             </div>
     </section>

@@ -1,10 +1,10 @@
 <!--Introduce Book  -->
     <section>
         <div class="container my-5">
-        {{#outputDetail bookCategory 1 contentDisplayDetail}}
+        {{#each bookCategory}}
             <div class="row changeContent">
                 <div class="col-12 my-3 col-sm-12 col-md-6 col-lg-4 col-xl-4 mr-5">
-                    <img src="{{image}}" style="width: 412px; height: 444px; display: block;">
+                    <img src="/uploads{{image}}" style="width: 412px; height: 444px; display: block;">
                 </div>
                 <div class="col-12 my-3 col-sm-12 col-md-5 col-lg-6 col-xl-6 ">
 
@@ -21,23 +21,41 @@
                 </div>
 
             </div>
-        {{/outputDetail}}
+        {{/each}}
 
         </div>
     </section>
 <!--End Introduce Book  -->
+<!-- Comment--->
+    <section class="binhLuan">
+        <div class="container">
+        <div class="bLuan">
+            {{#each bookAllComments}}
+                <div class="row comment">
+                    <p>{{coms}}</p>
+                </div>
+            {{/each}}
+        </div>
+        </div>
+    </section>
+<!-- End comment-->
 
     <section id="binhLuanSach">
         <div class="container my-5">
-            <form>
+            <form method="POST" action="http://localhost:5000/detailBook/{{idbook}}">
                 <div class="form-group">
+                    <input type="hidden" id="{{idbook}}" name="idDOfBook" value="{{idbook}}">
                     <label for="exampleFormControlTextarea1" class="display-4">Bình luận</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Nhận xét của bạn" style="height:200px ;"></textarea>
+                    <textarea class="form-control" id="comment1" name="comment1"  rows="3" style="height:90px ;"></textarea>
                     <button type="submit" class="btn btn-primary my-3">Gửi nhận xét</button>
                 </div>
             </form>
         </div>
     </section>
+
+
+
+
 
     <section id="TheLoaiCung Loai">
         <div class="container">
@@ -47,11 +65,11 @@
                 </div>
             </div>
             <div class="row tLoaiCungLoai">
-                {{#outSameCate bookCategory 4 theloaiSame contentDisplayDetail}}
+                {{#each bookSameCategory}}
                     <div class="col-6 my-3 col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                        <a href="/chiTietSach{{image}}" class="boGachChan" onclick="takeAttribute(this)" > 
+                        <a href="/detailBook/{{idSach}}" class="boGachChan" onclick="takeAttribute(this)" > 
                             <div class="card">
-                                <img class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
+                                <img class="img-thumbnail" src="/uploads{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">     
                                 <div class="card-body">
                                     <p class="card-title" id="tenSach">{{tensach }}</p>
                                     <p class="card-text" id="tenTg">{{tentacgia}}</p>
@@ -61,14 +79,12 @@
                             </div>
                         </a>
                     </div>
-                {{/outSameCate}}
+                {{/each}}
             </div>
             <div class="d-flex justify-content-center ">
-                <a href="{{linkSach}}/tatca/all" class="xemthem" >Xem thêm</a>
+                <a href="/theloai{{linkSach}}" class="xemthem" >Xem thêm</a>
             </div>
         </div>
     </section>
-    <section class="binhLuan">
-        <div class="bLuan"></div>
-    </section>
+
 

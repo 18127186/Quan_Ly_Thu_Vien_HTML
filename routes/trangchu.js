@@ -17,8 +17,15 @@ var checkSlide = function (a, b, opts) {
 var outputList = function (value, num, tit, opts) {
     let out = '';
     let count = 0;
+    let x = 0;
+    if (value.length < parseInt(num)) {
+        x = parseInt(value.length);
+    }
+    else {
+        x = parseInt(num);
+    }
     for (let i = 0; i < value.length; i++) {
-        if (count == parseInt(num)) {
+        if (count == x) {
             break;
         }
         if (value[i].theloai == tit) {
@@ -62,7 +69,7 @@ var outSameCate = function (value, num, tit, difContent, opts) {
     return out;
 }
 
-//Xử lý với trang index
+//Xử lý với trang index ==>Xong lần cuối
 app.get('/', (req, res) => {
     var context = {
         style: 'index.css',
@@ -72,49 +79,41 @@ app.get('/', (req, res) => {
                 link: '/tuViPhongThuy',
                 title: 'Tử Vi - Phong Thủy',
                 slide: 'Slide1',
-                secId: 'TuViPhongThuyBook',
             },
             {
                 link: '/vanHoc',
                 title: 'Văn học',
                 slide: 'Slide2',
-                secId: 'VanHocBook',
             },
             {
                 link: '/tieuThuyet',
                 title: 'Tiểu thuyết',
                 slide: 'Slide3',
-                secId: 'TieuThuyetBook',
             },
             {
                 link: '/kinhTe',
                 title: 'Kinh tế',
                 slide: 'Slide4',
-                secId: 'KinhTeBook',
             },
             {
                 link: '/xaHoi',
                 title: 'Xã hội',
                 slide: 'Slide5',
-                secId: 'XaHoiBook',
             },
             {
                 link: '/chinhTri',
                 title: 'Chính trị',
                 slide: 'Slide6',
-                secId: 'ChinhTriBook',
             },
             {
                 link: '/lichSu',
                 title: 'Lịch sử',
                 slide: 'Slide7',
-                secId: 'LichSuBook',
             },
             {
                 link: '/khoaHoc',
                 title: 'Khoa học',
                 slide: 'Slide8',
-                secId: 'KhoaHocBook',
             }
         ],
         bookCategory: [],
@@ -122,6 +121,7 @@ app.get('/', (req, res) => {
     models.Book.findAll().then((books) => {
         for (let i = 0; i < books.length; i++) {
             let book = {
+                idSach:books[i].id,
                 tensach: books[i].tensach,
                 tentacgia: books[i].tentacgia,
                 theloai: books[i].theloai,
@@ -157,6 +157,7 @@ app.get('/', (req, res) => {
 //Select * from BOOK
 //where tensach,tentacgia,theloai,soluong,ngaynhap,mota like '%req.query.noidungtimkiem%'
 
+//Xử lý search sách ==>Xong lần cuối
 app.get('/searchBook', (req, res) => {
     var contexts = {
         style: 'index.css',
@@ -244,6 +245,7 @@ app.get('/searchBook', (req, res) => {
         console.log(req.query.noidungtimkiem);
         for (let i = 0; i < books.length; i++) {
             let book = {
+                idSach: books[i].id,
                 tensach: books[i].tensach,
                 tentacgia: books[i].tentacgia,
                 theloai: books[i].theloai,
@@ -273,9 +275,8 @@ app.get('/searchBook', (req, res) => {
     // res.send("Hello"+req.query.noidungtimkiem);
 })
 
-
-//Xử lý sách mô tả, all
-app.get('/:loaisach/:theloai/:imag', (req, res) => {
+//Xử lý tất cả các thể loại ==>Xong lần cuối
+app.get('/theloai/:loaisach', (req, res) => {
     var context = {
         style: 'index.css',
         fileJs: 'index.js',
@@ -284,61 +285,50 @@ app.get('/:loaisach/:theloai/:imag', (req, res) => {
                 link: '/tuViPhongThuy',
                 title: 'Tử Vi - Phong Thủy',
                 slide: 'Slide1',
-                secId: 'TuViPhongThuyBook',
             },
             {
                 link: '/vanHoc',
                 title: 'Văn học',
                 slide: 'Slide2',
-                secId: 'VanHocBook',
             },
             {
                 link: '/tieuThuyet',
                 title: 'Tiểu thuyết',
                 slide: 'Slide3',
-                secId: 'TieuThuyetBook',
             },
             {
                 link: '/kinhTe',
                 title: 'Kinh tế',
                 slide: 'Slide4',
-                secId: 'KinhTeBook',
             },
             {
                 link: '/xaHoi',
                 title: 'Xã hội',
                 slide: 'Slide5',
-                secId: 'XaHoiBook',
             },
             {
                 link: '/chinhTri',
                 title: 'Chính trị',
                 slide: 'Slide6',
-                secId: 'ChinhTriBook',
             },
             {
                 link: '/lichSu',
                 title: 'Lịch sử',
                 slide: 'Slide7',
-                secId: 'LichSuBook',
             },
             {
                 link: '/khoaHoc',
                 title: 'Khoa học',
                 slide: 'Slide8',
-                secId: 'KhoaHocBook',
             }
         ],
         bookCategory: [],
         loaiSach: '',
-        linkSach: '',
-        contentDisplayDetail: '',
-        theloaiSame: '',
-
     }
     models.Book.findAll().then((books) => {
         for (let i = 0; i < books.length; i++) {
             let book = {
+                idSach: books[i].id,
                 tensach: books[i].tensach,
                 tentacgia: books[i].tentacgia,
                 theloai: books[i].theloai,
@@ -351,122 +341,375 @@ app.get('/:loaisach/:theloai/:imag', (req, res) => {
         }
         if (req.params.loaisach == 'tuViPhongThuy') {
             context.loaiSach = 'Tử vi - Phong Thủy';
-            context.linkSach = context.linkHref[0].link;
-
         }
         else if (req.params.loaisach == 'vanHoc') {
             context.loaiSach = 'Văn Học';
-            context.linkSach = context.linkHref[1].link;
-
         }
         else if (req.params.loaisach == 'tieuThuyet') {
             context.loaiSach = 'Tiểu Thuyết';
-            context.linkSach = context.linkHref[2].link;
 
         }
         else if (req.params.loaisach == 'kinhTe') {
             context.loaiSach = 'Kinh Tế';
-            context.linkSach = context.linkHref[3].link;
-
         }
         else if (req.params.loaisach == 'xaHoi') {
             context.loaiSach = 'Xã Hội';
-            context.linkSach = context.linkHref[4].link;
-
         }
         else if (req.params.loaisach == 'chinhTri') {
             context.loaiSach = 'Chính Trị';
-            context.linkSach = context.linkHref[5].link;
-
         }
         else if (req.params.loaisach == 'lichSu') {
             context.loaiSach = 'Lịch Sử';
-            context.linkSach = context.linkHref[6].link;
-
         }
         else if (req.params.loaisach == 'khoaHoc') {
             context.loaiSach = 'Khoa Học';
-            context.linkSach = context.linkHref[7].link;
-
         }
-
-        if (req.params.loaisach == 'chiTietSach' && req.params.theloai != 'tatca') {
-            context.style = 'moTaSach.css';
-            context.fileJs = '';
-            context.contentDisplayDetail = '/' + req.params.theloai + '/' + req.params.imag;
-            if (req.params.theloai == 'TuViPhongThuy') {
-                context.theloaiSame = 'Tử vi - Phong Thủy';
-                context.linkSach = context.linkHref[0].link;
-
-            }
-            else if (req.params.theloai == 'VanHoc') {
-                context.theloaiSame = 'Văn Học';
-                context.linkSach = context.linkHref[1].link;
-
-            }
-            else if (req.params.theloai == 'TieuThuyet') {
-                context.theloaiSame = 'Tiểu Thuyết';
-                context.linkSach = context.linkHref[2].link;
-
-            }
-            else if (req.params.theloai == 'KinhTe') {
-                context.theloaiSame = 'Kinh Tế';
-                context.linkSach = context.linkHref[3].link;
-
-            }
-            else if (req.params.theloai == 'XaHoi') {
-                context.theloaiSame = 'Xã Hội';
-                context.linkSach = context.linkHref[4].link;
-
-            }
-            else if (req.params.theloai == 'ChinhTri') {
-                context.theloaiSame = 'Chính Trị';
-                context.linkSach = context.linkHref[5].link;
-
-            }
-            else if (req.params.theloai == 'LichSu') {
-                context.theloaiSame = 'Lịch Sử';
-                context.linkSach = context.linkHref[6].link;
-
-            }
-            else if (req.params.theloai == 'KhoaHoc') {
-                context.theloaiSame = 'Khoa Học';
-                context.linkSach = context.linkHref[7].link;
-
-            }
-            checkLogin = req.app.get('checklogin')
-            if(checkLogin == 1) {
-                res.locals.forindex = `<a href="/Staff" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
-                res.locals.header = "Đăng xuất";
-            }
-            else if(checkLogin == 2){
-                res.locals.forindex = `<a href="/admin" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
-                res.locals.header = "Đăng xuất";
-            }
-            else {
-                res.locals.header = "Đăng nhập";
-            }
-            res.render('chitietsach', context);
+        checkLogin = req.app.get('checklogin')
+        if (checkLogin == 1) {
+            res.locals.forindex = `<a href="/Staff" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+            res.locals.header = "Đăng xuất";
+        }
+        else if (checkLogin == 2) {
+            res.locals.forindex = `<a href="/admin" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+            res.locals.header = "Đăng xuất";
         }
         else {
-            context.style = 'index.css';
-            context.fileJs = 'index.js';
-            checkLogin = req.app.get('checklogin')
-            if(checkLogin == 1) {
-                res.locals.forindex = `<a href="/Staff" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
-                res.locals.header = "Đăng xuất";
-            }
-            else if(checkLogin == 2){
-                res.locals.forindex = `<a href="/admin" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
-                res.locals.header = "Đăng xuất";
-            }
-            else {
-                res.locals.header = "Đăng nhập";
-            }
-            res.render('tatcasach', context);
+            res.locals.header = "Đăng nhập";
         }
+        res.render('tatcasach', context);
 
     }).catch((error) => {
+        res.json(error);
+    })
+})
+//Xử lý sách mô tả, all ==>Xong lần cuối
+app.get('/detailBook/:id', (req, res) => {
+    var context = {
+        style: 'moTaSach.css',
+        fileJs: '',
+        linkHref: [
+            {
+                link: '/tuViPhongThuy',
+                title: 'Tử Vi - Phong Thủy',
+                slide: 'Slide1',
+            },
+            {
+                link: '/vanHoc',
+                title: 'Văn học',
+                slide: 'Slide2',
+            },
+            {
+                link: '/tieuThuyet',
+                title: 'Tiểu thuyết',
+                slide: 'Slide3',
+            },
+            {
+                link: '/kinhTe',
+                title: 'Kinh tế',
+                slide: 'Slide4',
+            },
+            {
+                link: '/xaHoi',
+                title: 'Xã hội',
+                slide: 'Slide5',
+            },
+            {
+                link: '/chinhTri',
+                title: 'Chính trị',
+                slide: 'Slide6',
+            },
+            {
+                link: '/lichSu',
+                title: 'Lịch sử',
+                slide: 'Slide7',
+            },
+            {
+                link: '/khoaHoc',
+                title: 'Khoa học',
+                slide: 'Slide8',
+            }
+        ],
+        bookCategory: [],
+        bookSameCategory: [],
+        bookAllComments:[],
+        linkSach: '',
+
+    }
+    models.Book.findOne(
+        {
+            where: {
+                id: req.params.id 
+            }
+        }
+    ).then((books) => {
+        let book = {
+            idSach: books.id,
+            tensach: books.tensach,
+            tentacgia: books.tentacgia,
+            theloai: books.theloai,
+            soluong: books.soluong,
+            ngaynhap: books.ngaynhap,
+            image: books.image,
+            mota: books.mota,
+        }
+        context.bookCategory.push(book);
+        res.locals.idbook=books.id;
+        models.Book.findAll(
+            {
+                where:{
+                    theloai:books.theloai,
+                    id: {
+                        [Op.ne]:books.id
+                    }
+                }
+            }
+        ).then((bookss)=>{
+            for (let i = 0; i < 4; i++) {
+                let book1 = {
+                    idSach: bookss[i].id,
+                    tensach: bookss[i].tensach,
+                    tentacgia: bookss[i].tentacgia,
+                    theloai: bookss[i].theloai,
+                    soluong: bookss[i].soluong,
+                    ngaynhap: bookss[i].ngaynhap,
+                    image: bookss[i].image,
+                    mota: bookss[i].mota,
+                }
+                context.bookSameCategory.push(book1);
+            }
+        })
+        models.Comment.findAll(
+            {
+                where:{
+                    BookId:books.id,
+                }
+            }
+        ).then((cm)=>{
+            for (let i = 0; i < cm.length; i++) {
+                let comment1={
+                    idComment:cm[i].id,
+                    idOfBookId:cm[i].BookId,
+                    coms:cm[i].comment,
+                }
+                context.bookAllComments.push(comment1);
+            }
+        })
+        if (book.theloai ==  'Tử vi - Phong Thủy') {
+            context.linkSach = context.linkHref[0].link;
+
+        }
+        else if (book.theloai == 'Văn Học') {
+            context.linkSach = context.linkHref[1].link;
+
+        }
+        else if (book.theloai == 'Tiểu Thuyết') {
+            context.linkSach = context.linkHref[2].link;
+
+        }
+        else if (book.theloai == 'Kinh Tế') {
+            context.linkSach = context.linkHref[3].link;
+        }
+
+        else if (book.theloai == 'Xã Hội') {
+            context.linkSach = context.linkHref[4].link;
+
+        }
+        else if (book.theloai == 'Chính Trị') {
+            context.linkSach = context.linkHref[5].link;
+
+        }
+        else if (book.theloai == 'Lịch Sử') {
+            context.linkSach = context.linkHref[6].link;
+
+        }
+        else if (book.theloai == 'Khoa Học') {
+            context.linkSach = context.linkHref[7].link;
+        }
+        checkLogin = req.app.get('checklogin')
+        if (checkLogin == 1) {
+            res.locals.forindex = `<a href="/Staff" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+            res.locals.header = "Đăng xuất";
+        }
+        else if (checkLogin == 2) {
+            res.locals.forindex = `<a href="/admin" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+            res.locals.header = "Đăng xuất";
+        }
+        else {
+            res.locals.header = "Đăng nhập";
+        }
+        res.render('chitietsach', context);
+    })
+    .catch((error) => {
+        res.json(error);
+    })
+})
+
+//Xử lý lúc comment ==>Xong
+app.post('/detailBook/:id', (req, res) => {
+    var context = {
+        style: 'moTaSach.css',
+        fileJs: '',
+        linkHref: [
+            {
+                link: '/tuViPhongThuy',
+                title: 'Tử Vi - Phong Thủy',
+                slide: 'Slide1',
+            },
+            {
+                link: '/vanHoc',
+                title: 'Văn học',
+                slide: 'Slide2',
+            },
+            {
+                link: '/tieuThuyet',
+                title: 'Tiểu thuyết',
+                slide: 'Slide3',
+            },
+            {
+                link: '/kinhTe',
+                title: 'Kinh tế',
+                slide: 'Slide4',
+            },
+            {
+                link: '/xaHoi',
+                title: 'Xã hội',
+                slide: 'Slide5',
+            },
+            {
+                link: '/chinhTri',
+                title: 'Chính trị',
+                slide: 'Slide6',
+            },
+            {
+                link: '/lichSu',
+                title: 'Lịch sử',
+                slide: 'Slide7',
+            },
+            {
+                link: '/khoaHoc',
+                title: 'Khoa học',
+                slide: 'Slide8',
+            }
+        ],
+        bookCategory: [],
+        bookSameCategory: [],
+        bookAllComments:[],
+        linkSach: '',
+
+    }
+    var commentB={
+        comment:req.body.comment1,
+        BookId:req.params.id ,
+    }
+    models.Comment.create(commentB)
+
+    models.Book.findOne(
+        {
+            where: {
+                id: req.params.id 
+            }
+        }
+    ).then((books) => {
+        let book = {
+            idSach: books.id,
+            tensach: books.tensach,
+            tentacgia: books.tentacgia,
+            theloai: books.theloai,
+            soluong: books.soluong,
+            ngaynhap: books.ngaynhap,
+            image: books.image,
+            mota: books.mota,
+        }
+        context.bookCategory.push(book);
+        res.locals.idbook=books.id;
+        models.Book.findAll(
+            {
+                where:{
+                    theloai:books.theloai,
+                    id: {
+                        [Op.ne]:books.id
+                    }
+                }
+            }
+        ).then((bookss)=>{
+            for (let i = 0; i < 4; i++) {
+                let book1 = {
+                    idSach: bookss[i].id,
+                    tensach: bookss[i].tensach,
+                    tentacgia: bookss[i].tentacgia,
+                    theloai: bookss[i].theloai,
+                    soluong: bookss[i].soluong,
+                    ngaynhap: bookss[i].ngaynhap,
+                    image: bookss[i].image,
+                    mota: bookss[i].mota,
+                }
+                context.bookSameCategory.push(book1);
+            }
+        })
+        models.Comment.findAll(
+            {
+                where:{
+                    BookId:books.id,
+                }
+            }
+        ).then((cm)=>{
+            for (let i = 0; i < cm.length; i++) {
+                let comment1={
+                    idComment:cm[i].id,
+                    idOfBookId:cm[i].BookId,
+                    coms:cm[i].comment,
+                }
+                context.bookAllComments.push(comment1);
+            }
+        })
+
+
+        if (book.theloai ==  'Tử vi - Phong Thủy') {
+            context.linkSach = context.linkHref[0].link;
+
+        }
+        else if (book.theloai == 'Văn Học') {
+            context.linkSach = context.linkHref[1].link;
+
+        }
+        else if (book.theloai == 'Tiểu Thuyết') {
+            context.linkSach = context.linkHref[2].link;
+
+        }
+        else if (book.theloai == 'Kinh Tế') {
+            context.linkSach = context.linkHref[3].link;
+        }
+
+        else if (book.theloai == 'Xã Hội') {
+            context.linkSach = context.linkHref[4].link;
+
+        }
+        else if (book.theloai == 'Chính Trị') {
+            context.linkSach = context.linkHref[5].link;
+
+        }
+        else if (book.theloai == 'Lịch Sử') {
+            context.linkSach = context.linkHref[6].link;
+
+        }
+        else if (book.theloai == 'Khoa Học') {
+            context.linkSach = context.linkHref[7].link;
+        }
+        checkLogin = req.app.get('checklogin')
+        if (checkLogin == 1) {
+            res.locals.forindex = `<a href="/Staff" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+            res.locals.header = "Đăng xuất";
+        }
+        else if (checkLogin == 2) {
+            res.locals.forindex = `<a href="/admin" class="btn btn-outline-primary active" style="margin-right: 25px" role="button" aria-pressed="true">Thông tin</a>`
+            res.locals.header = "Đăng xuất";
+        }
+        else {
+            res.locals.header = "Đăng nhập";
+        }
+        res.render('chitietsach', context);
+    })
+    .catch((error) => {
         res.json(error);
     })
 })

@@ -8,7 +8,7 @@ module.exports = {
       theloai: 'Tử vi - Phong Thủy',
       soluong: 50,
       ngaynhap: '13/12/2020',
-      image: '/TuViPhongThuy/TuViDauSoToanThu6.jpg',
+      image: '/TuViDauSoToanThu6.jpg',
       mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
       Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
       Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -23,7 +23,7 @@ module.exports = {
         theloai: 'Tử vi - Phong Thủy',
         soluong: 50,
         ngaynhap: '13/12/2020',
-        image: '/TuViPhongThuy/TuViDauSoToanThu7.jpg',
+        image: '/TuViDauSoToanThu7.jpg',
         mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
         Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
         Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -38,7 +38,7 @@ module.exports = {
         theloai: 'Tử vi - Phong Thủy',
         soluong: 40,
         ngaynhap: '13/12/2020',
-        image: '/TuViPhongThuy/TuViDauSoToanThu8.jpg',
+        image: '/TuViDauSoToanThu8.jpg',
         mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
         Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
         Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -53,7 +53,7 @@ module.exports = {
         theloai: 'Tử vi - Phong Thủy',
         soluong: 100,
         ngaynhap: '13/12/2020',
-        image: '/TuViPhongThuy/TuViDauSoToanThu1.jpg',
+        image: '/TuViDauSoToanThu1.jpg',
         mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
         Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
         Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -68,7 +68,7 @@ module.exports = {
         theloai: 'Tử vi - Phong Thủy',
         soluong: 100,
         ngaynhap: '13/12/2020',
-        image: '/TuViPhongThuy/TuViDauSoToanThu2.jpg',
+        image: '/TuViDauSoToanThu2.jpg',
         mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
         Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
         Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -83,7 +83,7 @@ module.exports = {
         theloai: 'Tử vi - Phong Thủy',
         soluong: 100,
         ngaynhap: '13/12/2020',
-        image: '/TuViPhongThuy/TuViDauSoToanThu3.jpg',
+        image: '/TuViDauSoToanThu3.jpg',
         mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
         Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
         Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -98,7 +98,7 @@ module.exports = {
         theloai: 'Tử vi - Phong Thủy',
         soluong: 100,
         ngaynhap: '13/12/2020',
-        image: '/TuViPhongThuy/TuViDauSoToanThu4.jpg',
+        image: '/TuViDauSoToanThu4.jpg',
         mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
         Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
         Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -113,7 +113,7 @@ module.exports = {
         theloai: 'Tử vi - Phong Thủy',
         soluong: 100,
         ngaynhap: '13/12/2020',
-        image: '/TuViPhongThuy/TuViDauSoToanThu5.jpg',
+        image: '/TuViDauSoToanThu5.jpg',
         mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
         Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
         Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -128,7 +128,7 @@ module.exports = {
         theloai: 'Tử vi - Phong Thủy',
         soluong: 100,
         ngaynhap: '13/12/2020',
-        image: '/TuViPhongThuy/TuViDauSoToanThu10.jpg',
+        image: '/TuViDauSoToanThu10.jpg',
         mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
         Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
         Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -143,7 +143,7 @@ module.exports = {
         theloai: 'Tử vi - Phong Thủy',
         soluong: 100,
         ngaynhap: '13/12/2020',
-        image: '/TuViPhongThuy/TuViDauSoToanThu9.jpg',
+        image: '/TuViDauSoToanThu9.jpg',
         mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
         Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
         Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -158,7 +158,7 @@ module.exports = {
         theloai: 'Văn Học',
         soluong: 50,
         ngaynhap: '13/12/2020',
-        image: '/VanHoc/VanHoc1.jpg',
+        image: '/VanHoc1.jpg',
         mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
         Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
         Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -173,7 +173,7 @@ module.exports = {
           theloai: 'Văn Học',
           soluong: 50,
           ngaynhap: '13/12/2020',
-          image: '/VanHoc/VanHoc2.jpg',
+          image: '/VanHoc2.jpg',
           mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
           Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
           Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -188,7 +188,7 @@ module.exports = {
           theloai: 'Văn Học',
           soluong: 40,
           ngaynhap: '13/12/2020',
-          image: '/VanHoc/VanHoc3.jpg',
+          image: '/VanHoc3.jpg',
           mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
           Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
           Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -203,7 +203,7 @@ module.exports = {
           theloai: 'Văn Học',
           soluong: 100,
           ngaynhap: '13/12/2020',
-          image: '/VanHoc/VanHoc4.jpg',
+          image: '/VanHoc4.jpg',
           mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
           Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
           Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -218,7 +218,7 @@ module.exports = {
           theloai: 'Văn Học',
           soluong: 100,
           ngaynhap: '13/12/2020',
-          image: '/VanHoc/VanHoc5.jpg',
+          image: '/VanHoc5.jpg',
           mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
           Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
           Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -233,7 +233,7 @@ module.exports = {
           theloai: 'Văn Học',
           soluong: 100,
           ngaynhap: '13/12/2020',
-          image: '/VanHoc/VanHoc6.jpg',
+          image: '/VanHoc6.jpg',
           mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
           Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
           Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -248,7 +248,7 @@ module.exports = {
           theloai: 'Văn Học',
           soluong: 100,
           ngaynhap: '13/12/2020',
-          image: '/VanHoc/VanHoc7.jpg',
+          image: '/VanHoc7.jpg',
           mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
           Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
           Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -263,7 +263,7 @@ module.exports = {
           theloai: 'Văn Học',
           soluong: 100,
           ngaynhap: '13/12/2020',
-          image: '/VanHoc/VanHoc8.jpg',
+          image: '/VanHoc8.jpg',
           mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
           Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
           Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -278,7 +278,7 @@ module.exports = {
           theloai: 'Văn Học',
           soluong: 100,
           ngaynhap: '13/12/2020',
-          image: '/VanHoc/VanHoc9.jpg',
+          image: '/VanHoc9.jpg',
           mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
           Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
           Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -293,7 +293,7 @@ module.exports = {
           theloai: 'Văn Học',
           soluong: 100,
           ngaynhap: '13/12/2020',
-          image: '/VanHoc/VanHoc10.jpg',
+          image: '/VanHoc10.jpg',
           mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
           Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
           Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -308,7 +308,7 @@ module.exports = {
           theloai: 'Tiểu Thuyết',
           soluong: 50,
           ngaynhap: '13/12/2020',
-          image: '/TieuThuyet/TieuThuyet1.jpg',
+          image: '/TieuThuyet1.jpg',
           mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
           Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
           Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -323,7 +323,7 @@ module.exports = {
             theloai: 'Tiểu Thuyết',
             soluong: 50,
             ngaynhap: '13/12/2020',
-            image: '/TieuThuyet/TieuThuyet2.jpg',
+            image: '/TieuThuyet2.jpg',
             mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
             Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
             Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -338,7 +338,7 @@ module.exports = {
             theloai: 'Tiểu Thuyết',
             soluong: 40,
             ngaynhap: '13/12/2020',
-            image: '/TieuThuyet/TieuThuyet3.jpg',
+            image: '/TieuThuyet3.jpg',
             mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
             Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
             Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -353,7 +353,7 @@ module.exports = {
             theloai: 'Tiểu Thuyết',
             soluong: 100,
             ngaynhap: '13/12/2020',
-            image: '/TieuThuyet/TieuThuyet5.jpg',
+            image: '/TieuThuyet5.jpg',
             mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
             Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
             Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -368,7 +368,7 @@ module.exports = {
             theloai: 'Tiểu Thuyết',
             soluong: 100,
             ngaynhap: '13/12/2020',
-            image: '/TieuThuyet/TieuThuyet4.jpg',
+            image: '/TieuThuyet4.jpg',
             mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
             Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
             Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -383,7 +383,7 @@ module.exports = {
             theloai: 'Tiểu Thuyết',
             soluong: 100,
             ngaynhap: '13/12/2020',
-            image: '/TieuThuyet/TieuThuyet6.jpg',
+            image: '/TieuThuyet6.jpg',
             mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
             Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
             Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -398,7 +398,7 @@ module.exports = {
             theloai: 'Tiểu Thuyết',
             soluong: 100,
             ngaynhap: '13/12/2020',
-            image: '/TieuThuyet/TieuThuyet7.jpg',
+            image: '/TieuThuyet7.jpg',
             mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
             Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
             Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -413,7 +413,7 @@ module.exports = {
             theloai: 'Tiểu Thuyết',
             soluong: 100,
             ngaynhap: '13/12/2020',
-            image: '/TieuThuyet/TieuThuyet8.jpg',
+            image: '/TieuThuyet8.jpg',
             mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
             Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
             Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -428,7 +428,7 @@ module.exports = {
             theloai: 'Tiểu Thuyết',
             soluong: 100,
             ngaynhap: '13/12/2020',
-            image: '/TieuThuyet/TieuThuyet9.jpg',
+            image: '/TieuThuyet9.jpg',
             mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
             Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
             Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -443,7 +443,7 @@ module.exports = {
             theloai: 'Tiểu Thuyết',
             soluong: 100,
             ngaynhap: '13/12/2020',
-            image: '/TieuThuyet/TieuThuyet10.jpg',
+            image: '/TieuThuyet10.jpg',
             mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
             Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
             Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -458,7 +458,7 @@ module.exports = {
             theloai: 'Kinh Tế',
             soluong: 50,
             ngaynhap: '13/12/2020',
-            image: '/KinhTe/KinhTe1.jpg',
+            image: '/KinhTe1.jpg',
             mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
             Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
             Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -473,7 +473,7 @@ module.exports = {
               theloai: 'Kinh Tế',
               soluong: 50,
               ngaynhap: '13/12/2020',
-              image: '/KinhTe/KinhTe2.jpg',
+              image: '/KinhTe2.jpg',
               mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
               Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
               Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -488,7 +488,7 @@ module.exports = {
               theloai: 'Kinh Tế',
               soluong: 40,
               ngaynhap: '13/12/2020',
-              image: '/KinhTe/KinhTe3.jpg',
+              image: '/KinhTe3.jpg',
               mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
               Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
               Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -503,7 +503,7 @@ module.exports = {
               theloai: 'Kinh Tế',
               soluong: 100,
               ngaynhap: '13/12/2020',
-              image: '/KinhTe/KinhTe4.jpg',
+              image: '/KinhTe4.jpg',
               mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
               Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
               Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -518,7 +518,7 @@ module.exports = {
               theloai: 'Kinh Tế',
               soluong: 100,
               ngaynhap: '13/12/2020',
-              image: '/KinhTe/KinhTe5.jpg',
+              image: '/KinhTe5.jpg',
               mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
               Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
               Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -533,7 +533,7 @@ module.exports = {
               theloai: 'Kinh Tế',
               soluong: 100,
               ngaynhap: '13/12/2020',
-              image: '/KinhTe/KinhTe6.jpg',
+              image: '/KinhTe6.jpg',
               mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
               Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
               Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -548,7 +548,7 @@ module.exports = {
               theloai: 'Kinh Tế',
               soluong: 100,
               ngaynhap: '13/12/2020',
-              image: '/KinhTe/KinhTe7.jpg',
+              image: '/KinhTe7.jpg',
               mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
               Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
               Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -563,7 +563,7 @@ module.exports = {
               theloai: 'Kinh Tế',
               soluong: 100,
               ngaynhap: '13/12/2020',
-              image: '/KinhTe/KinhTe8.jpg',
+              image: '/KinhTe8.jpg',
               mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
               Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
               Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -578,7 +578,7 @@ module.exports = {
               theloai: 'Kinh tế',
               soluong: 100,
               ngaynhap: '13/12/2020',
-              image: '/KinhTe/KinhTe9.jpg',
+              image: '/KinhTe9.jpg',
               mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
               Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
               Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -593,7 +593,7 @@ module.exports = {
               theloai: 'Kinh Tế',
               soluong: 100,
               ngaynhap: '13/12/2020',
-              image: '/KinhTe/KinhTe10.jpg',
+              image: '/KinhTe10.jpg',
               mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
               Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
               Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -608,7 +608,7 @@ module.exports = {
               theloai: 'Xã Hội',
               soluong: 50,
               ngaynhap: '13/12/2020',
-              image: '/XaHoi/XaHoi1.jpg',
+              image: '/XaHoi1.jpg',
               mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
               Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
               Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -623,7 +623,7 @@ module.exports = {
                 theloai: 'Xã Hội',
                 soluong: 50,
                 ngaynhap: '13/12/2020',
-                image: '/XaHoi/XaHoi2.jpg',
+                image: '/XaHoi2.jpg',
                 mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                 Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                 Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -653,7 +653,7 @@ module.exports = {
                 theloai: 'Xã Hội',
                 soluong: 100,
                 ngaynhap: '13/12/2020',
-                image: '/XaHoi/XaHoi4.jpg',
+                image: '/XaHoi4.jpg',
                 mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                 Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                 Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -668,7 +668,7 @@ module.exports = {
                 theloai: 'Xã Hội',
                 soluong: 100,
                 ngaynhap: '13/12/2020',
-                image: '/XaHoi/XaHoi5.jpg',
+                image: '/XaHoi5.jpg',
                 mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                 Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                 Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -683,7 +683,7 @@ module.exports = {
                 theloai: 'Xã Hội',
                 soluong: 100,
                 ngaynhap: '13/12/2020',
-                image: '/XaHoi/XaHoi6.jpg',
+                image: '/XaHoi6.jpg',
                 mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                 Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                 Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -698,7 +698,7 @@ module.exports = {
                 theloai: 'Xã Hội',
                 soluong: 100,
                 ngaynhap: '13/12/2020',
-                image: '/XaHoi/XaHoi7.jpg',
+                image: '/XaHoi7.jpg',
                 mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                 Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                 Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -713,7 +713,7 @@ module.exports = {
                 theloai: 'Xã Hội',
                 soluong: 100,
                 ngaynhap: '13/12/2020',
-                image: '/XaHoi/XaHoi8.jpg',
+                image: '/XaHoi8.jpg',
                 mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                 Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                 Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -728,7 +728,7 @@ module.exports = {
                 theloai: 'Xã Hội',
                 soluong: 100,
                 ngaynhap: '13/12/2020',
-                image: '/XaHoi/XaHoi9.jpg',
+                image: '/XaHoi9.jpg',
                 mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                 Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                 Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -743,7 +743,7 @@ module.exports = {
                 theloai: 'Xã Hội',
                 soluong: 100,
                 ngaynhap: '13/12/2020',
-                image: '/XaHoi/XaHoi10.jpg',
+                image: '/XaHoi10.jpg',
                 mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                 Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                 Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -758,7 +758,7 @@ module.exports = {
                 theloai: 'Chính Trị',
                 soluong: 50,
                 ngaynhap: '13/12/2020',
-                image: '/ChinhTri/HienPhap1.jpg',
+                image: '/HienPhap1.jpg',
                 mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                 Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                 Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -773,7 +773,7 @@ module.exports = {
                   theloai: 'Chính Trị',
                   soluong: 50,
                   ngaynhap: '13/12/2020',
-                  image: '/ChinhTri/HienPhap2.jpg',
+                  image: '/HienPhap2.jpg',
                   mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                   Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                   Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -788,7 +788,7 @@ module.exports = {
                   theloai: 'Chính Trị',
                   soluong: 40,
                   ngaynhap: '13/12/2020',
-                  image: '/ChinhTri/HienPhap8.jpg',
+                  image: '/HienPhap8.jpg',
                   mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                   Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                   Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -803,7 +803,7 @@ module.exports = {
                   theloai: 'Chính Trị',
                   soluong: 100,
                   ngaynhap: '13/12/2020',
-                  image: '/ChinhTri/HienPhap4.jpg',
+                  image: '/HienPhap4.jpg',
                   mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                   Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                   Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -818,7 +818,7 @@ module.exports = {
                   theloai: 'Chính Trị',
                   soluong: 100,
                   ngaynhap: '13/12/2020',
-                  image: '/ChinhTri/HienPhap5.jpg',
+                  image: '/HienPhap5.jpg',
                   mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                   Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                   Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -833,7 +833,7 @@ module.exports = {
                   theloai: 'Chính Trị',
                   soluong: 100,
                   ngaynhap: '13/12/2020',
-                  image: '/ChinhTri/HienPhap6.jpg',
+                  image: '/HienPhap6.jpg',
                   mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                   Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                   Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -848,7 +848,7 @@ module.exports = {
                   theloai: 'Chính Trị',
                   soluong: 100,
                   ngaynhap: '13/12/2020',
-                  image: '/ChinhTri/HienPhap7.jpg',
+                  image: '/HienPhap7.jpg',
                   mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                   Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                   Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -863,7 +863,7 @@ module.exports = {
                   theloai: 'Chính Trị',
                   soluong: 100,
                   ngaynhap: '13/12/2020',
-                  image: '/ChinhTri/HienPhap3.jpg',
+                  image: '/HienPhap3.jpg',
                   mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                   Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                   Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -878,7 +878,7 @@ module.exports = {
                   theloai: 'Chính Trị',
                   soluong: 100,
                   ngaynhap: '13/12/2020',
-                  image: '/ChinhTri/HienPhap9.jpg',
+                  image: '/HienPhap9.jpg',
                   mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                   Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                   Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -893,7 +893,7 @@ module.exports = {
                   theloai: 'Chính Trị',
                   soluong: 100,
                   ngaynhap: '13/12/2020',
-                  image: '/ChinhTri/HienPhap10.jpg',
+                  image: '/HienPhap10.jpg',
                   mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                   Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                   Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -908,7 +908,7 @@ module.exports = {
                   theloai: 'Lịch Sử',
                   soluong: 50,
                   ngaynhap: '13/12/2020',
-                  image: '/LichSu/LichSu1.jpg',
+                  image: '/LichSu1.jpg',
                   mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                   Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                   Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -923,7 +923,7 @@ module.exports = {
                     theloai: 'Lịch Sử',
                     soluong: 50,
                     ngaynhap: '13/12/2020',
-                    image: '/LichSu/LichSu2.jpg',
+                    image: '/LichSu2.jpg',
                     mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                     Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                     Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -938,7 +938,7 @@ module.exports = {
                     theloai: 'Lịch Sử',
                     soluong: 40,
                     ngaynhap: '13/12/2020',
-                    image: '/LichSu/LichSu3.jpg',
+                    image: '/LichSu3.jpg',
                     mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                     Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                     Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -953,7 +953,7 @@ module.exports = {
                     theloai: 'Lịch Sử',
                     soluong: 100,
                     ngaynhap: '13/12/2020',
-                    image: '/LichSu/LichSu4.jpg',
+                    image: '/LichSu4.jpg',
                     mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                     Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                     Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -968,7 +968,7 @@ module.exports = {
                     theloai: 'Lịch Sử',
                     soluong: 100,
                     ngaynhap: '13/12/2020',
-                    image: '/LichSu/LichSu5.jpg',
+                    image: '/LichSu5.jpg',
                     mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                     Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                     Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -983,7 +983,7 @@ module.exports = {
                     theloai: 'Lịch Sử',
                     soluong: 100,
                     ngaynhap: '13/12/2020',
-                    image: '/LichSu/LichSu6.jpg',
+                    image: '/LichSu6.jpg',
                     mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                     Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                     Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -998,7 +998,7 @@ module.exports = {
                     theloai: 'Lịch Sử',
                     soluong: 100,
                     ngaynhap: '13/12/2020',
-                    image: '/LichSu/LichSu7.jpg',
+                    image: '/LichSu7.jpg',
                     mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                     Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                     Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -1013,7 +1013,7 @@ module.exports = {
                     theloai: 'Lịch Sử',
                     soluong: 100,
                     ngaynhap: '13/12/2020',
-                    image: '/LichSu/LichSu8.jpg',
+                    image: '/LichSu8.jpg',
                     mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                     Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                     Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -1028,7 +1028,7 @@ module.exports = {
                     theloai: 'Lịch Sử',
                     soluong: 100,
                     ngaynhap: '13/12/2020',
-                    image: '/LichSu/LichSu9.jpg',
+                    image: '/LichSu9.jpg',
                     mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                     Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                     Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -1043,7 +1043,7 @@ module.exports = {
                     theloai: 'Lịch Sử',
                     soluong: 100,
                     ngaynhap: '13/12/2020',
-                    image: '/LichSu/LichSu10.jpg',
+                    image: '/LichSu10.jpg',
                     mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                     Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                     Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -1058,7 +1058,7 @@ module.exports = {
                     theloai: 'Khoa Học',
                     soluong: 50,
                     ngaynhap: '13/12/2020',
-                    image: '/KhoaHoc/KhoaHoc1.jpg',
+                    image: '/KhoaHoc1.jpg',
                     mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                     Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                     Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -1073,7 +1073,7 @@ module.exports = {
                       theloai: 'Khoa Học',
                       soluong: 50,
                       ngaynhap: '13/12/2020',
-                      image: '/KhoaHoc/KhoaHoc2.jpg',
+                      image: '/KhoaHoc2.jpg',
                       mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                       Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                       Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -1088,7 +1088,7 @@ module.exports = {
                       theloai: 'Khoa Học',
                       soluong: 40,
                       ngaynhap: '13/12/2020',
-                      image: '/KhoaHoc/KhoaHoc3.jpg',
+                      image: '/KhoaHoc3.jpg',
                       mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                       Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                       Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -1103,7 +1103,7 @@ module.exports = {
                       theloai: 'Khoa Học',
                       soluong: 100,
                       ngaynhap: '13/12/2020',
-                      image: '/KhoaHoc/KhoaHoc4.jpg',
+                      image: '/KhoaHoc4.jpg',
                       mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                       Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                       Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -1118,7 +1118,7 @@ module.exports = {
                       theloai: 'Khoa Học',
                       soluong: 100,
                       ngaynhap: '13/12/2020',
-                      image: '/KhoaHoc/KhoaHoc5.jpg',
+                      image: '/KhoaHoc5.jpg',
                       mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                       Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                       Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -1133,7 +1133,7 @@ module.exports = {
                       theloai: 'Khoa Học',
                       soluong: 100,
                       ngaynhap: '13/12/2020',
-                      image: '/KhoaHoc/KhoaHoc6.jpg',
+                      image: '/KhoaHoc6.jpg',
                       mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                       Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                       Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -1148,7 +1148,7 @@ module.exports = {
                       theloai: 'Khoa Học',
                       soluong: 100,
                       ngaynhap: '13/12/2020',
-                      image: '/KhoaHoc/KhoaHoc7.jpg',
+                      image: '/KhoaHoc7.jpg',
                       mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                       Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                       Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -1163,7 +1163,7 @@ module.exports = {
                       theloai: 'Khoa Học',
                       soluong: 100,
                       ngaynhap: '13/12/2020',
-                      image: '/KhoaHoc/KhoaHoc8.jpg',
+                      image: '/KhoaHoc8.jpg',
                       mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                       Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                       Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -1178,7 +1178,7 @@ module.exports = {
                       theloai: 'Khoa Học',
                       soluong: 100,
                       ngaynhap: '13/12/2020',
-                      image: '/KhoaHoc/KhoaHoc9.jpg',
+                      image: '/KhoaHoc9.jpg',
                       mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                       Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                       Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.
@@ -1193,7 +1193,7 @@ module.exports = {
                       theloai: 'Khoa Học',
                       soluong: 100,
                       ngaynhap: '13/12/2020',
-                      image: '/KhoaHoc/KhoaHoc10.jpg',
+                      image: '/KhoaHoc10.jpg',
                       mota: `Cuốn sách này là cái khẽ rùng mình của dĩ vãng đó, khi ghi lại một năm sau khi chia tay người cũ, người đã trao cho nhau nhẫn đính hôn và dự định chuyện tương lai lâu dài.
                       Nhiều người hỏi có tiếc nuối không, còn nhớ không và có muốn quay lại không, đều lắc đầu từ chối. Vì cái nhớ bây giờ là những hồi ức, là khoảnh khắc, là thời gian từng bên nhau, chứ còn người đó, bản thân đã lãng quên ít nhiều. Người đã xưa, chuyện đã cũ, muốn quay lại là điều không thể được. “Thiên kim nan mãi nhất hồi đầu”, ngàn lượng vàng không thể mua được một lần quay đầu nhìn lại, cũng là ý chỉ việc này.
                       Rồi nhiều năm sau đó, mới hiểu ra rằng khi chia tay, chúng ta từ bỏ một người tình và giữ lại một chuyện tình, người tình có thể qua đời, nhưng chuyện tình thì bất tử với thời gian.

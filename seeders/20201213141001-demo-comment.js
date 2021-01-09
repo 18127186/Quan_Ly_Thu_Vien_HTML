@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('Comments', [{
-      comment:"Sách hay",
+      comment:"Sách này rất hay, phù hợp với con em chúng ta",
       createdAt: Sequelize.literal('NOW()'),
       updatedAt: Sequelize.literal('NOW()')
     },
@@ -13,13 +13,13 @@ module.exports = {
       updatedAt: Sequelize.literal('NOW()')
     },
     {
-      comment:'sách như loz',
+      comment:'sách này được lắm mọi người ơi',
       createdAt: Sequelize.literal('NOW()'),
       updatedAt: Sequelize.literal('NOW()')
     }
     ,
     {
-      comment:'sách như cc',
+      comment:'sách như đầu ...',
       createdAt: Sequelize.literal('NOW()'),
       updatedAt: Sequelize.literal('NOW()')
     },

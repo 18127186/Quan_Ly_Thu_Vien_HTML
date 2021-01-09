@@ -5,7 +5,11 @@ const bcrypt = require('bcrypt');
 //Xử lý truy vấn
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
-
+//
+//Xử lý take path of picture
+const path = require('path');
+//Xử lý ảnh upload
+var multer = require('multer');
 
 const saltRounds = 10;
 var tenaccount; // them cai nay vo header nha vidu chua dang nhap thi se la 'Dang nhap'
@@ -48,7 +52,24 @@ app.engine('hbs', hbs({
     },
 }));
 app.set('view engine', 'hbs');
-app.set('checklogin',0)
+app.set('checklogin', 0)
+
+//Xử lý ảnh upload
+const storage = multer.diskStorage({
+    destination: './public/uploads',
+    filename: function (req, file, cb) {
+        // cb(null,file.fieldname+'---'+Date.now()+path.extname(file.originalname));
+        cb(null, file.originalname);
+    }
+});
+// Init Upload
+//Chỗ up ảnh
+const uploadSignStaff = multer({
+    storage: storage
+}).single('ima');
+
+
+
 //phần index
 //phần tatcasach
 //phần moTaSach
@@ -79,9 +100,9 @@ app.post('/Staff', function (req, res) {
             email: req.body.user
         }
     }).then(function (account) {
-        if(account!= null){
-                
-            if(bcrypt.compareSync(req.body.pass,account.pass)){  
+        if (account != null) {
+
+            if (bcrypt.compareSync(req.body.pass, account.pass)) {
                 var data = {
                     hoten: account.hoten,
                     ngaysinh: account.ngaysinh,
@@ -99,30 +120,30 @@ app.post('/Staff', function (req, res) {
                 userLogin = data;
                 res.locals.header = data.hoten
                 tenaccount = res.locals.header
-                app.set('checklogin',1)
-                app.set('userLogin',userLogin)
+                app.set('checklogin', 1)
+                app.set('userLogin', userLogin)
                 res.locals.layout = 'layoutforStaff'
-                res.render('Staff',  data)
-                }
+                res.render('Staff', data)
+            }
 
-            else(res.redirect('/Signin'))
-        } else{
+            else (res.redirect('/Signin'))
+        } else {
             if (req.body.user == '1@1' && req.body.pass == 'phuoc412') {
                 res.redirect('/admin')
             }
-            else(res.redirect('/Signin'))
+            else (res.redirect('/Signin'))
         }
 
     }).catch(function (error) {
         res.redirect('/Signin')
     })
 })
-app.get('/admin',function(req,res){
+app.get('/admin', function (req, res) {
     res.locals.header = 'Boss ';
     tenaccount = 'Boss';
     res.locals.style = 'admin.css'
-    app.set('checklogin',2)
-    res.render('admin',{layout:'adminLayout'});
+    app.set('checklogin', 2)
+    res.render('admin', { layout: 'adminLayout' });
 })
 //view profile of customer
 app.get('/Account', function (req, res) {
@@ -147,7 +168,7 @@ app.get('/Account', function (req, res) {
             }
             data.push(user)
         }
-        app.set('checklogin',1)
+        app.set('checklogin', 1)
         allAcount = data
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
@@ -160,7 +181,7 @@ app.get('/Account', function (req, res) {
 })
 app.post('/Account', function (req, res) {
     models.Account.findAll({
-        where:{
+        where: {
             hoten: req.body.hotensearch
         }
     }).then(function (account) {
@@ -184,7 +205,7 @@ app.post('/Account', function (req, res) {
             }
             data.push(user)
         }
-        app.set('checklogin',1)
+        app.set('checklogin', 1)
         allAcount = data
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
@@ -212,7 +233,7 @@ app.get('/XoaSach', function (req, res) {
             }
             data.push(book)
         }
-        app.set('checklogin',1)
+        app.set('checklogin', 1)
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
         res.locals.layout = 'layoutforStaff'
@@ -222,9 +243,9 @@ app.get('/XoaSach', function (req, res) {
     })
 
 })
-app.post('/XoaSach',function(req,res){
+app.post('/XoaSach', function (req, res) {
     models.Book.findAll({
-        where:{
+        where: {
             tentacgia: req.body.tentacgiasearch
         }
     }).then(function (books) {
@@ -243,7 +264,7 @@ app.post('/XoaSach',function(req,res){
             }
             data.push(book)
         }
-        app.set('checklogin',1)
+        app.set('checklogin', 1)
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
         res.locals.layout = 'layoutforStaff'
@@ -253,8 +274,8 @@ app.post('/XoaSach',function(req,res){
     })
 })
 //chua co image
-app.get('/editBookInStaffPage',(req,res)=>{ 
-    let temp=req.query.eimabook;
+app.get('/editBookInStaffPage', (req, res) => {
+    let temp = req.query.eimabook;
     models.Book.update({
         tensach: req.query.tensach,
         tentacgia: req.query.tentacgia,
@@ -263,15 +284,15 @@ app.get('/editBookInStaffPage',(req,res)=>{
         ngaynhap: req.query.ngaynhap,
         mota: req.query.mota,
         image: '/' + req.query.eimabook,
-    },{
-        where: {id:req.query.id}
+    }, {
+        where: { id: req.query.id }
     })
-    .then(()=>{
-        console.log(temp);
-        res.redirect('/XoaSach');
-    }).catch((error) => {
-        res.json(error);
-    })
+        .then(() => {
+            console.log(temp);
+            res.redirect('/XoaSach');
+        }).catch((error) => {
+            res.json(error);
+        })
 })
 app.get('/XoaSach/:id', function (req, res) {
     models.Book.destroy({
@@ -307,11 +328,11 @@ app.post('/Sign_up_ThanhVien', function (req, res) {
             cmnd: req.body.cmnd // dang ky theo chung minh nhan dan. bi trung thi k cho dang ky
         }
     }).then(function (account) {
-        if(account != null){
+        if (account != null) {
             res.locals.header = tenaccount
             userLogin = req.app.get('userLogin')
             res.redirect("/Account")
-        }   
+        }
         else {
             models.Account.create(userStaff)
             res.locals.header = tenaccount
@@ -386,7 +407,7 @@ app.get('/DeleteAccount/:id', function (req, res) {
             res.json(error);
         })
 })
-app.get('/DangKyMuonSach',function(req,res){
+app.get('/DangKyMuonSach', function (req, res) {
     models.BookManage.findAll().then(function (account) {
         var data = []
         for (i = 0; i < account.length; i++) {
@@ -394,25 +415,25 @@ app.get('/DangKyMuonSach',function(req,res){
                 id: i + 1,
                 idDB: account[i].id,
                 BookId: account[i].BookId,
-                AccountId:account[i].AccountId,
+                AccountId: account[i].AccountId,
                 tensach: account[i].tensach,
-                tentacgia:account[i].tentacgia,
+                tentacgia: account[i].tentacgia,
                 tendocgia: account[i].tendocgia
             }
             data.push(user)
         }
-        app.set('checklogin',1)
+        app.set('checklogin', 1)
         allAcount = data
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
         res.locals.layout = 'layoutforStaff'
-        res.render("DangKyMuonSach",{data:data})
+        res.render("DangKyMuonSach", { data: data })
     }).catch(function (error) {
         res.send(error)
     })
 })
-app.post('/DangKyMuonSach',function(req,res){
-    
+app.post('/DangKyMuonSach', function (req, res) {
+
     models.Book.findOne({
         where: {
             tensach: req.body.tensach,
@@ -420,11 +441,11 @@ app.post('/DangKyMuonSach',function(req,res){
         }
     }).then(function (book) {
         models.Account.findOne({
-            where:{
+            where: {
                 cmnd: req.body.cmnddocgia
             }
-        }).then(function(account){
-            
+        }).then(function (account) {
+
             var DangKySach = {
                 BookId: book.id,
                 AccountId: account.id,
@@ -433,142 +454,184 @@ app.post('/DangKyMuonSach',function(req,res){
                 tendocgia: req.body.cmnddocgia
             }
             models.Book.update({
-                soluong: book.soluong-1
-            },{
-                where:{
+                soluong: book.soluong - 1
+            }, {
+                where: {
                     id: book.id
                 }
-            }).then(()=>{  
+            }).then(() => {
                 models.BookManage.create(DangKySach)
                 res.redirect('/DangKyMuonSach');
             }).catch((error) => {
                 res.redirect('/DangKyMuonSach');
             })
-        }).catch(function(error){
+        }).catch(function (error) {
             res.redirect('/DangKyMuonSach')
         })
     }).catch(function (error) {
         res.redirect('/DangKyMuonSach')
     })
 })
-app.get('/DeleteDangKyMuonSach/:id',function(req,res){
+app.get('/DeleteDangKyMuonSach/:id', function (req, res) {
     models.BookManage.findOne({ // tim cai id sach do
         where: { id: req.params.id }
-    }).then(function(bookmanage){
+    }).then(function (bookmanage) {
         models.Book.findOne({
-            where:{
-                id : bookmanage.BookId
+            where: {
+                id: bookmanage.BookId
             }
-        }).then(function(book){
+        }).then(function (book) {
             console.log(book)
             models.Book.update({ // update lai so luong sach
-                soluong: book.soluong+1
-            },{
-                where:{
+                soluong: book.soluong + 1
+            }, {
+                where: {
                     id: book.id
                 }
-            }).then(function(){
+            }).then(function () {
                 models.BookManage.destroy({
                     where: { id: req.params.id }
                 })
-                .then(function () {
+                    .then(function () {
                         res.redirect("/DangKyMuonSach")
-                }).catch(function (error) {
-                    res.redirect("/DangKyMuonSach")
-                })
+                    }).catch(function (error) {
+                        res.redirect("/DangKyMuonSach")
+                    })
             }).catch(function (error) {
                 res.redirect("/DangKyMuonSach")
             })
-            
+
         }).catch(function (error) {
             res.redirect("/DangKyMuonSach")
             res.json(error);
         })
     })
-    
+
 })
-app.post('/TimKiemDangKySach',function(req,res){
+app.post('/TimKiemDangKySach', function (req, res) {
     cmnddg = req.body.cmnddg
     models.BookManage.findAll({
-        where:{
+        where: {
             tendocgia: cmnddg
         }
-    }).then(function(account){
+    }).then(function (account) {
         var data = []
         for (i = 0; i < account.length; i++) {
             var user = {
                 id: i + 1,
                 idDB: account[i].id,
                 BookId: account[i].BookId,
-                AccountId:account[i].AccountId,
+                AccountId: account[i].AccountId,
                 tensach: account[i].tensach,
-                tentacgia:account[i].tentacgia,
+                tentacgia: account[i].tentacgia,
                 tendocgia: account[i].tendocgia
             }
             data.push(user)
         }
-        app.set('checklogin',1)
+        app.set('checklogin', 1)
         allAcount = data
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
         res.locals.layout = 'layoutforStaff'
-        res.render("DangKyMuonSach",{data:data})
+        res.render("DangKyMuonSach", { data: data })
     })
 })
-app.get('/TimKiemDangKySach',function(req,res){
+app.get('/TimKiemDangKySach', function (req, res) {
     res.redirect('/DangKyMuonSach')
 })
 
 //////////////////////////////////////// Phần Admin: Tanthai
 //Phần xử lý đký staff (Nhân viên) ==>Xong
 //Insert Nhân viên
-app.get('/signMember', (req, res) => {
-    let today = new Date();
-    let dateBirth=req.query.ngaySinh.split("-");
-    var userStaff = {
-        hoten: req.query.hVTen,
-        ngaysinh: dateBirth[2]+'/'+dateBirth[1]+'/'+dateBirth[0],
-        cmnd: req.query.soCMND,
-        pass: req.query.pass,
-        gioitinh: req.query.gTinh,
-        dantoc: req.query.dToc,
-        ngaylap: today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear(),
-        sdt: req.query.sdThoai,
-        email: req.query.eMail,
-        diachi: req.query.diaChi,
-        sotiendatcoc: '500000',
-        nguoilap: 'Admin',
-        image: '/' + req.query.ima,
-    }
-    models.Account_staff.findOne({
-        where: {
-            cmnd: req.query.soCMND, // dang ky theo chung minh nhan dan. bi trung thi k cho dang ky
-            email: req.query.eMail
+// app.get('/signMember', (req, res) => {
+//     let today = new Date();
+//     let dateBirth = req.query.ngaySinh.split("-");
+//     var userStaff = {
+//         hoten: req.query.hVTen,
+//         ngaysinh: dateBirth[2] + '/' + dateBirth[1] + '/' + dateBirth[0],
+//         cmnd: req.query.soCMND,
+//         pass: req.query.pass,
+//         gioitinh: req.query.gTinh,
+//         dantoc: req.query.dToc,
+//         ngaylap: today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear(),
+//         sdt: req.query.sdThoai,
+//         email: req.query.eMail,
+//         diachi: req.query.diaChi,
+//         sotiendatcoc: '500000',
+//         nguoilap: 'Admin',
+//         image: '/' + req.query.ima,
+//     }
+//     models.Account_staff.findOne({
+//         where: {
+//             cmnd: req.query.soCMND, // dang ky theo chung minh nhan dan. bi trung thi k cho dang ky
+//             email: req.query.eMail
+//         }
+//     }).then(function (account) {
+//         if (account != null) {
+//             res.redirect("/quanlynhanvien")
+//         }
+//         else {
+//             var salt = bcrypt.genSaltSync(10);
+//             userStaff.pass = bcrypt.hashSync(userStaff.pass, salt);
+//             models.Account_staff.create(userStaff);
+//             res.redirect('/quanlynhanvien');
+//         }
+//     }).catch(function (error) {
+//         res.redirect('/quanlynhanvien')
+//     })
+// })
+//Đăng ký Nhân viên với Post
+app.post('/signMember', (req, res) => {
+    var tempanh = '';
+    uploadSignStaff(req, res, (err) => {
+        tempanh = req.file.originalname;
+        let today = new Date();
+        var userStaff = {
+            hoten: req.body.hVTen,
+            ngaysinh: req.body.ngaySinh,
+            cmnd: req.body.soCMND,
+            pass: req.body.pass,
+            gioitinh: req.body.gTinh,
+            dantoc: req.body.dToc,
+            ngaylap: (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear(),
+            sdt: req.body.sdThoai,
+            email: req.body.eMail,
+            diachi: req.body.diaChi,
+            sotiendatcoc: '500000',
+            nguoilap: 'Admin',
+            image: '/' + tempanh,
         }
-    }).then(function (account) {
-        if(account != null){
-            res.redirect("/quanlynhanvien")
-        }   
-        else {
-            var salt = bcrypt.genSaltSync(10);
-            userStaff.pass = bcrypt.hashSync(userStaff.pass, salt);
-            models.Account_staff.create(userStaff);
-            res.redirect('/quanlynhanvien');
-        }
-    }).catch(function (error) {
-        res.redirect('/quanlynhanvien')
+        models.Account_staff.findOne({
+            where: {
+                cmnd: req.body.soCMND, // dang ky theo chung minh nhan dan. bi trung thi k cho dang ky
+                email: req.body.eMail
+            }
+        }).then(function (account) {
+            if (account != null) {
+                res.redirect("/quanlynhanvien")
+            }
+            else {
+                var salt = bcrypt.genSaltSync(10);
+                userStaff.pass = bcrypt.hashSync(userStaff.pass, salt);
+                models.Account_staff.create(userStaff);
+                res.redirect('/quanlynhanvien');
+            }
+        }).catch(function (error) {
+            res.redirect('/quanlynhanvien')
+        })
+
     })
 })
 
 ////////////////////////////////////Phần xử lý quanlynhanvien
 //With database ==>Xong
-app.get('/quanlynhanvien',(req,res)=>{
-    let nhanvienAll=[];
+app.get('/quanlynhanvien', (req, res) => {
+    let nhanvienAll = [];
     models.Account_staff.findAll().then((nv) => {
         for (let i = 0; i < nv.length; i++) {
             let nv1 = {
-                stt:i+1,
-                id:nv[i].id,
+                stt: i + 1,
+                id: nv[i].id,
                 hoten: nv[i].hoten,
                 ngaysinh: nv[i].ngaysinh,
                 cmnd: nv[i].cmnd,
@@ -576,24 +639,24 @@ app.get('/quanlynhanvien',(req,res)=>{
                 dantoc: nv[i].dantoc,
                 ngaylap: nv[i].ngaylap,
                 sdt: nv[i].sdt,
-                email:nv[i].email,
-                diachi:nv[i].diachi,
-                image:nv[i].image,
+                email: nv[i].email,
+                diachi: nv[i].diachi,
+                image: nv[i].image,
             }
             nhanvienAll.push(nv1);
         }
         res.locals.header = 'Boss';
-        res.locals.style= 'quanlynhanvien.css';
+        res.locals.style = 'quanlynhanvien.css';
         tenaccount = 'Boss';
-        res.render('quanlynhanvien',{layout:'adminLayout',nhanvienAll});
-        
+        res.render('quanlynhanvien', { layout: 'adminLayout', nhanvienAll });
+
     }).catch((error) => {
         res.json(error);
     })
-    
+
 })
 //With editStaff ==>Xong
-app.get('/editStaff',(req,res)=>{
+app.get('/editStaff', (req, res) => {
     models.Account_staff.update({
         hoten: req.query.ehVTen,
         ngaysinh: req.query.engaySinh,
@@ -604,118 +667,118 @@ app.get('/editStaff',(req,res)=>{
         email: req.query.eeMail,
         diachi: req.query.ediaChi,
         image: '/' + req.query.eima,
-    },{
-        where: {id:req.query.soID}
+    }, {
+        where: { id: req.query.soID }
     })
-    .then(()=>{
-        res.redirect('/quanlynhanvien');
-    }).catch((error) => {
-        res.json(error);
-    })
+        .then(() => {
+            res.redirect('/quanlynhanvien');
+        }).catch((error) => {
+            res.json(error);
+        })
 
 })
 //With removeStaff ==>Xong
-app.get('/removeStaff',(req,res)=>{
+app.get('/removeStaff', (req, res) => {
     models.Account_staff.destroy({
-        where: {id:req.query.soIDDelete}
+        where: { id: req.query.soIDDelete }
     })
-    .then(()=>{
-        res.redirect('/quanlynhanvien');
-    })
-    .catch((error)=>{
-        res.json(error);
-    })
+        .then(() => {
+            res.redirect('/quanlynhanvien');
+        })
+        .catch((error) => {
+            res.json(error);
+        })
 })
 
 
 ///////////////////////////////////Phần xử lý quanlydocgia
 //With database ==>Xong
-app.get('/quanlydocgia',(req,res)=>{
-    let readerAll=[];
+app.get('/quanlydocgia', (req, res) => {
+    let readerAll = [];
     models.Account.findAll().then((nv) => {
         for (let i = 0; i < nv.length; i++) {
-            let dateBirth=nv[i].ngaylap.split("-");
+            let dateBirth = nv[i].ngaylap.split("-");
             let nv1 = {
-                stt:i+1,
-                id:nv[i].id,
+                stt: i + 1,
+                id: nv[i].id,
                 hoten: nv[i].hoten,
                 ngaysinh: nv[i].ngaysinh,
                 cmnd: nv[i].cmnd,
                 gioitinh: nv[i].gioitinh,
                 dantoc: nv[i].dantoc,
-                ngaylap: dateBirth[2]+'/'+dateBirth[1]+'/'+dateBirth[0],
+                ngaylap: dateBirth[2] + '/' + dateBirth[1] + '/' + dateBirth[0],
                 sdt: nv[i].sdt,
-                email:nv[i].email,
-                diachi:nv[i].diachi,
-                sotiendatcoc:nv[i].sotiendatcoc,
-                nguoilap:nv[i].nguoilap,
-                image:nv[i].image,
+                email: nv[i].email,
+                diachi: nv[i].diachi,
+                sotiendatcoc: nv[i].sotiendatcoc,
+                nguoilap: nv[i].nguoilap,
+                image: nv[i].image,
             }
             readerAll.push(nv1);
         }
         res.locals.header = 'Boss';
-        res.locals.style= 'quanlydocgia.css';
+        res.locals.style = 'quanlydocgia.css';
         tenaccount = 'Boss';
-        res.render('quanlydocgia',{layout:'adminLayout',readerAll});
-        
+        res.render('quanlydocgia', { layout: 'adminLayout', readerAll });
+
     }).catch((error) => {
         res.json(error);
     })
-    
+
 })
 //With editReader ==>Xong
-app.get('/editReader',(req,res)=>{
-    let tempNgayLap=req.query.engayLapReader.split("/");
+app.get('/editReader', (req, res) => {
+    let tempNgayLap = req.query.engayLapReader.split("/");
     models.Account.update({
 
         hoten: req.query.ehVTenReader,
-        ngaysinh:  req.query.engaySinhReader,
+        ngaysinh: req.query.engaySinhReader,
         cmnd: req.query.esoCMNDReader,
         gioitinh: req.query.egTinhReader,
         dantoc: req.query.edTocReader,
-        ngaylap: tempNgayLap[0]+'/'+tempNgayLap[1]+'/'+tempNgayLap[2],
+        ngaylap: tempNgayLap[0] + '/' + tempNgayLap[1] + '/' + tempNgayLap[2],
         sdt: req.query.esdThoaiReader,
-        email:req.query.eeMailReader,
-        diachi:req.query.ediaChiReader,
-        sotiendatcoc:req.query.etienDatCocReader,
-        nguoilap:req.query.enguoiLapReader,
-        image:'/' + req.query.eimaReader,
+        email: req.query.eeMailReader,
+        diachi: req.query.ediaChiReader,
+        sotiendatcoc: req.query.etienDatCocReader,
+        nguoilap: req.query.enguoiLapReader,
+        image: '/' + req.query.eimaReader,
 
 
-    },{
-        where: {id:req.query.soIDReader}
+    }, {
+        where: { id: req.query.soIDReader }
     })
-    .then(()=>{
-        res.redirect('/quanlydocgia');
-    }).catch((error) => {
-        res.json(error);
-    })
-    
+        .then(() => {
+            res.redirect('/quanlydocgia');
+        }).catch((error) => {
+            res.json(error);
+        })
+
 })
 
 //With removeReader ==>Xong
-app.get('/removeReader',(req,res)=>{
+app.get('/removeReader', (req, res) => {
     models.Account.destroy({
-        where: {id:req.query.soIDDeleteReader}
+        where: { id: req.query.soIDDeleteReader }
     })
-    .then(()=>{
-        res.redirect('/quanlydocgia');
-    })
-    .catch((error)=>{
-        res.json(error);
-    })
+        .then(() => {
+            res.redirect('/quanlydocgia');
+        })
+        .catch((error) => {
+            res.json(error);
+        })
 })
 
 
 //Phần xử lý quanlysach
 //With database ==>Xong
-app.get('/quanlysach',(req,res)=>{
-    let bookAll=[];
+app.get('/quanlysach', (req, res) => {
+    let bookAll = [];
     models.Book.findAll().then((books) => {
         for (let i = 0; i < books.length; i++) {
             let book = {
-                id:books[i].id,
-                stt:i+1,
+                id: books[i].id,
+                stt: i + 1,
                 tensach: books[i].tensach,
                 tentacgia: books[i].tentacgia,
                 theloai: books[i].theloai,
@@ -727,17 +790,17 @@ app.get('/quanlysach',(req,res)=>{
             bookAll.push(book);
         }
         res.locals.header = 'Boss';
-        res.locals.style= 'quanlysach.css';
+        res.locals.style = 'quanlysach.css';
         tenaccount = 'Boss';
-        res.render('quanlysach',{layout:'adminLayout',bookAll});
+        res.render('quanlysach', { layout: 'adminLayout', bookAll });
     }).catch((error) => {
         res.json(error);
     })
 
 })
 //With editBook
-app.get('/editBook',(req,res)=>{
-    let temp=req.query.eimabook;
+app.get('/editBook', (req, res) => {
+    let temp = req.query.eimabook;
     models.Book.update({
         tensach: req.query.etenSach,
         tentacgia: req.query.etenTacGia,
@@ -746,15 +809,15 @@ app.get('/editBook',(req,res)=>{
         ngaynhap: req.query.engayNhap,
         mota: req.query.emoTaSach,
         image: '/' + req.query.eimabook,
-    },{
-        where: {id:req.query.soIDBook}
+    }, {
+        where: { id: req.query.soIDBook }
     })
-    .then(()=>{
-        console.log(temp);
-        res.redirect('/quanlysach');
-    }).catch((error) => {
-        res.json(error);
-    })
+        .then(() => {
+            console.log(temp);
+            res.redirect('/quanlysach');
+        }).catch((error) => {
+            res.json(error);
+        })
 })
 //With removeBook
 // app.get('/removeBook',(req,res)=>{
@@ -762,16 +825,16 @@ app.get('/editBook',(req,res)=>{
 // })
 
 //With showListBook ==>Xong, còn phân trang
-app.get('/showListBook',(req,res)=>{
-    let bookAll=[];
-    if(req.query.suLuaChon!=="Thể loại"){
+app.get('/showListBook', (req, res) => {
+    let bookAll = [];
+    if (req.query.suLuaChon !== "Thể loại") {
 
         models.Book.findAll(
             {
                 // limit:5,
                 // offset:0,
                 where: {
-                    theloai:{
+                    theloai: {
                         [Op.iLike]: `%${req.query.suLuaChon}%`
                     },
                 }
@@ -780,8 +843,8 @@ app.get('/showListBook',(req,res)=>{
             console.log(req.query.suLuaChon);
             for (let i = 0; i < books.length; i++) {
                 let book = {
-                    id:books[i].id,
-                    stt:i+1,
+                    id: books[i].id,
+                    stt: i + 1,
                     tensach: books[i].tensach,
                     tentacgia: books[i].tentacgia,
                     theloai: books[i].theloai,
@@ -793,28 +856,28 @@ app.get('/showListBook',(req,res)=>{
                 bookAll.push(book);
             }
             res.locals.header = 'Boss';
-            res.locals.style= 'quanlysach.css';
+            res.locals.style = 'quanlysach.css';
             tenaccount = 'Boss';
-            res.render('quanlysach',{layout:'adminLayout',bookAll});
+            res.render('quanlysach', { layout: 'adminLayout', bookAll });
         }).catch((error) => {
             res.json(error);
         })
     }
-    else{
+    else {
         res.redirect('/quanlysach');
     }
 
 })
 
 //Phần xử lý thongke
-app.get('/thongke',(req,res)=>{
-    var context={
-        style:'thongke.css',
+app.get('/thongke', (req, res) => {
+    var context = {
+        style: 'thongke.css',
     }
-    
+
     res.locals.header = 'Boss';
     res.locals.layout = 'adminLayout'
-    res.render('thongke',context);
+    res.render('thongke', context);
 })
 
 //set port
