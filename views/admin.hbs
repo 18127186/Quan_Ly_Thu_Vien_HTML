@@ -4,83 +4,50 @@
         <h3>Tổng quan</h3>
     </div>
     <div class="row quanLyHienThiThongTin">
-        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
             <div class="hienThiThongTin" >
-                <h2><i class="fas fa-users"></i>  333</h2>
+                <h2><i class="fas fa-users"></i>  {{slnd}}</h2>
                 <h4>Người đọc</h4>
             </div>
         </div>
-        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
             <div class="hienThiThongTin" >
-                <h2><i class="fas fa-signal"></i> 333</h2>
-                <h4>Người truy cập</h4>
-            </div>
-        </div>
-        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-            <div class="hienThiThongTin" >
-                <h2><i class="fas fa-user-tie"></i> 40</h2>
+                <h2><i class="fas fa-user-tie"></i>  {{slnv}}</h2>
                 <h4>Nhân viên</h4>
             </div>
         </div>
     </div>
     
     <div class="mucNhanVien">
-        <h3>Nhân viên tiêu biểu</h3>
+        <h3>Danh sách thống kê</h3>
     </div>
-    <table class="table bangNhanVien">
-        <thead>
-            <tr>
-                <th>Số thứ tự</th>
-                <th>Họ và tên</th>
-                <th>Chức vụ</th>
-                <th>Email</th>
-            </tr>
-        </thead>
 
-        <tbody>
-
-            <tr>
-                <th >1</th>
-                <td>Nguyễn Văn An</td>
-                <td>Thủ thư</td>
-                <td>nvan@gmail.com</td>
-            </tr>
-
-            <tr>
-                <th >2</th>
-                <td>Lê Văn Bình</td>
-                <td>Thủ thư</td>
-                <td>lvbinh@gmail.com</td>
-            </tr>
-
-            <tr>
-                <th >3</th>
-                <td>Trần Văn Công</td>
-                <td>Thủ thư</td>
-                <td>tvcong@gmail.com</td>
-            </tr>
-
-            <tr>
-                <th >4</th>
-                <td>Nguyễn Văn An</td>
-                <td>Thủ thư</td>
-                <td>nvan@gmail.com</td>
-            </tr>
-
-            <tr>
-                <th >5</th>
-                <td>Lê Văn Bình</td>
-                <td>Thủ thư</td>
-                <td>lvbinh@gmail.com</td>
-            </tr>
-
-            <tr>
-                <th >6</th>
-                <td>Trần Văn Công</td>
-                <td>Thủ thư</td>
-                <td>tvcong@gmail.com</td>
-            </tr>
-        </tbody>
-        </table>
+    <div class=" thTinThongKe">
+        <p>Tổng doanh thu:<span>  {{doanhThu}}</span></p>
+        <p>Thể loại mượn nhiều nhất: <span>{{maxTitle}}</span></p>
+        <p>Top 5 Sách mượn nhiều nhất</p>
+        <table class="table bangNhanVien">
+            <thead>
+                <tr>
+                    <th>Số thứ tự</th>
+                    <th>Tên sách</th>
+                    <th>Tên tác giả</th>
+                    <th>Số lần mượn</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {{#each bookAlls}}
+                <tr>
+                    <th>{{stt}}</th>
+                    <td>{{tensach}}</td>
+                    <td>{{tentacgia}}</td>
+                    <td>{{solanmuon}}</td>
+                </tr>
+                    {{/each}}
+            </tbody>
+            </table>
+    </div>
 </div>
+
+
 <!--End Main -->

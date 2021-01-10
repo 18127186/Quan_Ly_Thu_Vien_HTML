@@ -4,10 +4,10 @@
         <h3>Danh sách độc giả</h3>
     </div>
     <div class="row quanLyHienThiThongTin">
-        <form class="form-inline mx-auto">
-            <input class="form-control formSearch" type="text" placeholder="Nhập nội dung cần tìm" style="padding-right: 60px;">
-            <button class="btn btn-outline-success " type="submit" style="margin-left: 37px;">Tìm kiếm</button>
-        </form>
+            <form class="form-inline mx-auto" action="http://localhost:5000/searchDocGia" method="GET">
+                <input class="form-control formSearch" name="noidungtimkiem" type="text" placeholder="Nhập nội dung cần tìm" style="padding-right: 60px;">
+                <button class="btn btn-outline-success " type="submit" style="margin-left: 37px;">Tìm kiếm</button>
+            </form>
     </div>
     
     <table class="table bangNhanVien">
@@ -34,6 +34,12 @@
             {{/each}}
         </tbody>
         </table>
+        <!--Phân trang -->
+        <div class="row">
+            <nav aria-label="Page navigation example" class="mx-auto">
+                {{{paginate pagination}}}
+            </nav>
+        </div>
 </div>
     <!--End Main -->
 
@@ -50,7 +56,7 @@
         <div class="modal-body">
             <form class="formDkyTV">
                 <div class="form-group row">
-                    <img id="anh" class="img-thumbnail" src="{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">  
+                    <img id="anh" class="img-thumbnail" src="/uploads{{image}}" alt="" style="width: 200px; height: 200px; overflow: hidden; margin: 0 auto;">  
                 </div>  
                 <div class="form-group row">
                     <label for="hVTenReader" class="col-3 labelName">Họ và tên</label>
@@ -128,70 +134,64 @@
         </div>
 
         <div class="modal-body">
-            <form class="formDkyTV" action="http://localhost:5000/editReader" method="GET">
+            <form class="formDkyTV" action="http://localhost:5000/editReader" method="POST" enctype="multipart/form-data">
                 <input type="hidden" id="{{id}}" name="soIDReader" value="{{id}}">
 
                 <div class="form-group row">
                     <label for="ehVTenReader" class="col-3 labelName">Họ và tên</label>
-                    <input type="text" class="form-control col-8" name="ehVTenReader" id="ehVTenReader" value="{{hoten}}" readonly>
+                    <input type="text" class="form-control col-8" name="ehVTenReader" id="ehVTenReader" value="{{hoten}}">
                 </div>
 
                 <div class="form-group row">
                     <label for="engaySinhReader" class="col-3 labelName">Ngày sinh</label>
-                    <input class="form-control col-8" type="text" id="engaySinhReader" name="engaySinhReader" value="{{ngaysinh}}" readonly>
+                    <input class="form-control col-8" type="text" id="engaySinhReader" name="engaySinhReader" value="{{ngaysinh}}">
                 </div>
 
                 <div class="form-group row">
                     <label for="egTinhReader" class="col-3 labelName">Giới tính</label>
-                    <input type="text" class="form-control col-8" name="egTinhReader" id="egTinhReader" value="{{gioitinh}}" readonly>
+                    <input type="text" class="form-control col-8" name="egTinhReader" id="egTinhReader" value="{{gioitinh}}">
                 </div>
 
                 <div class="form-group row">
                     <label for="esdThoaiReader" class="col-3 labelName">Số điện thoại</label>
-                    <input type="text" class="form-control col-8" id="esdThoaiReader" name="esdThoaiReader" value="{{sdt}}" readonly>
+                    <input type="text" class="form-control col-8" id="esdThoaiReader" name="esdThoaiReader" value="{{sdt}}">
                 </div>
 
                 <div class="form-group row">
                     <label for="esoCMNDReader" class="col-3 labelName">Số CMND</label>
-                    <input type="text" class="form-control col-8" id="esoCMNDReader" name="esoCMNDReader" value="{{cmnd}}" readonly>
+                    <input type="text" class="form-control col-8" id="esoCMNDReader" name="esoCMNDReader" value="{{cmnd}}">
                 </div>
 
                 <div class="form-group row">
                     <label for="eeMailReader" class="col-3 labelName">Email</label>
-                    <input type="email" class="form-control col-8" id="eeMailReader" name="eeMailReader" value="{{email}}" readonly>
+                    <input type="email" class="form-control col-8" id="eeMailReader" name="eeMailReader" value="{{email}}">
                 </div>
 
                 <div class="form-group row">
                     <label for="edTocReader" class="col-3 labelName">Dân tộc</label>
-                    <input type="text" class="form-control col-8" id="edTocReader" name="edTocReader" value="{{dantoc}}" readonly>
+                    <input type="text" class="form-control col-8" id="edTocReader" name="edTocReader" value="{{dantoc}}">
                 </div>
 
                 <div class="form-group row">
                     <label for="enguoiLapReader" class="col-3 labelName">Người lập</label>
-                    <input type="text" class="form-control col-8" id="enguoiLapReader" name="enguoiLapReader" value="{{nguoilap}}" readonly>
+                    <input type="text" class="form-control col-8" id="enguoiLapReader" name="enguoiLapReader" value="{{nguoilap}}">
                 </div>
 
                 <div class="form-group row">
                     <label for="etienDatCocReader" class="col-3 labelName">Tiền đặt cọc</label>
-                    <input type="text" class="form-control col-8" id="etienDatCocReader" name="etienDatCocReader" value="{{sotiendatcoc}}" readonly>
-                </div>
-
-
-                <div class="form-group row">
-                    <label for="engayLapReader" class="col-3 labelName">Ngày lập</label>
-                    <input type="email" class="form-control col-8" id="engayLapReader" name="engayLapReader" value="{{ngaylap}}" readonly>
+                    <input type="text" class="form-control col-8" id="etienDatCocReader" name="etienDatCocReader" value="{{sotiendatcoc}}">
                 </div>
 
                 <div class="form-group row">
                     <label for="ediaChiReader" class="col-3 labelName">Địa chỉ</label>
-                    <textarea class="form-control col-8" id="ediaChiReader" name="ediaChiReader" rows="5" value="{{diachi}}" readonly></textarea>
+                    <textarea class="form-control col-8" id="ediaChiReader" name="ediaChiReader" rows="5">{{diachi}}</textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="anh" class="col-3 labelName">Chọn ảnh</label>
                     <div class="col-8">
-                        <img id="anhReader{{id}}" alt="your image" width="100px" height="100px" src="{{image}}"/>
-                        <input type="file"  name='eimaReader' value="{{image}}" onchange="document.getElementById('anhReader{{id}}').src = window.URL.createObjectURL(this.files[0])">
+                        <img id="anhReader{{id}}" alt="your image" width="100px" height="100px" src="/uploads{{image}}"/>
+                        <input type="file"  name='ima' value="{{image}}" onchange="document.getElementById('anhReader{{id}}').src = window.URL.createObjectURL(this.files[0])">
                     </div>
                     
                 </div>
@@ -211,7 +211,7 @@
 
 
 <!--Xóa Thành Viên-->
-    {{#each nhanvienAll}}
+    {{#each readerAll}}
     <div class="modal fade" id="xoaReader{{stt}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

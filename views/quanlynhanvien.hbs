@@ -5,12 +5,12 @@
             <h3>Danh sách nhân viên</h3>
         </div>
         <div class="row quanLyHienThiThongTin">
-            <form class="form-inline mx-auto">
-                <input class="form-control formSearch" type="text" placeholder="Nhập nội dung cần tìm" style="padding-right: 60px;">
+            <form class="form-inline mx-auto" action="http://localhost:5000/searchNhanVien" method="GET">
+                <input class="form-control formSearch" name="noidungtimkiem" type="text" placeholder="Nhập nội dung cần tìm" style="padding-right: 60px;">
                 <button class="btn btn-outline-success " type="submit" style="margin-left: 37px;">Tìm kiếm</button>
             </form>
         </div>
-        
+
         <table class="table bangNhanVien">
             <thead>
                 <tr>
@@ -114,7 +114,7 @@
         </div>
 
         <div class="modal-body">
-            <form class="formDkyTV" action="http://localhost:5000/editStaff" method="GET">
+            <form class="formDkyTV" action="http://localhost:5000/editStaff" method="POST" enctype="multipart/form-data">
                 <input type="hidden" id="{{id}}" name="soID" value="{{id}}">
                 <div class="form-group row">
                     <label for="hVTen" class="col-3 labelName">Họ và tên</label>
@@ -164,7 +164,7 @@
                     <label for="anh" class="col-3 labelName">Chọn ảnh</label>
                     <div class="col-8">
                         <img id="anh{{id}}" alt="your image" width="100px" height="100px" src="{{image}}"/>
-                        <input type="file"  name='eima' value="{{image}}" onchange="document.getElementById('anh{{id}}').src = window.URL.createObjectURL(this.files[0])">
+                        <input type="file"  name='ima' value="{{image}}" onchange="document.getElementById('anh{{id}}').src = window.URL.createObjectURL(this.files[0])">
                     </div>
                     
                 </div>

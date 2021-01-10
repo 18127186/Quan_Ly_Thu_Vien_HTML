@@ -31,7 +31,8 @@ app.use(express.static(__dirname + '/fontawesome-free-5.15.1-web'));
 app.use(express.static(__dirname + '/js'));
 //khởi tạo hbs
 var hbs = require('express-handlebars');
-
+//Khởi tạo phân trang
+var paginateHelper = require('express-handlebars-paginate');
 //Viết hàm từ các router
 var functionTrangChu = require('./routes/trangchu');
 const { LocalStorage } = require('node-localstorage');
@@ -49,6 +50,7 @@ app.engine('hbs', hbs({
         outputList: functionTrangChu.outputList,
         outputDetail: functionTrangChu.outputDetail,
         outSameCate: functionTrangChu.outSameCate,
+        paginate: paginateHelper.createPagination,
     },
 }));
 app.set('view engine', 'hbs');
@@ -97,7 +99,7 @@ app.get('/sync', function (req, res) {
 app.get('/Signin', function (req, res) {
     app.set('checklogin', 0)
     res.locals.layout = 'layoutnull'
-    res.render('Signin',{message: req.flash('message')})
+    res.render('Signin', { message: req.flash('message') })
 })
 app.get('/Staff', function (req, res) {
     res.locals.header = tenaccount
@@ -133,12 +135,12 @@ app.post('/Staff', function (req, res) {
                 app.set('checklogin', 1)
                 app.set('userLogin', userLogin)
                 res.locals.layout = 'layoutforStaff'
-                
+
                 res.render('Staff', data)
             }
 
             else {
-                req.flash('message',`Password incorrect`)
+                req.flash('message', `Password incorrect`)
                 res.redirect('/Signin')
             }
         } else {
@@ -146,22 +148,82 @@ app.post('/Staff', function (req, res) {
                 res.redirect('/admin')
             }
             else {
-                req.flash('message',`User Incorrect`)
+                req.flash('message', `User Incorrect`)
                 res.redirect('/Signin')
             }
         }
     }).catch(function (error) {
-        req.flash('message',`Fail`)
-         res.redirect('/Signin')
+        req.flash('message', `Fail`)
+        res.redirect('/Signin')
     })
 })
 app.get('/admin', function (req, res) {
     res.locals.header = 'Boss ';
     tenaccount = 'Boss';
-    res.locals.style = 'admin.css'
-    app.set('checklogin', 2)
-    res.render('admin', { layout: 'adminLayout' });
+    res.locals.style = 'admin.css';
+    models.Account.findAll().then((nv) => {
+        res.locals.slnd = nv.length;
+        let money = 0;
+        for (let i = 0; i < nv.length; i++) {
+            money += parseInt(nv[i].sotiendatcoc);
+        }
+        res.locals.doanhThu = money;
+    }).then(() => {
+        models.Account_staff.findAll().then((nv1) => {
+            res.locals.slnv = nv1.length;
+        }).then(() => {
+            models.BookManage.max('BookId').then((bm) => {
+                models.Book.findOne(
+                    {
+                        where: {
+                            id: bm
+                        }
+                    }
+                ).then((book) => {
+                    res.locals.maxTitle = book.theloai;
+                }).then(()=>{
+                    var bookAlls=[];
+                    models.BookManage.findAll(
+                    // models.BookManage.aggregate('BookId','count', { plain: false }
+                    {
+                        group: ['BookId'],
+                        attributes: ['BookId', [Sequelize.fn('COUNT', 'BookId'), 'SoLan']],
+                        order: [[Sequelize.col('SoLan'),'DESC']],
+                        limit:5,
+                    }
+                    ).then((book1)=>{
+                        models.BookManage.findAll().then((book2)=>{
+                            for(let i=0;i<book1.length;i++){
+                                let tempbook = {
+                                    stt: i + 1,
+                                    tensach:'',
+                                    tentacgia:'',
+                                    solanmuon:book1[i].dataValues.SoLan,
+                                }
+                                for(let j=0;j<book2.length;j++){
+                                    if(book1[i].dataValues.BookId==book2[j].BookId){
+                                        tempbook.tensach=book2[j].tensach;
+                                        tempbook.tentacgia=book2[j].tentacgia;
+                                        console.log(tempbook);
+                                        bookAlls.push(tempbook);
+                                        break;
+                                    }
+                                }
+                            }
+                        }).then(() => {
+                            app.set('checklogin', 2)
+                            res.render('admin', { layout: 'adminLayout',bookAlls });
+                        })
+                
+                    })
+                })
+
+            })
+        })
+    })
+
 })
+
 //view profile of customer
 app.get('/Account', function (req, res) {
     models.Account.findAll().then(function (account) {
@@ -190,7 +252,7 @@ app.get('/Account', function (req, res) {
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
         res.locals.layout = 'layoutforStaff'
-        res.render('Account', { data: data , message: req.flash('message'), messageclass : req.flash('messageclass')})
+        res.render('Account', { data: data, message: req.flash('message'), messageclass: req.flash('messageclass') })
     }).catch(function (error) {
         res.send(error)
     })
@@ -254,7 +316,7 @@ app.get('/XoaSach', function (req, res) {
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
         res.locals.layout = 'layoutforStaff'
-        res.render('XoaSach', { data:datasach, message: req.flash('message'), messageclass : req.flash('messageclass') })
+        res.render('XoaSach', { data: datasach, message: req.flash('message'), messageclass: req.flash('messageclass') })
     }).catch(function (error) {
         res.send(error)
     })
@@ -301,24 +363,24 @@ app.post('/editBookInStaffPage', (req, res) => {
     }, {
         where: { id: req.body.idDB }
     })
-    .then(() => {
-        req.flash('message',`Chỉnh Sửa Sách Thành Công`)
-        req.flash('messageclass',`alert-success`)
-        res.redirect('/XoaSach');
-    }).catch((error) => {
-        console.log(error)
-        req.flash('message',`Lỗi`)
-        req.flash('messageclass',`alert-danger`)
-        res.redirect('/XoaSach');
-    })
+        .then(() => {
+            req.flash('message', `Chỉnh Sửa Sách Thành Công`)
+            req.flash('messageclass', `alert-success`)
+            res.redirect('/XoaSach');
+        }).catch((error) => {
+            console.log(error)
+            req.flash('message', `Lỗi`)
+            req.flash('messageclass', `alert-danger`)
+            res.redirect('/XoaSach');
+        })
 })
 app.get('/XoaSach/:id', function (req, res) {
     models.Book.destroy({
         where: { id: req.params.id }
     })
         .then(function () {
-            req.flash('message',`Xóa Sách Thành Công`)
-             req.flash('messageclass',`alert-success`)
+            req.flash('message', `Xóa Sách Thành Công`)
+            req.flash('messageclass', `alert-success`)
             res.redirect("/XoaSach")
         }).catch(function (error) {
             res.json(error);
@@ -326,7 +388,7 @@ app.get('/XoaSach/:id', function (req, res) {
 })
 app.get('/Sign_up_ThanhVien', function (req, res) {
     res.locals.layout = 'layoutnull'
-    res.render('Sign_Up_ThanhVien',{message: req.flash('message'), messageclass : req.flash('messageclass')})
+    res.render('Sign_Up_ThanhVien', { message: req.flash('message'), messageclass: req.flash('messageclass') })
 })
 app.post('/Sign_up_ThanhVien', function (req, res) {
     var tempanh = '';
@@ -354,37 +416,37 @@ app.post('/Sign_up_ThanhVien', function (req, res) {
             if (account != null) {
                 res.locals.header = tenaccount
                 userLogin = req.app.get('userLogin')
-                req.flash('message',`Account Có Số CMND Đã Tồn Tại`)
-                req.flash('messageclass',`alert-danger`)
+                req.flash('message', `Account Có Số CMND Đã Tồn Tại`)
+                req.flash('messageclass', `alert-danger`)
                 res.redirect("/Sign_Up_ThanhVien")
             }
             else {
                 models.Account.create(userStaff)
                 res.locals.header = tenaccount
                 userLogin = req.app.get('userLogin')
-                req.flash('message',`Đăng Ký Thành Công`)
-                req.flash('messageclass',`alert-success`)
+                req.flash('message', `Đăng Ký Thành Công`)
+                req.flash('messageclass', `alert-success`)
                 res.redirect("/Sign_Up_ThanhVien")
             }
         }).catch(function (error) {
-            req.flash('message',`Lỗi`)
-            req.flash('messageclass',`alert-danger`)
+            req.flash('message', `Lỗi`)
+            req.flash('messageclass', `alert-danger`)
             res.redirect("/Sign_Up_ThanhVien")
         })
 
     })
-    
-    
+
+
 })
 app.get('/NhapSach', function (req, res) {
     res.locals.layout = 'layoutnull'
-    res.render('NhapSach',{message: req.flash('message'), messageclass : req.flash('messageclass')})
+    res.render('NhapSach', { message: req.flash('message'), messageclass: req.flash('messageclass') })
 })
 app.post('/NhapSach', function (req, res) {
     var tempanh = '';
     uploadSignStaff(req, res, (err) => {
         tempanh = req.file.originalname;
-        
+
         var Book = {
             tensach: req.body.tensach,
             tentacgia: req.body.tentacgia,
@@ -394,11 +456,11 @@ app.post('/NhapSach', function (req, res) {
             mota: req.body.mota,
             image: '/' + tempanh,
         }
-        
-    models.Book.create(Book)
-    req.flash('message',`Đăng Ký Thành Công`)
-    req.flash('messageclass',`alert-success`)
-    res.redirect("/NhapSach")
+
+        models.Book.create(Book)
+        req.flash('message', `Đăng Ký Thành Công`)
+        req.flash('messageclass', `alert-success`)
+        res.redirect("/NhapSach")
 
     })
 
@@ -419,7 +481,7 @@ app.get('/XoaAccount/:id', function (req, res) {
 })
 app.post('/ChangeAccount', function (req, res) {
     models.Account.update({
-        
+
         hoten: req.body.hotenchange,
         ngaysinh: req.body.ngaysinhchange,
         cmnd: req.body.cmndchange,
@@ -436,9 +498,9 @@ app.post('/ChangeAccount', function (req, res) {
         where: { id: req.body.idDB }
     })
         .then(function () {
-            
-            req.flash('message',`Chỉnh Sửa Độc Giả Thành Công`)
-            req.flash('messageclass',`alert-success`)
+
+            req.flash('message', `Chỉnh Sửa Độc Giả Thành Công`)
+            req.flash('messageclass', `alert-success`)
             res.redirect("/Account")
         }).catch(function (error) {
             res.json(error);
@@ -449,9 +511,9 @@ app.get('/DeleteAccount/:id', function (req, res) {
     models.Account.destroy({
         where: { id: req.params.id }
     })
-        .then(function () {   
-            req.flash('message',`Xóa Độc Giả Thành Công`)
-            req.flash('messageclass',`alert-success`)
+        .then(function () {
+            req.flash('message', `Xóa Độc Giả Thành Công`)
+            req.flash('messageclass', `alert-success`)
             res.redirect("/Account")
         }).catch(function (error) {
             res.json(error);
@@ -477,7 +539,7 @@ app.get('/DangKyMuonSach', function (req, res) {
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
         res.locals.layout = 'layoutforStaff'
-        res.render("DangKyMuonSach", { data: data, message: req.flash('message'), messageclass : req.flash('messageclass') })
+        res.render("DangKyMuonSach", { data: data, message: req.flash('message'), messageclass: req.flash('messageclass') })
     }).catch(function (error) {
         res.send(error)
     })
@@ -510,11 +572,11 @@ app.post('/DangKyMuonSach', function (req, res) {
                     id: book.id
                 }
             }).then(() => {
-                
-                req.flash('message',`Đăng Ký Mượn Sách Thành Công`)
-                req.flash('messageclass',`alert-success`)
+
+                req.flash('message', `Đăng Ký Mượn Sách Thành Công`)
+                req.flash('messageclass', `alert-success`)
                 models.BookManage.create(DangKySach)
-                
+
                 res.redirect('/DangKyMuonSach');
             }).catch((error) => {
                 res.redirect('/DangKyMuonSach');
@@ -547,9 +609,9 @@ app.get('/DeleteDangKyMuonSach/:id', function (req, res) {
                     where: { id: req.params.id }
                 })
                     .then(function () {
-                        
-                        req.flash('message',`Trả Sách Thành Công`)
-                        req.flash('messageclass',`alert-success`)
+
+                        req.flash('message', `Trả Sách Thành Công`)
+                        req.flash('messageclass', `alert-success`)
                         res.redirect("/DangKyMuonSach")
                     }).catch(function (error) {
                         res.redirect("/DangKyMuonSach")
@@ -598,46 +660,8 @@ app.get('/TimKiemDangKySach', function (req, res) {
 })
 
 //////////////////////////////////////// Phần Admin: Tanthai
-//Phần xử lý đký staff (Nhân viên) ==>Xong
-//Insert Nhân viên
-// app.get('/signMember', (req, res) => {
-//     let today = new Date();
-//     let dateBirth = req.query.ngaySinh.split("-");
-//     var userStaff = {
-//         hoten: req.query.hVTen,
-//         ngaysinh: dateBirth[2] + '/' + dateBirth[1] + '/' + dateBirth[0],
-//         cmnd: req.query.soCMND,
-//         pass: req.query.pass,
-//         gioitinh: req.query.gTinh,
-//         dantoc: req.query.dToc,
-//         ngaylap: today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear(),
-//         sdt: req.query.sdThoai,
-//         email: req.query.eMail,
-//         diachi: req.query.diaChi,
-//         sotiendatcoc: '500000',
-//         nguoilap: 'Admin',
-//         image: '/' + req.query.ima,
-//     }
-//     models.Account_staff.findOne({
-//         where: {
-//             cmnd: req.query.soCMND, // dang ky theo chung minh nhan dan. bi trung thi k cho dang ky
-//             email: req.query.eMail
-//         }
-//     }).then(function (account) {
-//         if (account != null) {
-//             res.redirect("/quanlynhanvien")
-//         }
-//         else {
-//             var salt = bcrypt.genSaltSync(10);
-//             userStaff.pass = bcrypt.hashSync(userStaff.pass, salt);
-//             models.Account_staff.create(userStaff);
-//             res.redirect('/quanlynhanvien');
-//         }
-//     }).catch(function (error) {
-//         res.redirect('/quanlynhanvien')
-//     })
-// })
-//Đăng ký Nhân viên với Post
+//Phần xử lý đký staff (Nhân viên) 
+//Đăng ký Nhân viên với Post ==>Xong
 app.post('/signMember', (req, res) => {
     var tempanh = '';
     uploadSignStaff(req, res, (err) => {
@@ -686,6 +710,118 @@ app.get('/quanlynhanvien', (req, res) => {
     let nhanvienAll = [];
     models.Account_staff.findAll().then((nv) => {
         for (let i = 0; i < nv.length; i++) {
+            let tempNgaySinh = nv[i].ngaysinh.split("-");
+            let nv1 = {
+                stt: i + 1,
+                id: nv[i].id,
+                hoten: nv[i].hoten,
+                ngaysinh: tempNgaySinh[2] + '/' + tempNgaySinh[1] + '/' + tempNgaySinh[0],
+                cmnd: nv[i].cmnd,
+                gioitinh: nv[i].gioitinh,
+                dantoc: nv[i].dantoc,
+                ngaylap: nv[i].ngaylap,
+                sdt: nv[i].sdt,
+                email: nv[i].email,
+                diachi: nv[i].diachi,
+                image: nv[i].image,
+            }
+            nhanvienAll.push(nv1);
+        }
+        res.locals.header = 'Boss';
+        res.locals.style = 'quanlynhanvien.css';
+        tenaccount = 'Boss';
+        res.render('quanlynhanvien', { layout: 'adminLayout', nhanvienAll });
+
+    }).catch((error) => {
+        res.json(error);
+    })
+
+})
+
+//With editstaff with post ==>Xong
+app.post('/editStaff', (req, res) => {
+    var tempanhStaff = '';
+    uploadSignStaff(req, res, (err) => {
+        tempanhStaff = req.file.originalname;
+        let DbStaff = req.body.engaySinh.split("/");
+        models.Account_staff.update({
+            hoten: req.body.ehVTen,
+            ngaysinh: DbStaff[2] + '-' + DbStaff[1] + '-' + DbStaff[0],
+            cmnd: req.body.esoCMND,
+            gioitinh: req.body.egTinh,
+            dantoc: req.body.edToc,
+            sdt: req.body.esdThoai,
+            email: req.body.eeMail,
+            diachi: req.body.ediaChi,
+            image: '/' + tempanhStaff,
+        }, {
+            where: { id: req.body.soID }
+        })
+            .then(() => {
+                res.redirect('/quanlynhanvien');
+            }).catch((error) => {
+                res.json(error);
+            })
+    })
+
+
+})
+
+//With removeStaff ==>Xong
+app.get('/removeStaff', (req, res) => {
+    models.Account_staff.destroy({
+        where: { id: req.query.soIDDelete }
+    })
+        .then(() => {
+            res.redirect('/quanlynhanvien');
+        })
+        .catch((error) => {
+            res.json(error);
+        })
+})
+
+//Xử lý search Staff ==>Xong
+app.get('/searchNhanVien', (req, res) => {
+    let nhanvienAll = [];
+    models.Account_staff.findAll(
+        {
+            where: {
+                [Op.or]: [
+                    {
+                        hoten: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                    {
+                        cmnd: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                    {
+                        gioitinh: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                    {
+                        dantoc: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                    {
+                        sdt: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                    {
+                        email: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                ]
+            }
+        }
+    ).then((nv) => {
+        for (let i = 0; i < nv.length; i++) {
             let nv1 = {
                 stt: i + 1,
                 id: nv[i].id,
@@ -710,60 +846,36 @@ app.get('/quanlynhanvien', (req, res) => {
     }).catch((error) => {
         res.json(error);
     })
-
 })
-//With editStaff ==>Xong
-app.get('/editStaff', (req, res) => {
-    models.Account_staff.update({
-        hoten: req.query.ehVTen,
-        ngaysinh: req.query.engaySinh,
-        cmnd: req.query.esoCMND,
-        gioitinh: req.query.egTinh,
-        dantoc: req.query.edToc,
-        sdt: req.query.esdThoai,
-        email: req.query.eeMail,
-        diachi: req.query.ediaChi,
-        image: '/' + req.query.eima,
-    }, {
-        where: { id: req.query.soID }
-    })
-        .then(() => {
-            res.redirect('/quanlynhanvien');
-        }).catch((error) => {
-            res.json(error);
-        })
-
-})
-//With removeStaff ==>Xong
-app.get('/removeStaff', (req, res) => {
-    models.Account_staff.destroy({
-        where: { id: req.query.soIDDelete }
-    })
-        .then(() => {
-            res.redirect('/quanlynhanvien');
-        })
-        .catch((error) => {
-            res.json(error);
-        })
-})
-
 
 ///////////////////////////////////Phần xử lý quanlydocgia
-//With database ==>Xong
+//Phân trang Reader with database ==>Xong
 app.get('/quanlydocgia', (req, res) => {
+    let page = parseInt(req.query.page);
+    page = isNaN(page) ? 1 : page;
+    let limit = 7;
     let readerAll = [];
     models.Account.findAll().then((nv) => {
+        var pagination = {
+            limit: limit,
+            page: page,
+            totalRows: nv.length,
+        };
+        var offset = (page - 1) * limit;
+        nv = nv.slice(offset, offset + limit)
+
         for (let i = 0; i < nv.length; i++) {
-            let dateBirth = nv[i].ngaylap.split("-");
+            let dateBirth = nv[i].ngaysinh.split("-");
+            let dateEstab = nv[i].ngaylap.split("-");
             let nv1 = {
                 stt: i + 1,
                 id: nv[i].id,
                 hoten: nv[i].hoten,
-                ngaysinh: nv[i].ngaysinh,
+                ngaysinh: dateBirth[2] + '/' + dateBirth[1] + '/' + dateBirth[0],
                 cmnd: nv[i].cmnd,
                 gioitinh: nv[i].gioitinh,
                 dantoc: nv[i].dantoc,
-                ngaylap: dateBirth[2] + '/' + dateBirth[1] + '/' + dateBirth[0],
+                ngaylap: dateEstab[2] + '/' + dateEstab[1] + '/' + dateEstab[0],
                 sdt: nv[i].sdt,
                 email: nv[i].email,
                 diachi: nv[i].diachi,
@@ -776,40 +888,40 @@ app.get('/quanlydocgia', (req, res) => {
         res.locals.header = 'Boss';
         res.locals.style = 'quanlydocgia.css';
         tenaccount = 'Boss';
-        res.render('quanlydocgia', { layout: 'adminLayout', readerAll });
-
+        res.render('quanlydocgia', { layout: 'adminLayout', readerAll, pagination });
     }).catch((error) => {
         res.json(error);
     })
 
 })
-//With editReader ==>Xong
-app.get('/editReader', (req, res) => {
-    let tempNgayLap = req.query.engayLapReader.split("/");
-    models.Account.update({
 
-        hoten: req.query.ehVTenReader,
-        ngaysinh: req.query.engaySinhReader,
-        cmnd: req.query.esoCMNDReader,
-        gioitinh: req.query.egTinhReader,
-        dantoc: req.query.edTocReader,
-        ngaylap: tempNgayLap[0] + '/' + tempNgayLap[1] + '/' + tempNgayLap[2],
-        sdt: req.query.esdThoaiReader,
-        email: req.query.eeMailReader,
-        diachi: req.query.ediaChiReader,
-        sotiendatcoc: req.query.etienDatCocReader,
-        nguoilap: req.query.enguoiLapReader,
-        image: '/' + req.query.eimaReader,
-
-
-    }, {
-        where: { id: req.query.soIDReader }
-    })
-        .then(() => {
-            res.redirect('/quanlydocgia');
-        }).catch((error) => {
-            res.json(error);
+//With editReader with post ==>Xong
+app.post('/editReader', (req, res) => {
+    var tempanhReader = '';
+    uploadSignStaff(req, res, (err) => {
+        tempanhReader = req.file.originalname;
+        let Dbir = req.body.engaySinhReader.split('/');
+        models.Account.update({
+            hoten: req.body.ehVTenReader,
+            ngaysinh: Dbir[2] + '-' + Dbir[1] + '-' + Dbir[0],
+            cmnd: req.body.esoCMNDReader,
+            gioitinh: req.body.egTinhReader,
+            dantoc: req.body.edTocReader,
+            sdt: req.body.esdThoaiReader,
+            email: req.body.eeMailReader,
+            diachi: req.body.ediaChiReader,
+            sotiendatcoc: req.body.etienDatCocReader,
+            nguoilap: req.body.enguoiLapReader,
+            image: '/' + tempanhReader,
+        }, {
+            where: { id: req.body.soIDReader }
         })
+            .then(() => {
+                res.redirect('/quanlydocgia');
+            }).catch((error) => {
+                res.json(error);
+            })
+    })
 
 })
 
@@ -826,12 +938,113 @@ app.get('/removeReader', (req, res) => {
         })
 })
 
+//Xử lý search Reader ==> Xong
+app.get('/searchDocGia', (req, res) => {
+
+    let page = parseInt(req.query.page);
+    page = isNaN(page) ? 1 : page;
+    let limit = 7;
+    let readerAll = [];
+    models.Account.findAll(
+        {
+            where: {
+                [Op.or]: [
+                    {
+                        hoten: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                    {
+                        cmnd: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                    {
+                        gioitinh: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                    {
+                        dantoc: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                    {
+                        sdt: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                    {
+                        email: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                ]
+            }
+        }
+    ).then((nv) => {
+        var pagination = {
+            limit: limit,
+            page: page,
+            totalRows: nv.length,
+        };
+        var offset = (page - 1) * limit;
+        nv = nv.slice(offset, offset + limit)
+
+        for (let i = 0; i < nv.length; i++) {
+            let dateBirth = nv[i].ngaysinh.split("-");
+            let dateEstab = nv[i].ngaylap.split("-");
+            let nv1 = {
+                stt: i + 1,
+                id: nv[i].id,
+                hoten: nv[i].hoten,
+                ngaysinh: dateBirth[2] + '/' + dateBirth[1] + '/' + dateBirth[0],
+                cmnd: nv[i].cmnd,
+                gioitinh: nv[i].gioitinh,
+                dantoc: nv[i].dantoc,
+                ngaylap: dateEstab[2] + '/' + dateEstab[1] + '/' + dateEstab[0],
+                sdt: nv[i].sdt,
+                email: nv[i].email,
+                diachi: nv[i].diachi,
+                sotiendatcoc: nv[i].sotiendatcoc,
+                nguoilap: nv[i].nguoilap,
+                image: nv[i].image,
+            }
+            readerAll.push(nv1);
+        }
+        res.locals.header = 'Boss';
+        res.locals.style = 'quanlydocgia.css';
+        tenaccount = 'Boss';
+        res.render('quanlydocgia', { layout: 'adminLayout', readerAll, pagination });
+    }).catch((error) => {
+        res.json(error);
+    })
+})
 
 //Phần xử lý quanlysach
-//With database ==>Xong
-app.get('/quanlysach', (req, res) => {
+//With database, Phân trang ==>Xong
+app.get('/quanlysach/:idphantrang', (req, res) => {
+    let page = parseInt(req.query.page);
+    page = isNaN(page) ? 1 : page;
+    let limit = 7;
     let bookAll = [];
-    models.Book.findAll().then((books) => {
+    let idPhanTrang = req.params.idphantrang;
+    models.Book.findAll(
+        {
+            where: {
+                theloai: {
+                    [Op.iLike]: `%${idPhanTrang}%`
+                },
+            }
+        }
+    ).then((books) => {
+        var pagination = {
+            limit: limit,
+            page: page,
+            totalRows: books.length,
+        };
+        var offset = (page - 1) * limit;
+        books = books.slice(offset, offset + limit)
         for (let i = 0; i < books.length; i++) {
             let book = {
                 id: books[i].id,
@@ -849,93 +1062,148 @@ app.get('/quanlysach', (req, res) => {
         res.locals.header = 'Boss';
         res.locals.style = 'quanlysach.css';
         tenaccount = 'Boss';
-        res.render('quanlysach', { layout: 'adminLayout', bookAll });
+        res.render('quanlysach', { layout: 'adminLayout', bookAll, pagination });
     }).catch((error) => {
         res.json(error);
     })
 
 })
-//With editBook
-app.get('/editBook', (req, res) => {
-    let temp = req.query.eimabook;
+
+app.get('/quanlysach', (req, res) => {
+    let page = parseInt(req.query.page);
+    page = isNaN(page) ? 1 : page;
+    let limit = 7;
+    let bookAll = [];
+    models.Book.findAll(
+
+    ).then((books) => {
+        var pagination = {
+            limit: limit,
+            page: page,
+            totalRows: books.length,
+        };
+        var offset = (page - 1) * limit;
+        books = books.slice(offset, offset + limit)
+        for (let i = 0; i < books.length; i++) {
+            let book = {
+                id: books[i].id,
+                stt: i + 1,
+                tensach: books[i].tensach,
+                tentacgia: books[i].tentacgia,
+                theloai: books[i].theloai,
+                soluong: books[i].soluong,
+                ngaynhap: books[i].ngaynhap,
+                image: books[i].image,
+                mota: books[i].mota,
+            }
+            bookAll.push(book);
+        }
+        res.locals.header = 'Boss';
+        res.locals.style = 'quanlysach.css';
+        tenaccount = 'Boss';
+        res.render('quanlysach', { layout: 'adminLayout', bookAll, pagination });
+    }).catch((error) => {
+        res.json(error);
+    })
+})
+
+//With editBook ==>Xong
+app.post('/editBookAdmin', (req, res) => {
     models.Book.update({
-        tensach: req.query.etenSach,
-        tentacgia: req.query.etenTacGia,
-        theloai: req.query.etLoai,
-        soluong: req.query.esoLuong,
-        ngaynhap: req.query.engayNhap,
-        mota: req.query.emoTaSach,
-        image: '/' + req.query.eimabook,
+        tensach: req.body.etenSach,
+        tentacgia: req.body.etenTacGia,
+        theloai: req.body.etLoai,
+        soluong: req.body.esoLuong,
+        ngaynhap: req.body.engayNhap,
+        mota: req.body.emoTaSach,
     }, {
-        where: { id: req.query.soIDBook }
+        where: { id: req.body.soIDBook }
     })
         .then(() => {
-            console.log(temp);
             res.redirect('/quanlysach');
         }).catch((error) => {
             res.json(error);
         })
 })
-//With removeBook
-// app.get('/removeBook',(req,res)=>{
 
-// })
-
-//With showListBook ==>Xong, còn phân trang
-app.get('/showListBook', (req, res) => {
-    let bookAll = [];
-    if (req.query.suLuaChon !== "Thể loại") {
-
-        models.Book.findAll(
-            {
-                // limit:5,
-                // offset:0,
-                where: {
-                    theloai: {
-                        [Op.iLike]: `%${req.query.suLuaChon}%`
-                    },
-                }
-            }
-        ).then((books) => {
-            console.log(req.query.suLuaChon);
-            for (let i = 0; i < books.length; i++) {
-                let book = {
-                    id: books[i].id,
-                    stt: i + 1,
-                    tensach: books[i].tensach,
-                    tentacgia: books[i].tentacgia,
-                    theloai: books[i].theloai,
-                    soluong: books[i].soluong,
-                    ngaynhap: books[i].ngaynhap,
-                    image: books[i].image,
-                    mota: books[i].mota,
-                }
-                bookAll.push(book);
-            }
-            res.locals.header = 'Boss';
-            res.locals.style = 'quanlysach.css';
-            tenaccount = 'Boss';
-            res.render('quanlysach', { layout: 'adminLayout', bookAll });
-        }).catch((error) => {
+//With removeBook ==>Xong
+app.get('/removeBook', (req, res) => {
+    models.Book.destroy({
+        where: { id: req.query.soIDDeleteBooks }
+    })
+        .then(() => {
+            res.redirect('/quanlysach'
+            );
+        })
+        .catch((error) => {
             res.json(error);
         })
-    }
-    else {
-        res.redirect('/quanlysach');
-    }
+})
+//With search Sach ==>Xong
+app.get('/searchSach', (req, res) => {
+    let page = parseInt(req.query.page);
+    page = isNaN(page) ? 1 : page;
+    let limit = 7;
+    let bookAll = [];
+    models.Book.findAll(
+        {
+            where: {
+                [Op.or]: [
+                    {
+                        tensach: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                    {
+                        tentacgia: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                    {
+                        theloai: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                    {
+                        mota: {
+                            [Op.iLike]: `%${req.query.noidungtimkiem}%`
+                        }
+                    },
+                ]
+            }
+        }
+    ).then((books) => {
+        var pagination = {
+            limit: limit,
+            page: page,
+            totalRows: books.length,
+        };
+        var offset = (page - 1) * limit;
+        books = books.slice(offset, offset + limit)
+        for (let i = 0; i < books.length; i++) {
+            let book = {
+                id: books[i].id,
+                stt: i + 1,
+                tensach: books[i].tensach,
+                tentacgia: books[i].tentacgia,
+                theloai: books[i].theloai,
+                soluong: books[i].soluong,
+                ngaynhap: books[i].ngaynhap,
+                image: books[i].image,
+                mota: books[i].mota,
+            }
+            bookAll.push(book);
+        }
+        res.locals.header = 'Boss';
+        res.locals.style = 'quanlysach.css';
+        tenaccount = 'Boss';
+        res.render('quanlysach', { layout: 'adminLayout', bookAll, pagination });
+    }).catch((error) => {
+        res.json(error);
+    })
 
 })
 
-//Phần xử lý thongke
-app.get('/thongke', (req, res) => {
-    var context = {
-        style: 'thongke.css',
-    }
-
-    res.locals.header = 'Boss';
-    res.locals.layout = 'adminLayout'
-    res.render('thongke', context);
-})
 
 //set port
 app.set('port', process.env.PORT | 5000)
