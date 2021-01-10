@@ -102,10 +102,15 @@ app.get('/Signin', function (req, res) {
     res.render('Signin', { message: req.flash('message') })
 })
 app.get('/Staff', function (req, res) {
-    res.locals.header = tenaccount
-    res.locals.layout = 'layoutforStaff'
-    userLogin = req.app.get('userLogin')
-    res.render('Staff', userLogin)
+    if(app.get('checklogin')!=0){
+        res.locals.header = tenaccount
+        res.locals.layout = 'layoutforStaff'
+        userLogin = req.app.get('userLogin')
+        res.render('Staff', userLogin)
+    }
+    else{
+        res.redirect('/');
+    }
 })
 app.post('/Staff', function (req, res) {
     models.Account_staff.findOne({
@@ -132,7 +137,7 @@ app.post('/Staff', function (req, res) {
                 userLogin = data;
                 res.locals.header = data.hoten
                 tenaccount = res.locals.header
-                app.set('checklogin', 1)
+                app.set('checklogin', 1);
                 app.set('userLogin', userLogin)
                 res.locals.layout = 'layoutforStaff'
 
@@ -145,6 +150,7 @@ app.post('/Staff', function (req, res) {
             }
         } else {
             if (req.body.user == '1@1' && req.body.pass == 'phuoc412') {
+                app.set('checklogin', 2);
                 res.redirect('/admin')
             }
             else {
@@ -158,9 +164,7 @@ app.post('/Staff', function (req, res) {
     })
 })
 app.get('/admin', function (req, res) {
-    res.locals.header = 'Boss ';
-    tenaccount = 'Boss';
-    res.locals.style = 'admin.css';
+
     models.Account.findAll().then((nv) => {
         res.locals.slnd = nv.length;
         let money = 0;
@@ -204,15 +208,22 @@ app.get('/admin', function (req, res) {
                                     if(book1[i].dataValues.BookId==book2[j].BookId){
                                         tempbook.tensach=book2[j].tensach;
                                         tempbook.tentacgia=book2[j].tentacgia;
-                                        console.log(tempbook);
                                         bookAlls.push(tempbook);
                                         break;
                                     }
                                 }
                             }
                         }).then(() => {
-                            app.set('checklogin', 2)
-                            res.render('admin', { layout: 'adminLayout',bookAlls });
+                            if(app.get('checklogin')!=0){
+                                res.locals.header = 'Boss ';
+                                tenaccount = 'Boss';
+                                res.locals.style = 'admin.css';
+                                app.set('checklogin', 2)
+                                res.render('admin', { layout: 'adminLayout',bookAlls });
+                            }
+                            else{
+                                res.redirect('/');
+                            } 
                         })
                 
                     })
