@@ -10,7 +10,8 @@ const Op = Sequelize.Op;
 const path = require('path');
 //Xử lý ảnh upload
 var multer = require('multer');
-
+//Xử lý gửi email
+const nodemailer = require('nodemailer');
 const saltRounds = 10;
 var tenaccount; // them cai nay vo header nha vidu chua dang nhap thi se la 'Dang nhap'
 var allAcount = [] // tat ca account trong bang account
@@ -102,13 +103,13 @@ app.get('/Signin', function (req, res) {
     res.render('Signin', { message: req.flash('message') })
 })
 app.get('/Staff', function (req, res) {
-    if(app.get('checklogin')!=0){
+    if (app.get('checklogin') != 0) {
         res.locals.header = tenaccount
         res.locals.layout = 'layoutforStaff'
         userLogin = req.app.get('userLogin')
         res.render('Staff', userLogin)
     }
-    else{
+    else {
         res.redirect('/');
     }
 })
@@ -185,47 +186,47 @@ app.get('/admin', function (req, res) {
                     }
                 ).then((book) => {
                     res.locals.maxTitle = book.theloai;
-                }).then(()=>{
-                    var bookAlls=[];
+                }).then(() => {
+                    var bookAlls = [];
                     models.BookManage.findAll(
-                    // models.BookManage.aggregate('BookId','count', { plain: false }
-                    {
-                        group: ['BookId'],
-                        attributes: ['BookId', [Sequelize.fn('COUNT', 'BookId'), 'SoLan']],
-                        order: [[Sequelize.col('SoLan'),'DESC']],
-                        limit:5,
-                    }
-                    ).then((book1)=>{
-                        models.BookManage.findAll().then((book2)=>{
-                            for(let i=0;i<book1.length;i++){
+                        // models.BookManage.aggregate('BookId','count', { plain: false }
+                        {
+                            group: ['BookId'],
+                            attributes: ['BookId', [Sequelize.fn('COUNT', 'BookId'), 'SoLan']],
+                            order: [[Sequelize.col('SoLan'), 'DESC']],
+                            limit: 5,
+                        }
+                    ).then((book1) => {
+                        models.BookManage.findAll().then((book2) => {
+                            for (let i = 0; i < book1.length; i++) {
                                 let tempbook = {
                                     stt: i + 1,
-                                    tensach:'',
-                                    tentacgia:'',
-                                    solanmuon:book1[i].dataValues.SoLan,
+                                    tensach: '',
+                                    tentacgia: '',
+                                    solanmuon: book1[i].dataValues.SoLan,
                                 }
-                                for(let j=0;j<book2.length;j++){
-                                    if(book1[i].dataValues.BookId==book2[j].BookId){
-                                        tempbook.tensach=book2[j].tensach;
-                                        tempbook.tentacgia=book2[j].tentacgia;
+                                for (let j = 0; j < book2.length; j++) {
+                                    if (book1[i].dataValues.BookId == book2[j].BookId) {
+                                        tempbook.tensach = book2[j].tensach;
+                                        tempbook.tentacgia = book2[j].tentacgia;
                                         bookAlls.push(tempbook);
                                         break;
                                     }
                                 }
                             }
                         }).then(() => {
-                            if(app.get('checklogin')!=0){
+                            if (app.get('checklogin') != 0) {
                                 res.locals.header = 'Boss ';
                                 tenaccount = 'Boss';
                                 res.locals.style = 'admin.css';
                                 app.set('checklogin', 2)
-                                res.render('admin', { layout: 'adminLayout',bookAlls });
+                                res.render('admin', { layout: 'adminLayout', bookAlls });
                             }
-                            else{
+                            else {
                                 res.redirect('/');
-                            } 
+                            }
                         })
-                
+
                     })
                 })
 
@@ -234,6 +235,93 @@ app.get('/admin', function (req, res) {
     })
 
 })
+//Forgot Password
+app.get('/ForgotPass', (req, res) => {
+    res.locals.layout = 'layoutnull';
+    res.render('quenmatkhau');
+})
+app.post('/quenMK', (req, res) => {
+    let yourEmail = req.body.forgotpass;
+    models.Account_staff.findOne(
+        {
+            where: {
+                email: yourEmail,
+            }
+        }
+    )
+        .then((em) => {
+            console.log("a01");
+            if (em == null) {
+                res.locals.layout = 'layoutnull';
+                res.locals.smg = "Email không tồn tại hoặc nhập không đúng! Xin kiểm tra lại!!!";
+                res.render('quenmatkhau');
+            }
+            else {
+                var passNew = (Math.floor(Math.random() * 100000) + 10000).toString();
+                let outputForgotPass = `
+            <p>Hi ${em.hoten}</p>
+            <p>Your email: ${req.body.forgotpass}</p>
+            <h3>Your new password: ${passNew}</h3>
+            <p>Please not share for anyone</p>
+        `;
+                let transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        user: 'youremai@gmail.com', //nhap email thật vô
+                        pass: 'yourpassword'  //nhập password thật zô
+                    },
+                    tls: {
+                        rejectUnauthorized: false
+                    }
+                });
+                let mailOptions = {
+                    from: '"Thu Vien Tan Phuoc" <youremai@gmail.com>', // sender address
+                    to: yourEmail,
+                    subject: "Reset Password",
+                    html: outputForgotPass,
+                }
+                transporter.sendMail(mailOptions, function (error, info) {
+
+                    if (error) {
+                        console.log("BI LOI", error);
+                        res.redirect('/ForgotPass');
+                    } else {
+                        console.log("Oke roi do");
+                        console.log('Email sent: ' + info.response);
+                        console.log("B2");
+
+                        try {
+                            var salts = bcrypt.genSaltSync(10);
+                            passNew = bcrypt.hashSync(passNew, salts);
+                        } catch (error) {
+                            console.log(error.message);
+                        }
+                        models.Account_staff.update({
+                            pass: passNew,
+                        },
+                            {
+                                where:
+                                {
+                                    email: em.email
+                                }
+                            }
+                        ).then(()=>{
+                            res.locals.layout = 'layoutnull';
+                            res.locals.smg = "Đã gửi thành công";
+                            console.log("Gửi thành công ạ");
+                            res.render('quenmatkhau');
+                        })
+                    }
+                });
+            }
+        }).catch((error) => {
+            res.send(error)
+        })
+
+
+})
+
+
 
 //view profile of customer
 app.get('/Account', function (req, res) {

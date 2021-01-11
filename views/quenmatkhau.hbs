@@ -1,0 +1,22 @@
+    <div class="container">
+    <a class="navbar-brand col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="font-size:75px;color:blue; text-align: center;" href="/" ><i class="fas fa-book-reader"></i>Tân Phước</a>
+
+    <div class="container"  >
+        <div class="row" style="margin-left: 50px;">
+            <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
+                <img src="/images/banner1.jpg" alt="logo" style="margin: 50px 0px; width:100%"  >
+            </div>
+            <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5" style=" margin-top: 100px; width:70%; ">
+                {{smg}}
+                <form action="http://localhost:5000/quenMK" method="POST">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" >Nhập Email</label>
+                        <input type="email" name="forgotpass" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Gửi</button>
+                    <a href="/Signin" class="btn btn-outline-primary active" role="button" aria-pressed="true">Quay lại</a>
+                    </form>       
+            </div>
+        </div>
+    </div>
+    </div>
