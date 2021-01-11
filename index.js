@@ -1083,6 +1083,7 @@ app.get('/searchNhanVien', (req, res) => {
             res.locals.header = 'Boss';
             res.locals.style = 'quanlynhanvien.css';
             tenaccount = 'Boss';
+            res.locals.hasPagination=(pagination.totalRows/limit>1);
             res.render('quanlynhanvien', { layout: 'adminLayout', nhanvienAll });
 
         }).catch((error) => {
@@ -1272,6 +1273,7 @@ app.get('/searchDocGia', (req, res) => {
             res.locals.header = 'Boss';
             res.locals.style = 'quanlydocgia.css';
             tenaccount = 'Boss';
+            res.locals.hasPagination=(pagination.totalRows/limit>1);
             res.render('quanlydocgia', { layout: 'adminLayout', readerAll, pagination });
         }).catch((error) => {
             res.json(error);
@@ -1475,6 +1477,7 @@ app.get('/searchSach', (req, res) => {
             }
             res.locals.header = 'Boss';
             res.locals.style = 'quanlysach.css';
+            res.locals.hasPagination=(pagination.totalRows/limit>1);
             tenaccount = 'Boss';
             res.render('quanlysach', { layout: 'adminLayout', bookAll, pagination });
         }).catch((error) => {

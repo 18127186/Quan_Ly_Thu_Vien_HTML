@@ -21,3 +21,26 @@
     font-size: 20px;
     
 }
+.wrap {
+    width: 850px;
+  }
+  .wrap table {
+    table-layout: fixed;
+    width: 100%;
+  }
+  .wrap table.head {
+    width: calc(100% - 15px);
+  }
+  .wrap table.head tr td {
+    background: #eee;
+  }
+  
+  table tr td {
+    border: 1px solid #eee;
+    padding: 5px;
+    word-wrap: break-word;
+  }
+  .scroll-table {
+    height: 200px;
+    overflow-y: auto;
+  }

@@ -26,18 +26,33 @@
         </div>
     </section>
 <!--End Introduce Book  -->
-<!-- Comment--->
-    <section class="binhLuan">
-        <div class="container">
-        <div class="bLuan">
-            {{#each bookAllComments}}
-                <div class="row comment">
-                    <p>{{coms}}</p>
-                </div>
-            {{/each}}
-        </div>
-        </div>
-    </section>
+<!-- Comment <div class="container"></div>--->
+
+    <div class="wrap container">
+    <table class="head">
+        <tbody>
+        <tr>
+            <th style=" width: 15%">Số thứ tự</th>
+            <th>Người đọc</th>
+            <th>Bình Luận</th>
+        </tr>
+        </tbody>
+    </table>
+    <div class="scroll-table">
+        <table class="table bangNhanVien">
+            <tbody>
+                {{#each bookAllComments}}
+                <tr>
+                    <th style=" width: 14%">{{sttComent}}</th>
+                    <td>Anonymous</td>
+                    <td>{{coms}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
 <!-- End comment-->
 
     <section id="binhLuanSach">
