@@ -103,7 +103,7 @@ app.get('/Signin', function (req, res) {
     res.render('Signin', { message: req.flash('message') })
 })
 app.get('/Staff', function (req, res) {
-    if (app.get('checklogin') != 0) {
+    if (app.get('checklogin') == 1) {
         res.locals.header = tenaccount
         res.locals.layout = 'layoutforStaff'
         userLogin = req.app.get('userLogin')
@@ -215,7 +215,7 @@ app.get('/admin', function (req, res) {
                                 }
                             }
                         }).then(() => {
-                            if (app.get('checklogin') != 0) {
+                            if (app.get('checklogin') == 2) {
                                 res.locals.header = 'Boss ';
                                 tenaccount = 'Boss';
                                 res.locals.style = 'admin.css';
@@ -325,7 +325,7 @@ app.post('/quenMK', (req, res) => {
 
 //view profile of customer
 app.get('/Account', function (req, res) {
-    if (app.get('checklogin') != 0){
+    if (app.get('checklogin') == 1){
         models.Account.findAll().then(function (account) {
             var data = []
             for (i = 0; i < account.length; i++) {
@@ -400,7 +400,7 @@ app.post('/Account', function (req, res) {
 
 })
 app.get('/ChangePassWord',function(req,res){
-    if (app.get('checklogin') != 0){
+    if (app.get('checklogin') == 1){
         app.set('checklogin', 1)
         res.locals.style = 'TableScroll.css'
         res.locals.header = tenaccount
@@ -480,7 +480,7 @@ app.post('/ChangePassWord',function(req,res){
     }
 })
 app.get('/XoaSach', function (req, res) {
-    if (app.get('checklogin') != 0){
+    if (app.get('checklogin') == 1){
         models.Book.findAll().then(function (books) {
             var datasach = []
             for (i = 0; i < books.length; i++) {
@@ -564,7 +564,7 @@ app.post('/editBookInStaffPage', (req, res) => {
         })
 })
 app.get('/XoaSach/:id', function (req, res) {
-    if (app.get('checklogin') != 0){
+    if (app.get('checklogin') == 1){
         
         models.Book.destroy({
             where: { id: req.params.id }
@@ -582,7 +582,7 @@ app.get('/XoaSach/:id', function (req, res) {
     }
 })
 app.get('/Sign_up_ThanhVien', function (req, res) {
-    if (app.get('checklogin') != 0){
+    if (app.get('checklogin') == 1){
         res.locals.layout = 'layoutnull'
         res.render('Sign_Up_ThanhVien', { message: req.flash('message'), messageclass: req.flash('messageclass') })
     }
@@ -640,7 +640,7 @@ app.post('/Sign_up_ThanhVien', function (req, res) {
 
 })
 app.get('/NhapSach', function (req, res) {
-    if (app.get('checklogin') != 0){
+    if (app.get('checklogin') == 1){
         res.locals.layout = 'layoutnull'
         res.render('NhapSach', { message: req.flash('message'), messageclass: req.flash('messageclass') })
     }
@@ -672,7 +672,7 @@ app.post('/NhapSach', function (req, res) {
 
 })
 app.get('/XoaAccount/:id', function (req, res) {
-    if (app.get('checklogin') != 0){
+    if (app.get('checklogin') == 1){
         for (i = 0; i < allAcount.length; i++) {
             if (allAcount[i].id == req.params.id) {
                 accountEdit = allAcount[i]
@@ -717,7 +717,7 @@ app.post('/ChangeAccount', function (req, res) {
 })
 
 app.get('/DeleteAccount/:id', function (req, res) {
-    if (app.get('checklogin') != 0){
+    if (app.get('checklogin') == 1){
         models.Account.destroy({
             where: { id: req.params.id }
         })
@@ -734,7 +734,7 @@ app.get('/DeleteAccount/:id', function (req, res) {
     }
 })
 app.get('/DangKyMuonSach', function (req, res) {
-    if (app.get('checklogin') != 0){
+    if (app.get('checklogin') == 1){
         models.BookManage.findAll().then(function (account) {
             var data = []
             for (i = 0; i < account.length; i++) {
@@ -808,7 +808,7 @@ app.post('/DangKyMuonSach', function (req, res) {
     })
 })
 app.get('/DeleteDangKyMuonSach/:id', function (req, res) {
-    if (app.get('checklogin') != 0){  
+    if (app.get('checklogin') == 1){
         models.BookManage.findOne({ // tim cai id sach do
             where: { id: req.params.id }
         }).then(function (bookmanage) {
@@ -880,7 +880,7 @@ app.post('/TimKiemDangKySach', function (req, res) {
     })
 })
 app.get('/TimKiemDangKySach', function (req, res) {
-    if (app.get('checklogin') != 0){ 
+    if (app.get('checklogin') == 1){
         res.redirect('/DangKyMuonSach')
     }
     else {
@@ -936,7 +936,7 @@ app.post('/signMember', (req, res) => {
 ////////////////////////////////////Phần xử lý quanlynhanvien
 //With database ==>Xong
 app.get('/quanlynhanvien', (req, res) => {
-    if (app.get('checklogin') != 0){ 
+    if (app.get('checklogin') == 2){
         let nhanvienAll = [];
         models.Account_staff.findAll().then((nv) => {
             for (let i = 0; i < nv.length; i++) {
@@ -1003,7 +1003,7 @@ app.post('/editStaff', (req, res) => {
 
 //With removeStaff ==>Xong
 app.get('/removeStaff', (req, res) => {
-    if (app.get('checklogin') != 0){ 
+    if (app.get('checklogin') == 2){
         
         models.Account_staff.destroy({
             where: { id: req.query.soIDDelete }
@@ -1022,7 +1022,7 @@ app.get('/removeStaff', (req, res) => {
 
 //Xử lý search Staff ==>Xong
 app.get('/searchNhanVien', (req, res) => {
-    if (app.get('checklogin') != 0){ 
+    if (app.get('checklogin') == 2){
             
         let nhanvienAll = [];
         models.Account_staff.findAll(
@@ -1097,7 +1097,7 @@ app.get('/searchNhanVien', (req, res) => {
 ///////////////////////////////////Phần xử lý quanlydocgia
 //Phân trang Reader with database ==>Xong
 app.get('/quanlydocgia', (req, res) => {
-    if (app.get('checklogin') != 0){   
+    if (app.get('checklogin') == 2){ 
         let page = parseInt(req.query.page);
         page = isNaN(page) ? 1 : page;
         let limit = 7;
@@ -1178,7 +1178,7 @@ app.post('/editReader', (req, res) => {
 
 //With removeReader ==>Xong
 app.get('/removeReader', (req, res) => {
-    if (app.get('checklogin') != 0){ 
+    if (app.get('checklogin') == 2){
         
         models.Account.destroy({
             where: { id: req.query.soIDDeleteReader }
@@ -1197,7 +1197,7 @@ app.get('/removeReader', (req, res) => {
 
 //Xử lý search Reader ==> Xong
 app.get('/searchDocGia', (req, res) => {
-    if (app.get('checklogin') != 0){     
+    if (app.get('checklogin') == 2){
         let page = parseInt(req.query.page);
         page = isNaN(page) ? 1 : page;
         let limit = 7;
@@ -1285,7 +1285,7 @@ app.get('/searchDocGia', (req, res) => {
 //Phần xử lý quanlysach
 //With database, Phân trang ==>Xong
 app.get('/quanlysach/:idphantrang', (req, res) => {
-    if (app.get('checklogin') != 0){  
+    if (app.get('checklogin') == 2){
         let page = parseInt(req.query.page);
         page = isNaN(page) ? 1 : page;
         let limit = 7;
@@ -1336,7 +1336,7 @@ app.get('/quanlysach/:idphantrang', (req, res) => {
 })
 
 app.get('/quanlysach', (req, res) => {
-    if (app.get('checklogin') != 0){      
+    if (app.get('checklogin') == 2){     
         let page = parseInt(req.query.page);
         page = isNaN(page) ? 1 : page;
         let limit = 7;
@@ -1399,7 +1399,7 @@ app.post('/editBookAdmin', (req, res) => {
 
 //With removeBook ==>Xong
 app.get('/removeBook', (req, res) => {
-    if (app.get('checklogin') != 0){ 
+    if (app.get('checklogin') == 2){
         
         models.Book.destroy({
             where: { id: req.query.soIDDeleteBooks }
@@ -1418,7 +1418,7 @@ app.get('/removeBook', (req, res) => {
 })
 //With search Sach ==>Xong
 app.get('/searchSach', (req, res) => {
-    if (app.get('checklogin') != 0){ 
+    if (app.get('checklogin') == 2){
             
         let page = parseInt(req.query.page);
         page = isNaN(page) ? 1 : page;
