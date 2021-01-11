@@ -399,6 +399,86 @@ app.post('/Account', function (req, res) {
     })
 
 })
+app.get('/ChangePassWord',function(req,res){
+    if (app.get('checklogin') != 0){
+        app.set('checklogin', 1)
+        res.locals.style = 'TableScroll.css'
+        res.locals.header = tenaccount
+        res.locals.layout = 'layoutforStaff'
+        res.render('ChangePassWord', { message: req.flash('message'), messageclass: req.flash('messageclass')  })
+    }
+    else {
+        res.redirect('/');
+    }
+})
+app.post('/ChangePassWord',function(req,res){
+    userLogin = app.get('userLogin')
+    if (app.get('checklogin') != 0){
+        models.Account_staff.findOne({
+            where:{ cmnd: userLogin.cmnd}
+        }).then(function(account){
+            if (bcrypt.compareSync(req.body.oldpass, account.pass)) {
+                
+                if(req.body.newpass == req.body.checknewpass && req.body.newpass != "" && req.body.checknewpass != ""){
+                    
+                    var salt = bcrypt.genSaltSync(10);
+                    req.body.checknewpass = bcrypt.hashSync(req.body.checknewpass, salt);
+                    models.Account_staff.update({
+                        pass: req.body.checknewpass
+                    }, {
+                        where: { id: account.id }
+                    })
+                    .then(() => {
+                            req.flash('message', `Đổi Mật Khẩu Thành Công`)
+                            req.flash('messageclass', `alert-success`)
+                            
+                            res.locals.header = tenaccount
+                            res.locals.layout = 'layoutforStaff'
+                            res.redirect('/ChangePassWord');
+                    }).catch((error) => {
+                            req.flash('message', `Lỗi`)
+                            req.flash('messageclass', `alert-danger`)
+                                    
+                            res.locals.header = tenaccount
+                            res.locals.layout = 'layoutforStaff'
+                            res.redirect('/ChangePassWord');
+                    })
+                }
+                
+                else {
+                    req.flash('message', `Hai mật khẩu mới khác nhau hoặc bạn đã để trống`)
+                    req.flash('messageclass', `alert-danger`)
+                            
+                    res.locals.header = tenaccount
+                    res.locals.layout = 'layoutforStaff'
+                    res.redirect('/ChangePassWord');
+                }
+            }
+            
+            else {
+                
+                req.flash('message', `Mật khẩu cũ sai`)
+                req.flash('messageclass', `alert-danger`)
+                        
+                res.locals.header = tenaccount
+                res.locals.layout = 'layoutforStaff'
+                res.redirect('/ChangePassWord');
+            }
+        }).catch(function(error){
+            
+            req.flash('message', `Lỗi`)
+            req.flash('messageclass', `alert-danger`)
+                    
+            res.locals.header = tenaccount
+            res.locals.layout = 'layoutforStaff'
+            res.redirect('/ChangePassWord');
+        })
+        
+    }
+    else {
+        res.redirect('/');
+    }
+})
 app.get('/XoaSach', function (req, res) {
     if (app.get('checklogin') != 0){
         models.Book.findAll().then(function (books) {
