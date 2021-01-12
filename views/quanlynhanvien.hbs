@@ -9,7 +9,7 @@
                 <input class="form-control formSearch" name="noidungtimkiem" type="text" placeholder="Nhập nội dung cần tìm" style="padding-right: 60px;">
                 <button class="btn btn-outline-success " type="submit" style="margin-left: 37px;">Tìm kiếm</button>
             </form>
-        </div>
+        </div>  
 
         <table class="table bangNhanVien">
             <thead>
@@ -35,14 +35,6 @@
                 {{/each}}
             </tbody>
             </table>
-                        <!--Phân trang -->
-        <div class="row">
-            {{#if hashasPagination}}
-            <nav aria-label="Page navigation example" class="mx-auto">
-                {{{paginate pagination}}}
-            </nav>
-            {{/if}}
-        </div>
     </div>
 <!--End Main -->
 

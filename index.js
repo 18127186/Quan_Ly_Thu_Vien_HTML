@@ -267,15 +267,15 @@ app.post('/quenMK', (req, res) => {
                 let transporter = nodemailer.createTransport({
                     service: 'gmail',
                     auth: {
-                        user: 'youremai@gmail.com', //nhap email thật vô
-                        pass: 'yourpassword'  //nhập password thật zô
+                        user: 'youremail@gmail.com', //nhap email thật vô
+                        pass: 'youremail'  //nhập password thật zô
                     },
                     tls: {
                         rejectUnauthorized: false
                     }
                 });
                 let mailOptions = {
-                    from: '"Thu Vien Tan Phuoc" <youremai@gmail.com>', // sender address
+                    from: '"Thu Vien Tan Phuoc" <youremail@gmail.com>', // sender address
                     to: yourEmail,
                     subject: "Reset Password",
                     html: outputForgotPass,
@@ -1083,7 +1083,6 @@ app.get('/searchNhanVien', (req, res) => {
             res.locals.header = 'Boss';
             res.locals.style = 'quanlynhanvien.css';
             tenaccount = 'Boss';
-            res.locals.hasPagination=(pagination.totalRows/limit>1);
             res.render('quanlynhanvien', { layout: 'adminLayout', nhanvienAll });
 
         }).catch((error) => {
@@ -1136,6 +1135,7 @@ app.get('/quanlydocgia', (req, res) => {
             res.locals.header = 'Boss';
             res.locals.style = 'quanlydocgia.css';
             tenaccount = 'Boss';
+            res.locals.hasPagination=(pagination.totalRows/limit>1);
             res.render('quanlydocgia', { layout: 'adminLayout', readerAll, pagination });
         }).catch((error) => {
             res.json(error);
@@ -1199,9 +1199,6 @@ app.get('/removeReader', (req, res) => {
 //Xử lý search Reader ==> Xong
 app.get('/searchDocGia', (req, res) => {
     if (app.get('checklogin') == 2){
-        let page = parseInt(req.query.page);
-        page = isNaN(page) ? 1 : page;
-        let limit = 7;
         let readerAll = [];
         models.Account.findAll(
             {
@@ -1241,14 +1238,6 @@ app.get('/searchDocGia', (req, res) => {
                 }
             }
         ).then((nv) => {
-            var pagination = {
-                limit: limit,
-                page: page,
-                totalRows: nv.length,
-            };
-            var offset = (page - 1) * limit;
-            nv = nv.slice(offset, offset + limit)
-
             for (let i = 0; i < nv.length; i++) {
                 let dateBirth = nv[i].ngaysinh.split("-");
                 let dateEstab = nv[i].ngaylap.split("-");
@@ -1273,8 +1262,8 @@ app.get('/searchDocGia', (req, res) => {
             res.locals.header = 'Boss';
             res.locals.style = 'quanlydocgia.css';
             tenaccount = 'Boss';
-            res.locals.hasPagination=(pagination.totalRows/limit>1);
-            res.render('quanlydocgia', { layout: 'adminLayout', readerAll, pagination });
+            
+            res.render('quanlydocgia', { layout: 'adminLayout', readerAll});
         }).catch((error) => {
             res.json(error);
         })
@@ -1283,6 +1272,93 @@ app.get('/searchDocGia', (req, res) => {
         res.redirect('/');
     }
 })
+// app.get('/searchDocGia', (req, res) => {
+//     if (app.get('checklogin') == 2){
+//         let page = parseInt(req.query.page);
+//         page = isNaN(page) ? 1 : page;
+//         let limit = 7;
+//         let readerAll = [];
+//         models.Account.findAll(
+//             {
+//                 where: {
+//                     [Op.or]: [
+//                         {
+//                             hoten: {
+//                                 [Op.iLike]: `%${req.query.noidungtimkiem}%`
+//                             }
+//                         },
+//                         {
+//                             cmnd: {
+//                                 [Op.iLike]: `%${req.query.noidungtimkiem}%`
+//                             }
+//                         },
+//                         {
+//                             gioitinh: {
+//                                 [Op.iLike]: `%${req.query.noidungtimkiem}%`
+//                             }
+//                         },
+//                         {
+//                             dantoc: {
+//                                 [Op.iLike]: `%${req.query.noidungtimkiem}%`
+//                             }
+//                         },
+//                         {
+//                             sdt: {
+//                                 [Op.iLike]: `%${req.query.noidungtimkiem}%`
+//                             }
+//                         },
+//                         {
+//                             email: {
+//                                 [Op.iLike]: `%${req.query.noidungtimkiem}%`
+//                             }
+//                         },
+//                     ]
+//                 }
+//             }
+//         ).then((nv) => {
+//             var pagination = {
+//                 limit: limit,
+//                 page: page,
+//                 totalRows: nv.length,
+//             };
+//             var offset = (page - 1) * limit;
+//             nv = nv.slice(offset, offset + limit)
+
+//             for (let i = 0; i < nv.length; i++) {
+//                 let dateBirth = nv[i].ngaysinh.split("-");
+//                 let dateEstab = nv[i].ngaylap.split("-");
+//                 let nv1 = {
+//                     stt: i + 1,
+//                     id: nv[i].id,
+//                     hoten: nv[i].hoten,
+//                     ngaysinh: dateBirth[2] + '/' + dateBirth[1] + '/' + dateBirth[0],
+//                     cmnd: nv[i].cmnd,
+//                     gioitinh: nv[i].gioitinh,
+//                     dantoc: nv[i].dantoc,
+//                     ngaylap: dateEstab[2] + '/' + dateEstab[1] + '/' + dateEstab[0],
+//                     sdt: nv[i].sdt,
+//                     email: nv[i].email,
+//                     diachi: nv[i].diachi,
+//                     sotiendatcoc: nv[i].sotiendatcoc,
+//                     nguoilap: nv[i].nguoilap,
+//                     image: nv[i].image,
+//                 }
+//                 readerAll.push(nv1);
+//             }
+//             res.locals.header = 'Boss';
+//             res.locals.style = 'quanlydocgia.css';
+//             tenaccount = 'Boss';
+//             res.locals.hasPagination=(pagination.totalRows/limit>1);
+            
+//             res.render('quanlydocgia', { layout: 'adminLayout', readerAll, pagination });
+//         }).catch((error) => {
+//             res.json(error);
+//         })
+//     }
+//     else {
+//         res.redirect('/');
+//     }
+// })
 
 //Phần xử lý quanlysach
 //With database, Phân trang ==>Xong
@@ -1326,6 +1402,7 @@ app.get('/quanlysach/:idphantrang', (req, res) => {
             res.locals.header = 'Boss';
             res.locals.style = 'quanlysach.css';
             tenaccount = 'Boss';
+            res.locals.hasPagination=(pagination.totalRows/limit>1);
             res.render('quanlysach', { layout: 'adminLayout', bookAll, pagination });
         }).catch((error) => {
             res.json(error);
@@ -1370,6 +1447,7 @@ app.get('/quanlysach', (req, res) => {
             res.locals.header = 'Boss';
             res.locals.style = 'quanlysach.css';
             tenaccount = 'Boss';
+            res.locals.hasPagination=(pagination.totalRows/limit>1);
             res.render('quanlysach', { layout: 'adminLayout', bookAll, pagination });
         }).catch((error) => {
             res.json(error);
@@ -1419,12 +1497,9 @@ app.get('/removeBook', (req, res) => {
     }
 })
 //With search Sach ==>Xong
+
 app.get('/searchSach', (req, res) => {
     if (app.get('checklogin') == 2){
-            
-        let page = parseInt(req.query.page);
-        page = isNaN(page) ? 1 : page;
-        let limit = 7;
         let bookAll = [];
         models.Book.findAll(
             {
@@ -1454,13 +1529,6 @@ app.get('/searchSach', (req, res) => {
                 }
             }
         ).then((books) => {
-            var pagination = {
-                limit: limit,
-                page: page,
-                totalRows: books.length,
-            };
-            var offset = (page - 1) * limit;
-            books = books.slice(offset, offset + limit)
             for (let i = 0; i < books.length; i++) {
                 let book = {
                     id: books[i].id,
@@ -1477,9 +1545,8 @@ app.get('/searchSach', (req, res) => {
             }
             res.locals.header = 'Boss';
             res.locals.style = 'quanlysach.css';
-            res.locals.hasPagination=(pagination.totalRows/limit>1);
             tenaccount = 'Boss';
-            res.render('quanlysach', { layout: 'adminLayout', bookAll, pagination });
+            res.render('quanlysach', { layout: 'adminLayout', bookAll});
         }).catch((error) => {
             res.json(error);
         })
@@ -1489,6 +1556,85 @@ app.get('/searchSach', (req, res) => {
     }
 
 })
+
+// app.get('/searchSach', (req, res) => {
+//     if (app.get('checklogin') == 2){
+            
+//         let page = parseInt(req.query.page);
+//         page = isNaN(page) ? 1 : page;
+//         let limit = 7;
+//         let bookAll = [];
+//         models.Book.findAll(
+//             {
+//                 where: {
+//                     [Op.or]: [
+//                         {
+//                             tensach: {
+//                                 [Op.iLike]: `%${req.query.noidungtimkiem}%`
+//                             }
+//                         },
+//                         {
+//                             tentacgia: {
+//                                 [Op.iLike]: `%${req.query.noidungtimkiem}%`
+//                             }
+//                         },
+//                         {
+//                             theloai: {
+//                                 [Op.iLike]: `%${req.query.noidungtimkiem}%`
+//                             }
+//                         },
+//                         {
+//                             mota: {
+//                                 [Op.iLike]: `%${req.query.noidungtimkiem}%`
+//                             }
+//                         },
+//                     ]
+//                 }
+//             }
+//         ).then((books) => {
+//             var pagination = {
+//                 limit: limit,
+//                 page: page,
+//                 totalRows: books.length,
+//             };
+//             var offset = (page - 1) * limit;
+//             books = books.slice(offset, offset + limit)
+//             for (let i = 0; i < books.length; i++) {
+//                 let book = {
+//                     id: books[i].id,
+//                     stt: i + 1,
+//                     tensach: books[i].tensach,
+//                     tentacgia: books[i].tentacgia,
+//                     theloai: books[i].theloai,
+//                     soluong: books[i].soluong,
+//                     ngaynhap: books[i].ngaynhap,
+//                     image: books[i].image,
+//                     mota: books[i].mota,
+//                 }
+//                 bookAll.push(book);
+//             }
+//             res.locals.header = 'Boss';
+//             res.locals.style = 'quanlysach.css';
+//             res.locals.hasPagination=(pagination.totalRows/limit>1);
+//             tenaccount = 'Boss';
+//             res.render('quanlysach', { layout: 'adminLayout', bookAll, pagination });
+//         }).catch((error) => {
+//             res.json(error);
+//         })
+//     }
+//     else {
+//         res.redirect('/');
+//     }
+
+// })
+
+
+
+
+
+
+
+
 
 
 //set port
